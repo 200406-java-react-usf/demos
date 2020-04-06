@@ -1,3 +1,3 @@
 # demos
 A repository for training demos
-Edited by Drew for branching
+Edited by Drew for branching.
