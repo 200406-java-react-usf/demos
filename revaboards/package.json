@@ -1,18 +1,11 @@
 {
   "name": "revaboards",
   "version": "1.0.0",
-  "description": "A simple JS app for a message board",
+  "description": "A simple JS app for a msg board.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "Node",
-    "JS"
-  ],
-  "author": "Wezley Singleton",
-  "license": "ISC",
-  "dependencies": {
-    "jest": "^25.3.0"
-  }
+  "author": "Candus Pierce",
+  "license": "ISC"
 }
