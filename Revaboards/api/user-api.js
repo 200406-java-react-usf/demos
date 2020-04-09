@@ -1,7 +1,10 @@
 const userData = require("../userDb");
 
+//Add the user information
+const User = require("../models/user");
+
 const getUserById = function (id, callback) {
-  console.log(`You are looking for id: ${id}`);
+  //console.log(`You are looking for id: ${id}`);
 
   // using a Timeout to simulate call latency
   setTimeout(function () {
@@ -47,7 +50,14 @@ const getUserByCredentials = (un, pw, cb) => {
   }, 250);
 };
 
+const addUser = function (un, pw, fn, ln, email, dob) {
+  let id = null;
+  id = userData.length + 1;
+  userData.push(new User(id, un, pw, fn, ln, email, dob));
+};
+
 module.exports = {
   getUserById,
   getUserByCredentials,
+  addUser,
 };
