@@ -24,12 +24,21 @@ const getUserByCredentials = (un, pw, cb) => {
         if (!un || !pw) {
             throw Error('Oh no! You gave me bad data')//truthy/falsy in use here
         }
-        //fetch the sought user
-        const user = userData.filter(user => {
-            user.username === un && user.password == pw
-        }).pop();
+        //fetch the sought user (declarative style logic)
+        const user = userData.filter(user => user.username === un && user.password == pw) .pop();
 
+        /*other "functional" methods for arrays incloude:
+            -filter
+            -Map
+            -reduce
+        */
+
+        //validate that we actually obtained a user
+        if (!user) throw new Error('Invalid credentials provided!');
+        
+        //invoke the provide3d callback function
         cb(user);
+        
     }, 250);
 }
 
