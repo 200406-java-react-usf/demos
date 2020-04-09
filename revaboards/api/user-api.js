@@ -6,9 +6,11 @@ const getUserById = function(id, callback){
 
         let retrievedUser = null;
         //imperative
-        for (user in userData){
 
-            if (user.id === id){
+        // look up difference of for in and for of
+        for (user of userData){
+
+            if (user.id == id){
 
                 retrievedUser = user;
 
@@ -16,7 +18,7 @@ const getUserById = function(id, callback){
 
         }
 
-        callback(user);
+        callback(retrievedUser);
 
     }, 250);
 
@@ -41,7 +43,19 @@ const getUserByCredentials = (un, pw, cb) => {
 
         //other array methods: filter, map, reduce(ASSIGNMENT QUESTION)
 
+
+        //validate that we got a user
+
+        if (!user ){
+
+            throw new Error('invalid creds');
+
+        }
+
     },250);
+
+
+    //invokes cb function
 
     cb(user);
 
