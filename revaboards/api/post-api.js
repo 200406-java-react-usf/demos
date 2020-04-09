@@ -1,0 +1,1 @@
+// implement and export the methods: getPostById and getPostsByPosterId
