@@ -1,5 +1,7 @@
 //module.exports make this function available outside of this file(can be imported)
-module.exports = function User(id ,un, pw, fn, ln, email, dob) {
+const userData = require('../userDB')
+
+ module.exports = function User (id ,un, pw, fn, ln, email, dob) {
     
     this.id = id;
     this.username = un;
@@ -16,4 +18,5 @@ module.exports = function User(id ,un, pw, fn, ln, email, dob) {
         return ageYrs;
     }
 }
+
 

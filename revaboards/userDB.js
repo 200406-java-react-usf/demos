@@ -7,6 +7,5 @@ module.exports = [
     new User(id++, 'ccountryman', 'password', 'Charlie', 'Countryman', 'ccountryman@revature.com', new Date('01/01/1990')),
     new User(id++, 'ddavis', 'password', 'Daniel', 'Davis', 'ddavis@revature.com', new Date('07/01/1990')),
     new User(id++, 'eeinstein', 'password', 'Emily', 'Einstein', 'eeinstein@revature.com', new Date('09/01/1993')),
-    new User(id++, 'jvalencia', 'password', 'Juan', 'Valencia', 'jvalencia@revature.com', new Date('01/01/1994')),
-
+    new User(id++, 'jvalencia', 'password', 'Juan', 'Valencia', 'jvalencia@revature.com', new Date('01/01/1994'))
 ]

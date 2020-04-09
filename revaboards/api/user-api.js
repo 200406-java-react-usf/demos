@@ -1,4 +1,15 @@
 const userData = require('../userDB');
+const User = require('../models/user')
+
+const getAllUsers = (cb) => {
+    setTimeout(() => {cb(userData),250});
+}
+
+const setUser = function( un, pw, fn, ln, email, dob) {
+    let id = userData.length + 1;
+    userData.push(new User(id, un, pw, fn, ln, email, dob));
+    console.log(userData);
+}
 
 const getUserById = function(id, callback) {
     //using a timeout to simulate call latency
@@ -6,13 +17,14 @@ const getUserById = function(id, callback) {
         
         let retrievedUser = null;
             // very impertive approach
-        for(user in userData){
+            console.log(userData);
+        for(user of userData){
             if(user.id === id) {
                 retrievedUser = user;
             }
         }
 
-        callback(user);
+        callback(retrievedUser);
 
     },250);
 }
@@ -38,5 +50,7 @@ const getUserByCredentials = (un, pw, cb) => {
 
 module.exports = {
     getUserByCredentials,
-    getUserById
+    getUserById,
+    setUser,
+    getAllUsers
 }
