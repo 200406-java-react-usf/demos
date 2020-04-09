@@ -1,5 +1,5 @@
 const userData = require('../userDb');
-
+const User = require('../models/user')
 const getUserById = function(id, callback) {
 
     console.log(`You are looking for id: ${id}`)
@@ -52,7 +52,15 @@ const getUserByCredentials = (un, pw, cb) => {
     }, 250);
 }
 
+const addUser = function(un, pw, fn, ln, email, dob){
+    let id = null;
+    id = userData.length+1;
+    userData.push(new User(id, un, pw, fn, ln, email, dob));
+    console.log(userData);
+}
+
 module.exports = {
     getUserById,
-    getUserByCredentials
+    getUserByCredentials,
+    addUser
 };

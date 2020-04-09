@@ -1,5 +1,6 @@
 // implement and export the methods: getPostById and getPostsByPosterId
 const postData = require('../postDb');
+const Post = require('../models/post') 
 
 const getPostById = (id, cb) => {
     setTimeout(() => {
@@ -17,7 +18,16 @@ const getPostsByPosterId = (posterId, cb) => {
     }, 250);
 }
 
+const addPost = function(title, body, posterId){
+    console.log(postData.length);
+    let id = null;
+    id = postData.length +1;
+    postData.push(new Post(id, title, body, posterId));
+    console.log(postData);
+}
+
 module.exports = {
     getPostById,
-    getPostsByPosterId
+    getPostsByPosterId,
+    addPost
 }
