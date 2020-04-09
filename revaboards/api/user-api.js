@@ -39,6 +39,8 @@ const getUserByCredentials = (un, pw, cb) => {
            return user.username === un && user.password === pw
         }).pop();
 
+        //other array methods: filter, map, reduce(ASSIGNMENT QUESTION)
+
     },250);
 
     cb(user);
