@@ -1,0 +1,1 @@
+// a Post should include the fields: id, title, body, posterId

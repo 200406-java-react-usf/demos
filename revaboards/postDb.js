@@ -1,0 +1,1 @@
+// create a simple mock DB (array) of Post objects
