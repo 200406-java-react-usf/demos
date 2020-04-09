@@ -9,6 +9,10 @@ userApi.getUserById(6, (user) => {
   });
 });
 
+userApi.getAllUsers((users) => {
+  console.log(users);
+});
+
 userApi.addUser(
   "6",
   "newuser",
