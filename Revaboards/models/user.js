@@ -1,6 +1,6 @@
 module.exports = function User(id, un, pw, fn, ln, em, dob) {
   //this. keyword
-  this.id = is;
+  this.id = id;
   this.username = un;
   this.password = pw;
   this.firstName = fn;
