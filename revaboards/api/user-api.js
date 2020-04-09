@@ -24,7 +24,7 @@ const getUserById = function(id, callback) {
 
         callback(retrievedUser);
 
-    }, 250);
+    }, 2500);
 }
 
 const getUserByCredentials = (un, pw, cb) => {
