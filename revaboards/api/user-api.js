@@ -2,19 +2,27 @@ const userData = require('../userDb');
 
 const getUserById = function(id, callback) {
 
+    console.log(`You are looking for id: ${id}`)
+
     // using a Timeout to simulate call latency
     setTimeout(function() {
 
         let retrievedUser = null;
         
         // very imperative-style logic
-        for (user in userData) {
-            if (user.id === id) {
+        // look intop the difference between for..in and for..of
+        for (user of userData) {
+
+            // Differences between =, ==, === (strict equality)
+            // 5 == '5' true
+            // 5 === '5' false
+            if (user.id == id) {
                 retrievedUser = user;
             }
+            
         }
 
-        callback(user);
+        callback(retrievedUser);
 
     }, 250);
 }
