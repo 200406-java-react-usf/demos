@@ -129,6 +129,13 @@
 
 // constants cannot be reassigned EVER
 // but constant objects/arrays can be mutated!
+
+
+//0, '', "", NaN, null, undefined, false
+//{}, [], new Object(), "  ", '0', 'null' (all truthys)
+
+
+
 const immutableMaybe = {
     someValue: 10,
     anotherValue: 'test',
