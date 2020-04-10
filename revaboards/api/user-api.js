@@ -105,51 +105,20 @@ const getUserByCredentials = (un, pw, cb) => {
 
 const addNewUser = (newUser, cb) => {
 
-    //validate user 
-    if (!newUser) throw Error('bad data');
-
-    //check if username or email already exists
-
     let newUsername = newUser.username;
     let newEmail = newUser.email;
 
-//     try {
-
-//         for (user of userData){
-
-//             if (newUsername ===  user.username || newEmail === user.email){
-
-//                 throw Error();
-
-//             }
-
-//         } 
-
-//         //get next id
-//         let length = userData.length;
-//         newUser.id = ++length;
-//         userData.push(newUser);
-
-//         cb(newUser);
-
-//     } catch (error) {
-
-//         console.log("email or username exists")
-
-//     }
-// }
-
     try {
 
-        for (user of userData){
+        const checkUsername = userData.filter((user) => {
 
-            if (newUsername ===  user.username || newEmail === user.email){
+                if (newUsername ===  user.username || newEmail === user.email){
 
-                throw Error();
+                    throw Error();
 
-            }
-
-        } 
+                }
+            
+            });
 
         //get next id
         let length = userData.length;
@@ -163,6 +132,7 @@ const addNewUser = (newUser, cb) => {
         console.log("email or username exists");
 
     }
+    
 }
 
 module.exports = {

@@ -17,7 +17,7 @@ const User = require('./models/user');
 
 // });
 
-    let user = new User(0,'aanderson','test','test','test','test',new Date('01/01/1997'));
+    let user = new User(0,'test','test','test','test','aanderson@revature.com',new Date('01/01/1997'));
     userApi.addNewUser(user, user => console.log(user));
 
 
