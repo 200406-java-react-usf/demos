@@ -6,6 +6,12 @@ const getAllUsers = (cb) => {
 
 }
 
+// const getAllUsers = () => {
+
+//     return userData;
+
+// }
+
 const getUserById = function(id, callback){
     // timeout simiulates latency
     setTimeout(function(){
