@@ -1,11 +1,7 @@
 const userData = require('../userDb');
-<<<<<<< HEAD
-const User = require('../models/user')
-=======
 
 const getAllUsers = (cb) => setTimeout(() => cb(userData), 250);
 
->>>>>>> master
 const getUserById = function(id, callback) {
 
     console.log(`You are looking for id: ${id}`)
@@ -78,4 +74,4 @@ module.exports = {
     getUserById,
     getUserByCredentials,
     addNewUser
-            };
+};
