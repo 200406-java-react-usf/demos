@@ -1,6 +1,8 @@
 const userData = require('../userDb');
 
-const getAllUsers = (cb) => setTimeout(() => cb(userData), 250);
+const getAllUsers = (cb) => {
+    setTimeout(() => cb(userData), 250);
+};
 
 const getUserById = function(id, callback) {
 
