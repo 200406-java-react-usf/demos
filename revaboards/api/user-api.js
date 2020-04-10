@@ -29,13 +29,31 @@ const getUserByCredentials = (un, pw, cb) => {
 }
 
 const addUser = (username, password, firstName, lastName, email, dob, cb) => {
-    let id = userData.length
-    let newUser = new User(++id, username, password, firstName, lastName, email, dob)
+    let id = userData.length;
+    id++;
+    let newUser = new User(id, username, password, firstName, lastName, email, dob)
+    for (i=0; i<userData.length; i++){
+        if(id == userData[i].id) {
+            throw console.error('matching ID found');  
+        }                             
+     
+        if(username == userData[i].username) {
+            throw console.error('matching username found');
+        }                               
+     
+     
+        if(email == userData[i].email) {
+            throw console.error('matching Email found'); 
+    }                              
+    
+
+
+    }
+       
     userData.push(newUser);
     cb(userData);
 
 }
-
 
 module.exports = {
     getUserByCredentials,
