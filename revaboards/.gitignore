@@ -1,3 +1,6 @@
 node_modules/
+<<<<<<< HEAD
 .vscode/
+=======
+>>>>>>> 5489cd5c84195769ed6ae426bd081c47efd5a1b8
 package-lock.json

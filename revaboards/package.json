@@ -10,7 +10,11 @@
     "Node",
     "JS"
   ],
+<<<<<<< HEAD
   "author": "Juan Valencia",
+=======
+  "author": "Wezley Singleton",
+>>>>>>> 5489cd5c84195769ed6ae426bd081c47efd5a1b8
   "license": "ISC",
   "dependencies": {
     "jest": "^25.3.0"
