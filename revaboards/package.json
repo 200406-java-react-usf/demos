@@ -12,7 +12,8 @@
   ],
   "author": "Lou Remy",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "jest": "^25.3.0"
   }
 }

@@ -26,7 +26,7 @@ createPost();
 
 *///aha nope here we go, declaring user here
 
-let newUser = new User ('user1','user1','user1','user1','user1','user1','user1', new Date());
+let newUser = new User ('aa','user1','user1','user1','user1','user1','user1', new Date());
 
 /*  and this logic/ functionality I was going for is in the API
 function createUser (){
