@@ -1,13 +1,13 @@
-// single line comment
+// // single line comment
 
-/* 
-    multi-line
-    comment
-*/
+// /* 
+//     multi-line
+//     comment
+// */
 
-/**
- * Documentation comments (used to indicate official docs)
- */
+// /**
+//  * Documentation comments (used to indicate official docs)
+//  */
 
 //  function myFunction() {
 //      console.log('this is a function declaration');
@@ -127,28 +127,56 @@
 //     console.log('should not work');
 // }
 
-// constants cannot be reassigned EVER
-// but constant objects/arrays can be mutated!
-const immutableMaybe = {
-    someValue: 10,
-    anotherValue: 'test',
-    nestedObj: {
-        nestedValue: 100
-    }
-};
+// // constants cannot be reassigned EVER
+// // but constant objects/arrays can be mutated!
+// const immutableMaybe = {
+//     someValue: 10,
+//     anotherValue: 'test',
+//     nestedObj: {
+//         nestedValue: 100
+//     }
+// };
 
-console.log(immutableMaybe);
+// console.log(immutableMaybe);
 
-immutableMaybe.someValue = 20;
+// immutableMaybe.someValue = 20;
 
-let thisValue = immutableMaybe.someValue;
-someValue = 40;
+// let thisValue = immutableMaybe.someValue;
+// someValue = 40;
 
-console.log(thisValue);
-console.log(immutableMaybe);
+// console.log(thisValue);
+// console.log(immutableMaybe);
 
-let someObj = immutableMaybe.nestedObj;
-console.log(someObj);
+// let someObj = immutableMaybe.nestedObj;
+// console.log(someObj);
 
-immutableMaybe.nestedObj.nestedValue = 10000;
-console.log(someObj);
+// immutableMaybe.nestedObj.nestedValue = 10000;
+// console.log(someObj);
+
+function breaksStuff() {
+    throw new Error('Haha! I\'ve broken things!');
+    // console.log('fixed it');
+}
+
+try {
+    breaksStuff();
+} catch (error) {
+    console.log('oops, something went wrong');
+    throw new Error();
+} finally {
+    console.log('always runs!');
+}
+
+console.log('Hello, everyone!');
+
+// create our own custom errors
+function ResourceNotFoundError() {
+
+}
+
+let myError = new ResourceNotFoundError();
+myError.prototype = Error;
+
+class SomeError extends Error {
+
+}
