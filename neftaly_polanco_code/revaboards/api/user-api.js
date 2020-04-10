@@ -28,30 +28,34 @@ const getUserByCredentials = (un, pw, cb) => {
     }, 250);
 }
 
-const addUser = (username, password, firstName, lastName, email, dob, cb) => {
+const addUser = (username, password, firstName, lastName, email, dob, onComplete, onError) => {
     let id = userData.length;
     id++;
     let newUser = new User(id, username, password, firstName, lastName, email, dob)
-    for (i=0; i<userData.length; i++){
+    for (user of userData){
         if(id == userData[i].id) {
-            throw console.error('matching ID found');  
+            onError('ID already exists'); 
+            return; 
         }                             
      
         if(username == userData[i].username) {
-            throw console.error('matching username found');
-        }                               
-     
+            onError('username already in use');
+            return;
+        }                
      
         if(email == userData[i].email) {
-            throw console.error('matching Email found'); 
-    }                              
-    
-
-
+            onError('an account with that email already exists');
+            return;
+        }         
     }
-       
+const updateUserByID = (id, callback) => {
+        setTimeout((pw)=>{
+            if (pw == userData.password) console.log("you cannot use your old password ");
+            userData.password = pw;
+        })
+}
     userData.push(newUser);
-    cb(userData);
+    onComplete(userData);
 
 }
 

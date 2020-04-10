@@ -4,15 +4,18 @@
   "description": "A simple JS app for a message board",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "Node",
     "JS"
   ],
-  "author": "Jeremy Elam",
+  "author": "Neftaly Polanco",
   "license": "ISC",
   "dependencies": {
     "jest": "^25.3.0"
+  },
+  "devDependencies": {
+    "npm": "^6.14.4"
   }
 }
