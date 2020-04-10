@@ -1,5 +1,11 @@
 const userData = require('../userDb');
+<<<<<<< HEAD
 const User = require('../models/user')
+=======
+
+const getAllUsers = (cb) => setTimeout(() => cb(userData), 250);
+
+>>>>>>> master
 const getUserById = function(id, callback) {
 
     console.log(`You are looking for id: ${id}`)
@@ -10,7 +16,7 @@ const getUserById = function(id, callback) {
         let retrievedUser = null;
         
         // very imperative-style logic
-        // look intop the difference between for..in and for..of
+        // look into the difference between for..in and for..of
         for (user of userData) {
 
             // Differences between =, ==, === (strict equality)
@@ -52,15 +58,36 @@ const getUserByCredentials = (un, pw, cb) => {
     }, 250);
 }
 
+<<<<<<< HEAD
 const addUser = function(un, pw, fn, ln, email, dob){
     let id = null;
     id = userData.length+1;
     userData.push(new User(id, un, pw, fn, ln, email, dob));
     console.log(userData);
+=======
+const addNewUser = (newUser, cb) => {
+
+    // validate the user
+    if(!newUser) throw Error('Oh no! You gave me bad data!');
+
+    // get the next id (would not be necessary with a real DB)
+    newUser.id = (userData.length) + 1;
+
+    // add user user to data source
+    userData.push(newUser);
+
+    cb(newUser);
+
+>>>>>>> master
 }
 
 module.exports = {
+    getAllUsers,
     getUserById,
     getUserByCredentials,
+<<<<<<< HEAD
     addUser
+=======
+    addNewUser
+>>>>>>> master
 };
