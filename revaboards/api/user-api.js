@@ -4,31 +4,33 @@ const getAllUsers = (cb) => {
     setTimeout(() => cb(userData), 250);
 };
 
-const getUserById = function(id, callback) {
+const getUserById = function(id, onComplete, onError) {
 
     console.log(`You are looking for id: ${id}`)
 
-    // using a Timeout to simulate call latency
+    if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
+        onError('Bad request, invalid id value provided.');
+        return;
+    };
+
     setTimeout(function() {
 
         let retrievedUser = null;
-        
-        // very imperative-style logic
-        // look into the difference between for..in and for..of
-        for (user of userData) {
 
-            // Differences between =, ==, === (strict equality)
-            // 5 == '5' true
-            // 5 === '5' false
+        for (user of userData) {
             if (user.id == id) {
                 retrievedUser = user;
-            }
-            
+            }  
         }
 
-        callback(retrievedUser);
+        if (!retrievedUser) {
+            onError('No user found with provided id.');
+            return;
+        }
 
-    }, 2500);
+        onComplete(retrievedUser);
+
+    }, 250);
 }
 
 const getUserByCredentials = (un, pw, cb) => {
