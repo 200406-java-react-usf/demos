@@ -108,13 +108,61 @@ const addNewUser = (newUser, cb) => {
     //validate user 
     if (!newUser) throw Error('bad data');
 
-    //get next id
-    let length = userData.length;
-    newUser.id = ++length;
-    userData.push(newUser);
+    //check if username or email already exists
 
-    cb(newUser);
+    let newUsername = newUser.username;
+    let newEmail = newUser.email;
 
+//     try {
+
+//         for (user of userData){
+
+//             if (newUsername ===  user.username || newEmail === user.email){
+
+//                 throw Error();
+
+//             }
+
+//         } 
+
+//         //get next id
+//         let length = userData.length;
+//         newUser.id = ++length;
+//         userData.push(newUser);
+
+//         cb(newUser);
+
+//     } catch (error) {
+
+//         console.log("email or username exists")
+
+//     }
+// }
+
+    try {
+
+        for (user of userData){
+
+            if (newUsername ===  user.username || newEmail === user.email){
+
+                throw Error();
+
+            }
+
+        } 
+
+        //get next id
+        let length = userData.length;
+        newUser.id = ++length;
+        userData.push(newUser);
+
+        cb(newUser);
+
+    } catch (error) {
+
+        console.log("email or username exists");
+
+    }
 }
 
 module.exports = {
