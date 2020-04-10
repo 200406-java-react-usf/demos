@@ -1,4 +1,4 @@
-function myFunction() {
+/* function myFunction() {
 
     console.log("function");
 
@@ -12,4 +12,17 @@ let yourFunction = function(){
 
 }
 
-yourFunction();
+yourFunction(); */
+
+//basic exception handling 
+
+function breakStuff(){
+
+    throw new Error('broken things');
+
+}
+
+breakStuff();
+console.log('hello');
+
+//this breaks, and doesnt run the console.log after, need to use a try catch

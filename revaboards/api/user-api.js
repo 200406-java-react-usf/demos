@@ -30,6 +30,21 @@ const getUserById = function(id, callback){
 
 }
 
+//check if email is unique
+
+const getUserByEmail = (email, cb) => {
+
+    setTimeout(() => {
+
+        if (!email) throw Error('provide an email');
+
+
+    }, 250);
+
+
+}
+
+
 const getUserByCredentials = (un, pw, cb) => {
 
     setTimeout(() => {
