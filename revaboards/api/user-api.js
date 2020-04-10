@@ -58,13 +58,6 @@ const getUserByCredentials = (un, pw, cb) => {
     }, 250);
 }
 
-<<<<<<< HEAD
-const addUser = function(un, pw, fn, ln, email, dob){
-    let id = null;
-    id = userData.length+1;
-    userData.push(new User(id, un, pw, fn, ln, email, dob));
-    console.log(userData);
-=======
 const addNewUser = (newUser, cb) => {
 
     // validate the user
@@ -78,16 +71,11 @@ const addNewUser = (newUser, cb) => {
 
     cb(newUser);
 
->>>>>>> master
 }
 
 module.exports = {
     getAllUsers,
     getUserById,
     getUserByCredentials,
-<<<<<<< HEAD
-    addUser
-=======
     addNewUser
->>>>>>> master
-};
+            };
