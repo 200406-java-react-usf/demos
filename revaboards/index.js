@@ -4,21 +4,18 @@ const User = require('./models/user');
 
 
 //callback function added to tell the other func what to do with the returned user
-// userApi.getUserById(1, (user) => {
+userApi.getUserById(3, (user) => {
 
-//     postApi.getPostsByPosterId(user.id, posts => {
+    console.log(user);
 
-//         //use callback to use the poster id to find the posts by this author
+}, err => {
 
-//         user.posts = posts;
-//         console.log(user);
+    console.log(err);
 
-//     })
+});
 
-// });
-
-    let user = new User(0,'test','test','test','test','aanderson@revature.com',new Date('01/01/1997'));
-    userApi.addNewUser(user, user => console.log(user));
+    // let user = new User(0,'test','test','test','test','aanderson@revature.com',new Date('01/01/1997'));
+    // userApi.addNewUser(user, user => console.log(user));
 
 
 

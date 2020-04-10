@@ -12,9 +12,20 @@ const getAllUsers = (cb) => {
 
 // }
 
-const getUserById = function(id, callback){
+const getUserById = function(id, onComplete, onError){
+    
+    //validation for id
+    if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0){
+
+        onError('bad request given');
+        // add return to stop rest of code
+        return;
+
+    }
+    
     // timeout simiulates latency
     setTimeout(function(){
+        
 
         let retrievedUser = null;
         //imperative
@@ -30,7 +41,14 @@ const getUserById = function(id, callback){
 
         }
 
-        callback(retrievedUser);
+        if (!retrievedUser){
+
+            onError('no user found');
+            return;
+
+        }
+
+        onComplete(retrievedUser);
 
     }, 250);
 
