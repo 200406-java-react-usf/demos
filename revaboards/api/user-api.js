@@ -1,5 +1,11 @@
 const userData = require('../userDb')
 
+const getAllUsers = (cb) =>
+{
+    setTimeout(() => cb(userData),250
+    );
+}
+
 const getUserById = function(id, callback){
     setTimeout(function(){
         //const user = userData
@@ -33,6 +39,7 @@ const getUserByCredentials = (un, pw, cb)=> {
 }
 
 module.exports = {
+getAllUsers,
 getUserById,
 getUserByCredentials
 };
@@ -46,3 +53,15 @@ getUserByCredentials
  -reduce 
  
 */
+
+
+
+const addNewUser = (newUser, cb)=> {
+    //validate the user
+    if (!user) throw Error('Bad Data');
+
+    newUser.id = userData.length;
+    userData.push(newUser)
+
+    cb(newUser);
+}

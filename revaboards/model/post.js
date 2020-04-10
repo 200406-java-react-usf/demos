@@ -7,4 +7,4 @@ module.exports = function Post(id, title, body, posterid){
 
 }
 
-testpost = new Post('t',' testing', 'test','tester')
+//let testpost = new Post('t',' testing', 'test','tester')
