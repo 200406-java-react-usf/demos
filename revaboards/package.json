@@ -11,6 +11,8 @@
     "JS"
   ],
   "author": "Kevin Wagenheim",
-  "license": "ISC"
-  
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.3.0"
+  }
 }

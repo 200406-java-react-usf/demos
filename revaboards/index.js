@@ -18,7 +18,9 @@ const User = require('./models/user');
 // });
 
 let user = new User(0,'test','test','test','test','test',new Date('01/01/1997'));
-userApi.addNewUser(user, addedUser => {console.log(user)});
+userApi.addNewUser(user, addedUser => {
+    userApi.getAllUsers(users => console.log(users));
+});
 
 
 //when you fetch a user by ID, also fetch their posts and add them to the user obj
