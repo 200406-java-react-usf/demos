@@ -17,10 +17,25 @@ const User = require('./models/user');
 
 // });
 
-let user = new User(0,'test','test','test','test','test',new Date('01/01/1997'));
-userApi.addNewUser(user, addedUser => {
-    userApi.getAllUsers(users => console.log(users));
-});
+// let user = new User(0,'test','test','test','test','test',new Date('01/01/1997'));
+// userApi.addNewUser(user, addedUser => {
+//     userApi.getAllUsers(users => console.log(users));
+// });
+
+
+
+    // userApi.getUserByEmail('ccountryman@revature.com', user => {
+
+    //     console.log(user);
+
+    // });
+
+    userApi.getUserByUsername('ddavis', user => {
+
+        console.log(user);
+
+    });
+
 
 
 //when you fetch a user by ID, also fetch their posts and add them to the user obj

@@ -30,17 +30,38 @@ const getUserById = function(id, callback){
 
 }
 
-//check if email is unique
-
 const getUserByEmail = (email, cb) => {
 
     setTimeout(() => {
 
+        let retrievedEmail = null;
+
         if (!email) throw Error('provide an email');
+
+        retrievedEmail = userData.filter((user) => user.email === email ).pop();
+
+    cb(retrievedEmail);
 
 
     }, 250);
 
+
+}
+
+const getUserByUsername = (un, cb) => {
+
+    setTimeout(() => {
+
+        let retrievedUsername = null;
+
+        if (!un) throw Error('provide a username');
+
+        retrievedUsername = userData.filter((user) => user.username === un).pop();
+
+        cb(retrievedUsername);
+
+
+    },250);
 
 }
 
@@ -101,6 +122,8 @@ module.exports = {
     getUserById,
     getUserByCredentials,
     getAllUsers,
-    addNewUser
+    addNewUser,
+    getUserByEmail,
+    getUserByUsername
     
 };
