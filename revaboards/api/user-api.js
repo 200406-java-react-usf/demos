@@ -48,8 +48,8 @@ const getUserByCredentials = (un, pw, cb)=> {
 
 const addNewUser = (newUser, cb)=> {
     //validate the user
-    if (!user) throw Error('Bad Data');
-
+    if (!newUser) {throw Error('Bad Data')}
+    else if (newUser === user.username)
     newUser.id = userData.length;
     userData.push(newUser)
 
