@@ -2,22 +2,30 @@ const userData = require('../userDb')
 
 const getAllUsers = (cb) =>
 {
+    
     setTimeout(() => cb(userData),250
     );
 }
+/* shoulda just commented this out here, instead of 
+copy pasteing it over to post-api and commenting it out there... sigh... but now I'm just gonna keep it :)
+and we actually do use it here
+*/
+const getUserById = function(id, cb){
 
-const getUserById = function(id, callback){
+    console.log(`Looking for ID: ${id}`)
+
     setTimeout(function(){
-        //const user = userData
+        //to simulate lag
         
         let retrievedUser = null;
         //very imperitive style
-        for (use in userData) {
+
+        for (user in userData) {
             if (userData.id === id) {
                 retrievedUser = user;
             }
         }
-        callback(retrievedUser);
+        cb(retrievedUser);
     }, 250);
 }
 
@@ -30,7 +38,7 @@ const getUserByCredentials = (un, pw, cb)=> {
 
         //fetch the sought user with declaritve style logic filter is abstracting away from 
         const user = userData.filter(user => user.username === un &&user.password === pw).pop();
-        // validation
+        // validation that we found a user with that username
         if(!user) throw new Error('bad username');
 
         cb(user);
@@ -38,10 +46,22 @@ const getUserByCredentials = (un, pw, cb)=> {
     }, 250 );
 }
 
+const addNewUser = (newUser, cb)=> {
+    //validate the user
+    if (!user) throw Error('Bad Data');
+
+    newUser.id = userData.length;
+    userData.push(newUser)
+
+    cb(newUser);
+}
+
+
 module.exports = {
 getAllUsers,
 getUserById,
-getUserByCredentials
+getUserByCredentials,
+addNewUser
 };
 
 
@@ -56,12 +76,4 @@ getUserByCredentials
 
 
 
-const addNewUser = (newUser, cb)=> {
-    //validate the user
-    if (!user) throw Error('Bad Data');
 
-    newUser.id = userData.length;
-    userData.push(newUser)
-
-    cb(newUser);
-}
