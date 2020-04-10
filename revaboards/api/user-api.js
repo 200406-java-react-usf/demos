@@ -56,8 +56,10 @@ const getUserByCredentials = (un, pw, cb) => {
 
 const addNewUser = (newUser, cb) => {
 
+    // 0, '', "", NaN, null, undefined, false <---- THE ONLY FALSY VALUES
+    // {}, [], new Object(), "   ", '0', 'null'
     // validate the user
-    if(!newUser) throw Error('Oh no! You gave me bad data!');
+    if (!newUser) throw Error('Oh no! You gave me bad data!');
 
     // get the next id (would not be necessary with a real DB)
     newUser.id = (userData.length) + 1;
