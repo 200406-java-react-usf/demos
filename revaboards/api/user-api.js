@@ -45,23 +45,54 @@ const getUserByCredentials = (un, pw, cb)=> {
 
     }, 250 );
 }
-
+// let newUser = new User(2,2,2,2,2,2,2,2)
 const addNewUser = (newUser, cb)=> {
     //validate the user
     if (!newUser) {throw Error('Bad Data')}
-    else if (newUser === user.username)
-    newUser.id = userData.length;
-    userData.push(newUser)
+
+    else if (newUser === userData.filter(()=> newUser.username === userData.username))
+        {throw Error("Username already in use") }
+    
+
+    else {newUser.id = userData.length
+    userData.push(newUser);
+}
 
     cb(newUser);
 }
 
 
+const getUserByEmail = (em, cb) => {
+    setTimeout(() => {
+        let retrievedEmail = null
+        if (!em) throw Error('please provide email')
+        retrievedEmail = userData.filter((user)=> user.email === em).pop(); //(email => {user.email === em})).pop();
+    cb(retrievedEmail); 
+}, 250); }
+
+
+/*
+const getUserByCredentials = (un, pw, cb)=> {
+    setTimeout(() =>{
+
+        if(!un||!pw) throw Error('Bad data');
+
+        //fetch the sought user with declaritve style logic filter is abstracting away from 
+        const user = userData.filter(user => user.username === un &&user.password === pw).pop();
+        // validation that we found a user with that username
+        if(!user) throw new Error('bad username');
+
+        cb(user);
+
+    }, 250 );
+}
+*/
 module.exports = {
 getAllUsers,
 getUserById,
 getUserByCredentials,
-addNewUser
+addNewUser,
+getUserByEmail
 };
 
 
@@ -75,5 +106,12 @@ addNewUser
 */
 
 
+
+const getUserByUsername = (un, cb) => {
+setTimeout(() =>{
+    const user = userData.filter(user => user.username === un ).pop();
+}
+    )
+}
 
 

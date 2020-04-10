@@ -1,6 +1,6 @@
 const userApi = require('./api/user-api');
 const postApi = require ('./api/post-api');
-const user = require ('./models/user');
+const User = require ('./model/user');
 
 /*
 userApi.getUserById(1, user =>{
@@ -26,7 +26,7 @@ createPost();
 
 *///aha nope here we go, declaring user here
 
-let myUser = new User ('user1','user1','user1','user1','user1','user1','user1', new Date());
+let newUser = new User ('user1','user1','user1','user1','user1','user1','user1', new Date());
 
 /*  and this logic/ functionality I was going for is in the API
 function createUser (){
@@ -38,6 +38,10 @@ function createUser (){
 createUser();
 */
 //and finally is invoked (?) here
-userApi.addNewUser(user, addedUser =>{
+userApi.addNewUser(newUser, addedUser =>{
     userApi.getAllUsers(users => console.log(users));
 });
+
+
+userApi.getUserByEmail('aa@a', user => {
+console.log(user);})
