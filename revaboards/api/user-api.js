@@ -1,5 +1,21 @@
 const userData = require('../userDb');
 
+// - getAllUsers()
+
+
+
+// - getUserById(id) [ids should be unique]
+// - getUserByUsername(un) [usernames should be unique]
+// -getUserByCredentials(un, pw)
+// - getUserByEmail(email) [emails should be unique]
+// - addNewUser(newUser) [ensure that users added to the data source are valid]
+// - updateUser(updatedUser) [what kind of things should not be updateable?]
+// - deleteUserById(id) [hmmm, what do with this person's posts??]
+
+
+
+
+
 const getUserById = function(id, callback) {
 
     console.log(`You are looking for id: ${id}`)
