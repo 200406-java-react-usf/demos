@@ -10,7 +10,12 @@ const User = require('./models/user');
 //     });
 // });
 
-let user = new User(0, 'test', 'test', 'test', 'test', 'test', new Date('01/01/2000'));
-userApi.addNewUser(user, addedUser => {
-    userApi.getAllUsers(users => console.log(users));
-});
+// let user = new User(0, 'test', 'test', 'test', 'test', 'test', new Date('01/01/2000'));
+// userApi.addNewUser(user, addedUser => {
+//     userApi.getAllUsers(users => console.log(users));
+// });
+
+let newUser = new User(0, 'testUsername', 'testPassword', 'testFirst', 'testLast', 'test@revature.com', new Date('01/01/1900'));
+    userApi.addNewUser(newUser, user => {
+        console.log(user);
+    })

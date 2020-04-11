@@ -56,22 +56,73 @@ const getUserByCredentials = (un, pw, cb) => {
 
 const addNewUser = (newUser, cb) => {
 
+    setTimeout(() => {
+
     // validate the user
-    if(!newUser) throw Error('Oh no! You gave me bad data!');
+    let newUsername = newUser.username;
+    let newEmail = newUser.email;
+
+    for (user of userData){
+
+        if (newUsername === user.username || newEmail === user.email){
+
+            throw Error("username or email already exists");
+        }
+    }
 
     // get the next id (would not be necessary with a real DB)
+    let length = userData.length
     newUser.id = (userData.length) + 1;
+
 
     // add user user to data source
     userData.push(newUser);
 
     cb(newUser);
 
+}, 250)
 }
+
+const getUserByEmail = (email, cb) => {
+
+    setTimeout(() => {
+
+        let retrievedEmail = null;
+
+        if (!email) throw Error('Provide an email');
+
+        retrievedEmail = userData.filter((user) =>
+            user.email === email)
+            
+            .pop();
+
+         cb(retrievedEmail);
+    }, 250)
+}
+
+const getUserbyUsername = (username, cb) => {
+
+    setTimeout(() => {
+
+        let searchedUser = null;
+
+        if (!username) throw Error ('Provide a username');
+
+        searchedUser = userData.filter((user) =>
+        user.username === username)
+        
+        .pop();
+        
+        cb(searchedUser);
+    }, 250)
+    }
 
 module.exports = {
     getAllUsers,
     getUserById,
     getUserByCredentials,
+    addNewUser,
+    getUserByEmail,
+    getUserbyUsername,
     addNewUser
-};
+}
