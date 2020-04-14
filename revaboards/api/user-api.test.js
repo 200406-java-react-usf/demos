@@ -1,4 +1,5 @@
 const sut = require('./user-api');
+const sut2 = require('./post-api')
 
 describe('userApi', () => {
 
@@ -68,5 +69,28 @@ describe('userApi', () => {
         });
 
     });
+
+    test('should expect updateUser to return User array with the update information'), done => {
+
+        expect.assertions(5);
+        sut.updateUser(['un','pw','fn','ln', 'email@email.com'], updateduser => {
+            expect(updateduser).toBeTruthy();
+            expect(updateduser.pw).toBe('pw');
+            expect(updateduser.fn).toBe('fn');
+            expect(updateduser.ln).toBe('ln');
+            expect(updateduser.email).toBe('email@email.com');
+            done();
+        })
+    }
+
+    test('should expect updateUser to return a string if username or email is invalid'), done => {
+
+        expect.assertions(2);
+        sut.updateUser(['un','pw','fn','ln', 'email@email.com'], updateduser => {
+            expect(updateduser).toBe('Invalid username, no username found');
+            expect(updateduser).toBe('Invalid email');
+            done();
+        })
+    }
 
 });

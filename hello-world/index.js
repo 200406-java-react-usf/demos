@@ -1,11 +1,8 @@
-var http = require('http');
+let checkcondition = () => {
+	let a = 'variable' 
+	let b = null
 
-http.createServer(function(request, response) {
-	console.log('request received!');
-	response.setHeader('Content-Type', 'text/html');
-	response.writeHead(200);
-	response.write('Hello World!');
-	response.end();
-}).listen(8080);
+	return a && b //the type coercion of a is truthy and b is falsy
+}
 
-
+console.log(checkcondition()); //output is '' (empty string)

@@ -17,7 +17,12 @@ const getPostsByPosterId = (posterId, cb) => {
     }, 250);
 }
 
+const getAllPosts = (cb) => {
+    setTimeout(() => cb(postData), 250);
+};
+
 module.exports = {
     getPostById,
-    getPostsByPosterId
+    getPostsByPosterId,
+    getAllPosts
 }
