@@ -153,30 +153,68 @@
 // immutableMaybe.nestedObj.nestedValue = 10000;
 // console.log(someObj);
 
-function breaksStuff() {
-    throw new Error('Haha! I\'ve broken things!');
-    // console.log('fixed it');
+// function breaksStuff() {
+//     throw new Error('Haha! I\'ve broken things!');
+//     // console.log('fixed it');
+// }
+
+// try {
+//     breaksStuff();
+// } catch (error) {
+//     console.log('oops, something went wrong');
+//     throw new Error();
+// } finally {
+//     console.log('always runs!');
+// }
+
+// console.log('Hello, everyone!');
+
+// // create our own custom errors
+// function ResourceNotFoundError() {
+
+// }
+
+// let myError = new ResourceNotFoundError();
+// myError.prototype = Error;
+
+// class SomeError extends Error {
+ 
+// }
+
+// let arr = [1, 4, 2, 8, 5, 7];
+
+// let squaredValues = arr.map(val => {
+//    return Math.pow(val, 2);
+// });
+
+// console.log(arr); // should be the same as line 184
+// console.log(squaredValues);
+
+// let objArr = [{x: 1}, {x: 2}, {x: 3}]
+// let test = objArr.map(obj => {
+//     obj.x = Math.pow(obj.x, 2);
+//     return obj;
+// });
+
+// console.log(objArr); // the objects in the array are manipulated! (probably don't want that)
+// console.log(test);
+
+
+// let sum = obj.reduce( (a, b) => {
+//     return a + b;
+// }, 0);
+
+// console.log(arr);
+// console.log(sum);
+
+// REST OPERATOR (variable arguments: must be the last parameter)
+function sum(a, b, ...more) {
+    console.log(more);
+    let result = a + b;
+    for (value of more) {
+        result += value;
+    }
+    return result;
 }
 
-try {
-    breaksStuff();
-} catch (error) {
-    console.log('oops, something went wrong');
-    throw new Error();
-} finally {
-    console.log('always runs!');
-}
-
-console.log('Hello, everyone!');
-
-// create our own custom errors
-function ResourceNotFoundError() {
-
-}
-
-let myError = new ResourceNotFoundError();
-myError.prototype = Error;
-
-class SomeError extends Error {
-
-}
+console.log(sum(1, 2, 3, 4, 5));
