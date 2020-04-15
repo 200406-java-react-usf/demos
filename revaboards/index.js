@@ -9,22 +9,6 @@ const User = require('./models/user');
 //     console.error(err);
 // });
 
-<<<<<<< HEAD
-// let user = new User(0, 'aa1nderson', 'password', 'Alice', 'Anderson', 'aanderson@revature.com', new Date('01/01/1995'));
-//  userApi.addNewUser(user, addedUser => {
-//      userApi.getAllUsers(users => console.log(users));
-//  });
-
-
-//userApi.getAllUsers(users => console.log(users));
-
-userApi.getUserById(7, user => console.log(user), err => console.log(err));
-
-//userApi.getUserByCredentials('ddavis', 'password', user => console.log(user));
-
-//userApi.getUserbyEmail('aanderson@revature.com', user =>console.log(user));
-
-=======
 // userApi.getUserByCredentials('aanderson', 'passwor', (err, result) => {
     
 //     // handle error (if present)
@@ -54,4 +38,3 @@ userApi.getUserByCredentials('aanderson', 'password', user => {
 }, err => {
     console.log(err)
 });
->>>>>>> master

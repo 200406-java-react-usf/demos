@@ -10,8 +10,6 @@ const getAllUsers = (cb) => {
         let users = [...userData];
         let userDataJSON = JSON.stringify(userData); // spread operator (does not do deep copies)
 
-<<<<<<< HEAD
-=======
         users = users.map(user => {
             delete user.password;
             return user;
@@ -26,7 +24,6 @@ const getAllUsers = (cb) => {
     }, 250);
 };
 
->>>>>>> master
 const getUserById = function(id, onComplete, onError) {
 
     console.log(`You are looking for id: ${id}`)

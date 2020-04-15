@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-const sut /*System Under Test */ = require('./user-api');
-
-describe('userApi', () =>{
-
-    // test('should return all users when getAllUsers is called', ()/*used for testing asyncronous done*/ =>{
-    //     let users = sut.getAllUsers();
-    //     expect(users.length).toBe(5);
-    // });
-
-    test('should return all users when getAllUsers is called',  done =>{ /*used for testing asyncronous done*/
-        expect.assertions(2); /* number of assertions need to match the number of 'expect' functions following*/
-        sut.getAllUsers(users => {
-            expect(users).toBeTruthy();
-            expect(users.length).toBe(5);
-        done();/*looks for done in code to complete */
-        });
-    });
-
-    test('should return correct user when getUserById is given proper id value', done => {
-=======
 const sut = require('./user-api');
 
 describe('userApi', () => {
@@ -37,7 +16,6 @@ describe('userApi', () => {
     test('should return correct user when getUserById is given proper id value', done => {
 
         expect.assertions(2);
->>>>>>> master
         sut.getUserById(1, user => {
             expect(user).toBeTruthy();
             expect(user.id).toBe(1);
