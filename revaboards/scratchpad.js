@@ -85,3 +85,4 @@ myError.prototype = Error;
 
 myError();
 
+/// guard, defualt,.map, .filter, .reduce, spread operator, rest operator, this, event emitters

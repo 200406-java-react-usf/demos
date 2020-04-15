@@ -1,22 +1,34 @@
 const userData = require('../userDb')
 
-const getAllUsers = (cb) =>
-{
-    
-    setTimeout(() => cb(userData),250
+const getAllUsers = (cb) =>{
+setTimeout(() => {
+
+    //mutating actual objects in the data source
+    //NOT FUNCTIONAL now using spread operator 
+    //let users = [...UserData]; spread operator or do this?
+    //or map?
+    //still
+    lets users = Array.from(UserData)
+    getUserByUsername.forEach(user =>{
+        users.password =
+    })
+}
+    //return userData
+     cb(userData),250
     );
+
 }
 /* shoulda just commented this out here, instead of 
 copy pasteing it over to post-api and commenting it out there... sigh... but now I'm just gonna keep it :)
 and we actually do use it here
 */
-const getUserById = function(id, cb){
+const getUserById = function(id, onComnplete, onError){
 
     console.log(`Looking for ID: ${id}`)
 
     setTimeout(function(){
         //to simulate lag
-        
+        if (typeof id !== 'number' || !Number.isInteger(id)|| id <= 0 ){}
         let retrievedUser = null;
         //very imperitive style
 
@@ -35,13 +47,13 @@ const getUserByCredentials = (un, pw, cb)=> {
     setTimeout(() =>{
 
         if(!un||!pw) throw Error('Bad data');
-
+cb("oh no you gave me bad data!")
         //fetch the sought user with declaritve style logic filter is abstracting away from 
         const user = userData.filter(user => user.username === un &&user.password === pw).pop();
         // validation that we found a user with that username
-        if(!user) throw new Error('bad username');
+        if(!user) cb('bad username');
 
-        cb(user);
+        cb(null, user);
 
     }, 250 );
 }
@@ -114,4 +126,5 @@ setTimeout(() =>{
     )
 }
 
-
+//default operator
+user = user ||{username: "fail", password: "fail"}

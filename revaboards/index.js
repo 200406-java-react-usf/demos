@@ -45,3 +45,18 @@ userApi.addNewUser(newUser, addedUser =>{
 
 userApi.getUserByEmail('aa@a', user => {
 console.log(user);})
+
+userApi.getUserByEmail('aa@a', (err,result) => {
+handle error (if present)
+if err{
+    console.log(err);
+    return;
+}}
+// gaurd operator
+err&&console.log(err)
+result&&console.log(result)
+
+
+userApi.getAllUsers(users =>{
+    
+})
