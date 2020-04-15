@@ -7,50 +7,59 @@ const getAllUsers = (cb) => {
         // mutating the actual User bojects in the data source
         // NOT FUNCTIONAL!
 
-        let users = [...userData];
-        let userDataJSON = JSON.stringify(userData); // spread operator (does not do deep copies)
-
-        users = users.map(user => {
-            delete user.password;
-            return user;
-        });
-
-        console.log(users);
-        console.log('+--------------------------+');
-        console.log(userData);
-
-        cb(users);
-
-    }, 250);
-};
-
-const getUserById = function(id, onComplete, onError) {
-
-    console.log(`You are looking for id: ${id}`)
-
-    if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
-        onError('Bad request, invalid id value provided.');
-        return;
-    };
-
-    setTimeout(function() {
-
-        /*syncronous exception handling:
-            if (!id) throw Error('Oh no! You gave me bad data.')
-        */
-       //asyncronus exception handling
-       if(typeof id !== 'number' || !Number.isInteger(id) || id <=0){ //if either is true then proceed
-           //
-           onError('Bad request. Id provided is not valid')
-           return;
-
-       }
-        let retrievedUser = null;
-
-        for (user of userData) {
-            if (user.id == id) {
-                retrievedUser = user;
-            }  
+    function init() {
+        
+        const getAllUsers = (cb) => {
+    
+            setTimeout(() => {
+        
+                let users = [];
+        
+                for (user of userData) {
+                    let clone = {...user};
+                    users.push(clone);
+                }
+        
+                if (users.length == 0) {
+                    cb('No users found!');
+                    return;
+                }
+        
+                users = users.map(user => {
+                    delete user.password;
+                    return user;
+                });
+        
+                cb(null, users);
+        
+            }, 250);
+        };
+        
+        const getUserById = function(id, onComplete, onError) {
+        
+            if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
+                onError('Bad request, invalid id value provided.');
+                return;
+            };
+        
+            setTimeout(function() {
+        
+                let retrievedUser = null;
+        
+                for (user of userData) {
+                    if (user.id == id) {
+                        retrievedUser = user;
+                    }  
+                }
+        
+                if (!retrievedUser) {
+                    onError('No user found with provided id.');
+                    return;
+                }
+        
+                onComplete(retrievedUser);
+        
+            }, 250);
         }
 
         if (!retrievedUser) {
@@ -132,7 +141,65 @@ const getUserbyEmail = (email, cb) => {
     setTimeout(function() {
         if(!email) throw Error('Oh no! You gave me bad data.')
 
-        let retrievedEmail = null;
+        const updateUser = (updatedUser, cb) => {
+
+            if(!updatedUser) {
+                cb('Falsy user object provided.');
+                return;
+            }
+
+            if(!updatedUser.id || !Number.isInteger(updatedUser.id) || updatedUser.id <= 0) {
+                cb('A valid id must be provided for update operations.');
+                return;
+            }
+
+            let invalid = !Object.keys(updatedUser).some(key => {
+                console.log(updatedUser[key], !!updatedUser[key]);
+                return updatedUser[key];
+            });
+
+            if (invalid) {
+                cb('Invalid property values found in provided user.');
+                return;
+            }
+
+            setTimeout(() => {
+
+                let persistedUser = userData.find(user => user.id == updatedUser.id);
+
+                if(!persistedUser) {
+                    cb('No user found with provided id.');
+                    return;
+                }
+
+                if(persistedUser.username != updatedUser.username) {
+                    cb('Usernames cannot be updated at this time.');
+                    return;
+                }
+
+                const conflict = userData.filter(user => {
+                    if(user.id == updatedUser.id) return false;
+                    return user.email == updatedUser.email;
+                }).pop();
+
+                if(conflict) {
+                    cb('Provided email is already in use by another user.');
+                    return;
+                }
+
+                persistedUser = updatedUser;
+                cb(null, true);
+
+            }, 250);
+        }
+
+        return {
+            getAllUsers,
+            getUserById,
+            getUserByCredentials,
+            addNewUser,
+            updateUser
+        };
 
         for (user of userData){
           
@@ -140,18 +207,11 @@ const getUserbyEmail = (email, cb) => {
                 retrievedEmail = user;
             }
 
+    return {
+        getInstance: function() {  
+            return !instance ? instance = init() : instance;
         }
-        if (!retrievedEmail) throw Error ('Invalid email provided');
-        cb(retrievedEmail);
-    }, 250);
-}
-
-// const updateUser(updatedUser, cb) =>{
-
-// }
-
-//const deleteUser(user)
-
+    };
 
 module.exports = {
     getAllUsers,
