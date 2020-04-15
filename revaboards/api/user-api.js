@@ -1,7 +1,27 @@
 const userData = require('../userDb');
 
 const getAllUsers = (cb) => {
-    setTimeout(() => cb(userData), 250);
+    
+    setTimeout(() => {
+
+        // mutating the actual User bojects in the data source
+        // NOT FUNCTIONAL!
+
+        let users = [...userData];
+        let userDataJSON = JSON.stringify(userData); // spread operator (does not do deep copies)
+
+        users = users.map(user => {
+            delete user.password;
+            return user;
+        });
+
+        console.log(users);
+        console.log('+--------------------------+');
+        console.log(userData);
+
+        cb(users);
+
+    }, 250);
 };
 
 const getUserById = function(id, onComplete, onError) {
@@ -37,10 +57,13 @@ const getUserByCredentials = (un, pw, cb) => {
     setTimeout(() => {
         
         // validation to ensure we do not waste resources
-        if (!un || !pw) throw Error('Oh no! You gave me bad data'); // truthy/falsy in use here
-
+        if (!un || !pw) {
+            cb('Oh no! You gave me bad data');
+            return;
+        }
+        
         // fetch the sought user (declarative-style logic)
-        const user = userData.filter(user => user.username === un && user.password == pw).pop();
+        let user = userData.filter(user => user.username === un && user.password == pw).pop();
 
         /* 
             other "functional" methods for arrays include: 
@@ -50,10 +73,18 @@ const getUserByCredentials = (un, pw, cb) => {
         */
 
         // validate that we actually obtained a user
-        if (!user) throw new Error('Invalid credentials provided!');
+        if (!user) {
+            cb('Invalid credentials provided!');
+            return;
+        }
+        
+        // GUARD OPERATOR
+        // console.log(user); // user == undefined
+        // user = user || {username: 'failed-login', password: 'failed-login'};
+
 
         // invoke the provided callback function
-        cb(user);
+        cb(null, user);
 
     }, 250);
 }
