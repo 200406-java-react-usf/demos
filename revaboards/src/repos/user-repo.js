@@ -127,12 +127,33 @@ module.exports = (function() {
             }, 250);
         
         }
-
+        const updateUser = function(id, key, newInput, onComplete, onError){
+            if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
+                onError('Bad request, invalid id value provided.');
+                return;
+            };
+            setTimeout(function() {
+                let retrievedUser = null;
+                for (user of userData) {
+                    if (user.id == id) {
+                        retrievedUser = user;
+                    }  
+                }
+                if (!retrievedUser) {
+                    onError('No user found with provided id.');
+                    return;
+                }
+                // get the field that needs to be updated and replace with new entry
+                retrievedUser[key] = newInput;
+                onComplete(retrievedUser);
+            }, 250);
+        }
         return {
             getAllUsers,
             getUserById,
             getUserByCredentials,
-            addNewUser
+            addNewUser,
+            updateUser
         };
 
     }
