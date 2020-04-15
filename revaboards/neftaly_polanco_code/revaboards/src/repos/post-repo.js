@@ -1,5 +1,5 @@
-const postData = require('../postDb');
-const userData = require('../userDb');
+const postData = require('../data/postDB');
+const userData = require('../data/userDB');
 const Post = require(`../models/post`);
 
 

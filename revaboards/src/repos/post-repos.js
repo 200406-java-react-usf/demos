@@ -1,5 +1,5 @@
 // implement and export the methods: getPostById and getPostsByPosterId
-const postData = require('../postDb');
+const postData = require('../data/data/postDb');
 
 const getPostById = (id, cb) => {
     setTimeout(() => {

@@ -1,4 +1,4 @@
-const userData = require('../userDb');
+const userData = require('../data/userDB');
 const User = require(`../models/user`);
 
 const getAllUsers = (callback) => { setTimeout(() => callback(userData), 250); }
@@ -48,6 +48,7 @@ const addUser = (username, password, firstName, lastName, email, dob, onComplete
             return;
         }         
     }
+
 const updateUserByID = (id, callback) => {
         setTimeout((pw)=>{
             if (pw == userData.password) console.log("you cannot use your old password ");
