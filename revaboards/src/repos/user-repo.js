@@ -55,8 +55,8 @@ module.exports = (function() {
                     onError('No user found with provided id.');
                     return;
                 }
-        
-                onComplete(retrievedUser);
+
+               //onComplete(retrievedUser);
         
             }, 250);
         }
@@ -127,12 +127,41 @@ module.exports = (function() {
             }, 250);
         
         }
-
+        const updateUserById = function(id, key, newInput, onComplete, onError) {
+        
+            console.log(`You are looking for id: ${id}`)
+        
+            if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
+                onError('Bad request, invalid id value provided.');
+                return;
+            };
+        
+            setTimeout(function() {
+        
+                let retrievedUser = null;
+        
+                for (user of userData) {
+                    if (user.id == id) {
+                        retrievedUser = user;
+                    }  
+                }
+        
+                if (!retrievedUser) {
+                    onError('No user found with provided id.');
+                    return;
+                }
+                console.log(retrievedUser);
+                retrievedUser[key] = newInput;
+                console.log(retrievedUser);
+                onComplete(retrievedUser);
+            }, 250);
+        }
         return {
             getAllUsers,
             getUserById,
             getUserByCredentials,
-            addNewUser
+            addNewUser,
+            updateUserById
         };
 
     }
