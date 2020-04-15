@@ -4,13 +4,14 @@
   "description": "A simple JS app for a message board",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "jest"
   },
   "keywords": [
     "Node",
     "JS"
   ],
-  "author": "Abraham Selenke",
+  "author": "Wezley Singleton",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
