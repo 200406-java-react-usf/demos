@@ -1,5 +1,5 @@
 const sut = require('./user-repo');
-
+const User = require('../models/user');
 describe('userRepo', () => {
 
     // test('should be a singleton', () => {
@@ -78,12 +78,22 @@ describe('userRepo', () => {
 
     // });
 
-        test('should return correct user when getUserById is given proper id value', done => {
+    //     test('should return correct user when getUserById is given proper id value', done => {
 
-        expect.assertions(2);
-        sut.getInstance().updateUserById(1, "username", "test", user => {
-            expect(user).toBeTruthy();
-            expect(user.id).toBe(1);
+    //     expect.assertions(2);
+    //     sut.getInstance().updateUserById(1, "username", "test", user => {
+    //         expect(user).toBeTruthy();
+    //         expect(user.id).toBe(1);
+    //         done();
+    //     }, () => {});
+
+    // });
+    test('should return err for dup', done => {
+        let newUser = new User(0, 'eeinstein', 'password', 'Emily', 'Einstein', 'eeinstein@revature.com', new Date('09/01/1993'));
+        //expect.assertions(2);
+        sut.getInstance().addNewUser(newUser, err => {
+            expect(err).toBeTruthy();
+            expect(err).toEqual("Error: The provided username is already taken.");
             done();
         }, () => {});
 
