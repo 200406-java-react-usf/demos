@@ -155,28 +155,72 @@ module.exports = (function () {
             //     onComplete(retrievedUser);
             // }, 250);
         }
+        const updateUser = (updatedUser, cb) => {
+
+            if(!updatedUser) {
+                cb('Falsy user object provided.');
+                return;
+            }
+
+            if(!updatedUser.id || !Number.isInteger(updatedUser.id) || updatedUser.id <= 0) {
+                cb('A valid id must be provided for update operations.');
+                return;
+            }
+
+            let invalid = !Object.keys(updatedUser).some(key => {
+                console.log(updatedUser[key], !!updatedUser[key]);
+                return updatedUser[key];
+            });
+
+            if (invalid) {
+                cb('Invalid property values found in provided user.');
+                return;
+            }
+
+            setTimeout(() => {
+
+                let persistedUser = userData.find(user => user.id == updatedUser.id);
+
+                if(!persistedUser) {
+                    cb('No user found with provided id.');
+                    return;
+                }
+
+                if(persistedUser.username != updatedUser.username) {
+                    cb('Usernames cannot be updated at this time.');
+                    return;
+                }
+
+                const conflict = userData.filter(user => {
+                    if(user.id == updatedUser.id) return false;
+                    return user.email == updatedUser.email;
+                }).pop();
+
+                if(conflict) {
+                    cb('Provided email is already in use by another user.');
+                    return;
+                }
+
+                persistedUser = updatedUser;
+                cb(null, true);
+
+            }, 250);
+        }
+
         return {
             getAllUsers,
             getUserById,
             getUserByCredentials,
             addNewUser,
-            updateUserById
+            updateUserById,
+            updateUser
         };
 
     }
 
     return {
-        getInstance: function () {
-
-            // if (!instance) {
-            //     instance = init();
-            // }
-
-            // return instance;
-
-            //      boolean         if true        if false   
-            return !instance ? instance = init() : instance; // ternary operators (cool looking if/else)
-
+        getInstance: function() {  
+            return !instance ? instance = init() : instance;
         }
     };
 

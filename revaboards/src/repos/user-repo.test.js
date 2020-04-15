@@ -109,4 +109,77 @@ describe('userRepo', () => {
 
     });
 
+    test('should update user within the datasource when updateUser is given a valid user', done => {
+
+        let updatedUser = new User(1, 'aanderson', 'p4ssw0rd', 'Alice', 'Anderson', 'aanderson@revature.com', new Date('01/01/1995'))
+
+        expect.assertions(2);
+        sut.getInstance().updateUser(updatedUser, (err, result) => {
+            expect(err).toBeFalsy();
+            expect(result).toBeTruthy();
+            done();
+        });
+
+    });
+
+    test('should throw error when updateUser is given a falsy value',  done => {
+        expect.assertions(2);
+        sut.getInstance().updateUser(null, (err, result) => {
+            expect(err).toBeTruthy();
+            expect(result).toBeFalsy();
+            done();
+        });
+    });
+
+    test('should throw error when updateUser is given an updatedUser with an invalid id',  done => {
+        
+        let badUser = new User(-1, 'aanderson', 'p4ssw0rd', 'Alice', 'Anderson', 'aanderson@revature.com', new Date('01/01/1995'))
+        
+        expect.assertions(2);
+        sut.getInstance().updateUser(badUser, (err, result) => {
+            expect(err).toBeTruthy();
+            expect(result).toBeFalsy();
+            done();
+        });
+    });
+
+    test('should throw error when updateUser is given an updatedUser with a conflicting username',  done => {
+
+        let conflictingUser = new User(1, 'bbailey', 'p4ssw0rd', 'Alice', 'Anderson', 'aanderson@revature.com', new Date('01/01/1995'))
+        
+        expect.assertions(2);
+        sut.getInstance().updateUser(conflictingUser, (err, result) => {
+            expect(err).toBeTruthy();
+            expect(result).toBeFalsy();
+            done();
+        });
+    });
+
+    test('should throw error when updateUser is given an updatedUser with a conflicting email',  done => {
+
+        let conflictingUser = new User(1, 'aanderson', 'p4ssw0rd', 'Alice', 'Anderson', 'bbailey@revature.com', new Date('01/01/1995'))
+        
+        expect.assertions(2);
+        sut.getInstance().updateUser(conflictingUser, (err, result) => {
+            expect(err).toBeTruthy();
+            expect(result).toBeFalsy();
+            done();
+        });
+
+    });
+
+    test('should throw error when updateUser is given an updatedUser with improper values', done => {
+
+        let improperUser = new User(1, 'aanderson', '', 'Alice', 'Anderson', 'aanderson@revature.com', new Date('01/01/1995'))
+        
+        expect.assertions(2);
+        sut.getInstance().updateUser(improperUser, (err, result) => {
+            expect(err).toBeTruthy();
+            expect(result).toBeFalsy();
+            done();
+        });
+    });
+
+
+
 });
