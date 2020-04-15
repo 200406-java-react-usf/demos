@@ -28,7 +28,7 @@ const getUserByCredentials = (un, pw, cb) => {
     }, 250);
 }
 
-const addUser = (username, password, firstName, lastName, email, dob, onComplete, onError) => {
+/* const addUser = (username, password, firstName, lastName, email, dob, onComplete, onError) => {
     let id = userData.length;
     id++;
     let newUser = new User(id, username, password, firstName, lastName, email, dob)
@@ -46,23 +46,91 @@ const addUser = (username, password, firstName, lastName, email, dob, onComplete
         if(email == userData[i].email) {
             onError('an account with that email already exists');
             return;
-        }         
+        }    
+        userData.push(newUser);
+        onComplete(userData);
+
+    }  
+    */
+    function addNewUser(newUser, cb) {        
+        
+        if (!newUser) {
+            cb('Error: Falsy user provided');
+            return;
+        }
+
+        // how to validate that all required fields of User are not falsy
+        let invalid = !Object.keys(newUser).some(key => newUser[key]);
+        
+
+        if(invalid) {
+            cb('Error: Invalid property values found in provided user');
+            return;
+        }
+
+        setTimeout(() => {
+
+            // ensure that new users cannot have the same username as an existing user
+            let conflict = newUser.username;
+            for(users of userData) {
+                if (conflict = userData.username) conflict = null
+            }
+
+            if(conflict) {
+                cb('Error: The provided username is already taken.');
+                return;
+            }
+
+            // ensure that new users cannot have the same email as an existing user
+            conflict = newUser.email;
+            for(users of userData) {
+                if (conflict = userData.email) conflict = null
+            }
+
+            if(conflict) {
+                cb('Error: The provided email is already taken.');
+                return;
+            }
+
+            newUser.id = (userData.length) + 1;
+            userData.push(newUser);
+
+            // emit a 'newRegister' event on mail-worker
+            console.log(userData);
+           // cb(null, newUser);
+
+        }, 250);    
     }
 
-const updateUserByID = (id, callback) => {
-        setTimeout((pw)=>{
-            if (pw == userData.password) console.log("you cannot use your old password ");
-            userData.password = pw;
-        })
-}
-    userData.push(newUser);
-    onComplete(userData);
 
+
+const updateUserByID = (id, key, newInput, onComplete, onError) => {
+
+        if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
+            onError('Bad request, invalid id value provided.');
+            return;
+        };
+
+        setTimeout(function(){
+            let retrievedUser = null;
+            for (users of userData) {
+                if( user.id == id) retrievedUser = user
+            }
+            if(!retrievedUser) {
+                onError('This user does not exist');
+                return;
+            }
+            retrievedUser[key] == newInput;
+            onComplete(retrievedUser);
+    },250);
 }
+addNewUser({id: -1, unsername:'', password:'password', firstname: 'gabber', lastname:'gab', email:'gabby@revature.com', dateOfBrith: new Date('09/01/1994')});
+
 
 module.exports = {
     getUserByCredentials,
     getUserById,
-    addUser,
+    addNewUser,
+    updateUserByID,
     getAllUsers
-};
+}

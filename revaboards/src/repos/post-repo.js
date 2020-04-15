@@ -1,9 +1,5 @@
 // implement and export the methods: getPostById and getPostsByPosterId
-<<<<<<< HEAD:revaboards/src/repos/post-repos.js
 const postData = require('../data/data/postDb');
-=======
-const postData = require('../data/post-db');
->>>>>>> 69732849739a1b6d7ecae9bf2cca1fb4b6a6524c:revaboards/src/repos/post-repo.js
 
 const getPostById = (id, cb) => {
     setTimeout(() => {

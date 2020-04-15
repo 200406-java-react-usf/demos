@@ -92,7 +92,7 @@ module.exports = (function() {
             }
 
             // how to validate that all required fields of User are not falsy
-            let invalid;
+            let invalid = newUser.Null;
 
             if(invalid) {
                 cb('Error: Invalid property values found in provided user');
@@ -102,7 +102,7 @@ module.exports = (function() {
             setTimeout(() => {
 
                 // ensure that new users cannot have the same username as an existing user
-                let conflict;
+                let conflict = userData.user.username;
 
                 if(conflict) {
                     cb('Error: The provided username is already taken.');
@@ -110,7 +110,7 @@ module.exports = (function() {
                 }
 
                 // ensure that new users cannot have the same email as an existing user
-                conflict;
+                conflict = userData.email;
 
                 if(conflict) {
                     cb('Error: The provided email is already taken.');
