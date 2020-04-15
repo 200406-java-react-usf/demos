@@ -1,6 +1,6 @@
-const userApi = require('./api/user-api');
-const postApi = require ('./api/post-api');
-const User = require ('./model/user');
+const userApi = require('./repos/user-api');
+const postApi = require ('./repos/post-api');
+const User = require ('./models/user');
 
 /*
 userApi.getUserById(1, user =>{

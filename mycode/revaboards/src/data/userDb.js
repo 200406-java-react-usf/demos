@@ -2,7 +2,7 @@
 //console.log(user)
 //This won't work reference errot user is not defined in this file
 
-const User = require('./model/user')
+const User = require('../models/user')
 //whatever function is exported can be imported here
 let id = 1 
 

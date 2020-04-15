@@ -1,4 +1,21 @@
-const userData = require('../userDb')
+const userData = require('../data/userDb')
+
+
+function UserRepository(){
+    let instance; // this will be a reference to our singleton object
+//everything below goes here
+    function init(){
+ return {
+     // all 4 funcs below
+ }
+    }
+    return{ getInstance: function(){
+        if (!instance){instance = init();
+        }else return instance 
+    }
+    
+}
+}
 
 const getAllUsers = (cb) =>{
 setTimeout(() => {
@@ -8,7 +25,7 @@ setTimeout(() => {
     //let users = [...UserData]; spread operator or do this?
     //or map?
     //still
-    lets users = Array.from(UserData)
+    let  users = Array.from(UserData)
     getUserByUsername.forEach(user =>{
         users.password =
     })
