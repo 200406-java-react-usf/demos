@@ -109,7 +109,6 @@ module.exports = (function () {
                     } else {
                         return false;
                     }
-
                 }
                 if (conflict("username", newUser.username)) {
                     cb('Error: The provided username is already taken.');
@@ -123,38 +122,38 @@ module.exports = (function () {
                 newUser.id = (userData.length) + 1;
                 userData.push(newUser);
                 // emit a 'newRegister' event on mail-worker  
-                cb(null, newUser);
+                cb(newUser.email);
             }, 250);
 
         }
         const updateUserById = function (id, key, newInput, onComplete, onError) {
 
-            console.log(`You are looking for id: ${id}`)
+            // console.log(`You are looking for id: ${id}`)
 
-            if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
-                onError('Bad request, invalid id value provided.');
-                return;
-            };
+            // if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
+            //     onError('Bad request, invalid id value provided.');
+            //     return;
+            // };
 
-            setTimeout(function () {
+            // setTimeout(function () {
 
-                let retrievedUser = null;
+            //     let retrievedUser = null;
 
-                for (user of userData) {
-                    if (user.id == id) {
-                        retrievedUser = user;
-                    }
-                }
+            //     for (user of userData) {
+            //         if (user.id == id) {
+            //             retrievedUser = user;
+            //         }
+            //     }
 
-                if (!retrievedUser) {
-                    onError('No user found with provided id.');
-                    return;
-                }
-                console.log(retrievedUser);
-                retrievedUser[key] = newInput;
-                console.log(retrievedUser);
-                onComplete(retrievedUser);
-            }, 250);
+            //     if (!retrievedUser) {
+            //         onError('No user found with provided id.');
+            //         return;
+            //     }
+            //     console.log(retrievedUser);
+            //     retrievedUser[key] = newInput;
+            //     console.log(retrievedUser);
+            //     onComplete(retrievedUser);
+            // }, 250);
         }
         return {
             getAllUsers,
