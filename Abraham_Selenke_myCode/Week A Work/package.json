@@ -1,0 +1,19 @@
+{
+  "name": "revaboards",
+  "version": "1.0.0",
+  "description": "A simple JS app for a message board",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "Node",
+    "JS"
+  ],
+  "author": "Abraham Selenke",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^25.3.0"
+  }
+}
