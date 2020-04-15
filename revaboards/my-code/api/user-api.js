@@ -2,7 +2,27 @@ const userData = require('../userDB');
 
 const getAllUsers = (cb) => {
 
-    setTimeout(() => cb(userData),250);
+    setTimeout(() => {
+
+
+    //actually changes the password to *********
+    // let users = userData;
+    // users.forEach(user => user.password = '********');
+
+    //clone the array, and change the password of the clone
+    //let users = Array.from(userData); // spread
+    // users.map(user => {
+
+    //     user.password = '********';
+    //     return user;
+
+    // });
+    
+
+    cb(userData);
+    
+    
+    }, 250);
 
 }
 
@@ -26,7 +46,6 @@ const getUserById = function(id, onComplete, onError){
     // timeout simiulates latency
     setTimeout(function(){
         
-
         let retrievedUser = null;
         //imperative
 
@@ -96,7 +115,8 @@ const getUserByCredentials = (un, pw, cb) => {
         // check to make sure there is a un and pw
         if (!un || !pw){
 
-            throw Error('Bad data');
+            cb('Bad Data');
+            return;
 
         }
 
@@ -104,26 +124,31 @@ const getUserByCredentials = (un, pw, cb) => {
         // filters the array using the un and pw
         // **** filter returns an array with the filter, need to use pop to take the first element out of array
         const user = userData.filter((user) => {
-           return user.username === un && user.password === pw
+            return user.username === un && user.password === pw
         }).pop();
 
         //other array methods: filter, map, reduce(ASSIGNMENT QUESTION)
-
 
         //validate that we got a user
 
         if (!user ){
 
-            throw new Error('invalid creds');
+            cb('invalid creds');
+            return;
 
         }
+
+        //default:
+        //user = user || {username: 'failed login', password: 'failed login}
+
+        cb(null,user);
 
     },250);
 
 
     //invokes cb function
 
-    cb(user);
+    
 
 }
 
