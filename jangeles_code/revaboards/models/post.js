@@ -6,5 +6,3 @@ module.exports = function Post(id, title, body, posterId) {
     this.posterId = posterId;
     this.postedTime = new Date();
 }
-
-// let testPost = new Post ('t', 'testing', 'test', 'tester');

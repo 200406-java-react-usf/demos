@@ -2,22 +2,39 @@ const userApi = require('./api/user-api');
 const postApi = require('./api/post-api');
 const User = require('./models/user');
 
-
-// // when you fetch a user by id, also, grab their posts and add them to the user obj
-// userApi.getUserById(1, user => {
-//     postApi.getPostsByPosterId(user.id, posts => {
-//         user.posts = posts;
-//     });
+// when you fetch a user by id, also, grab their posts and add them to the user obj
+// userApi.getUserById(4, data => {
+//     console.log(data);
+// }, err => {
+//     console.error(err);
 // });
 
-// let user = new User(0, 'test', 'test', 'test', 'test', 'test', new Date('01/01/2020'));
-// userApi.addNewUser(user, addUser => 
-//     {
-//         userApi.getAllUsers(users)
-//     })
+// userApi.getUserByCredentials('aanderson', 'passwor', (err, result) => {
+    
+//     // handle error (if present)
+//     // if (err) {
+//     //     console.log(err);
+//     //     return;
+//     // }
 
-// userApi.getAllUsers(users => console.log(users));
+//     // console.log(result);
 
-// userApi.getUserById(1, users => console.log(users));
+//     err && console.log(err);
+//     result && console.log(result);
 
-userApi.getUserByCredentials('bbailey', 'password', users => console.log(users));
+// })
+
+// let user = new User(0, 'test', 'test', 'test', 'test', 'test', new Date('01/01/2000'));
+// userApi.addNewUser(user, addedUser => {
+//     userApi.getAllUsers(users => console.log(users));
+// });
+
+userApi.getAllUsers(users => {
+    console.log(users);
+});
+
+userApi.getUserByCredentials('aanderson', 'password', user => {
+    console.log(user)
+}, err => {
+    console.log(err)
+});

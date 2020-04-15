@@ -1,6 +1,6 @@
 // module.exports makes this function available outside of this file (can be imported)
-module.exports = function User(id, un, pw, fn, ln, email, dob) 
-{
+module.exports = function User(id, un, pw, fn, ln, email, dob) {
+
     this.id = id;
     this.username = un;
     this.password = pw;
