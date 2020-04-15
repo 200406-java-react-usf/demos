@@ -85,45 +85,45 @@ module.exports = (function() {
         }
         
         const addNewUser = (newUser, cb) => {
-
             if (!newUser) {
                 cb('Error: Falsy user provided');
                 return;
             }
-
             // how to validate that all required fields of User are not falsy
             let invalid;
-
             if(invalid) {
                 cb('Error: Invalid property values found in provided user');
                 return;
             }
-
             setTimeout(() => {
-
                 // ensure that new users cannot have the same username as an existing user
-                let conflict;
-
-                if(conflict) {
+                let conflict = function(key, input){
+                    let existing = [];
+                    for (user of userData) {
+                        let users = user[key];
+                        existing.push(users);
+                    }
+                    for (element in existing){
+                        if(input == element){
+                            return false;
+                        }else{
+                            return true;
+                        }
+                    }
+                }
+                if(conflict("username", newUser.username)) {
                     cb('Error: The provided username is already taken.');
                     return;
                 }
-
-                // ensure that new users cannot have the same email as an existing user
-                conflict;
-
-                if(conflict) {
+                // ensure that new users cannot have the same email as an existing user conflict
+                if(conflict("email", newUser.username)) {
                     cb('Error: The provided email is already taken.');
                     return;
                 }
-
                 newUser.id = (userData.length) + 1;
                 userData.push(newUser);
-
-                // emit a 'newRegister' event on mail-worker
-                
+                // emit a 'newRegister' event on mail-worker  
                 cb(null, newUser);
-
             }, 250);
         
         }
