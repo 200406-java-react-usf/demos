@@ -1,4 +1,4 @@
-const userData = require('../userDb');
+const userData = require('../data/user-db');
 
 const getAllUsers = (cb) => {
     
@@ -63,11 +63,8 @@ const getUserById = function(id, onComplete, onError) {
         }
         onComplete(retrievedUser);
 
-<<<<<<< HEAD
-=======
         onComplete(retrievedUser);
 
->>>>>>> master
     }, 250);
 }
 

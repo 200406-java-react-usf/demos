@@ -20,25 +20,6 @@ describe('userApi', () => {
             expect(user).toBeTruthy();
             expect(user.id).toBe(1);
             done();
-<<<<<<< HEAD
-        });
-    });
-    test('should throw bad request error when getUserById is given bad id value', done =>{
-        sut.getUserById(2.4, () => {}, err =>{
-            expect(err).toBeTruthy();
-            expect(err).toEqual('Bad request. Id provided is not valid');
-            done();
-        });
-});
-
-    test('should throw bad request error when getUserById is given value not in the DB', done => {
-    sut.getUserById(24, () => {}, err =>{
-        expect(err).toBeTruthy();
-        expect(err).toEqual('User not found for provided id');
-        done();
-    });
-    });
-=======
         }, () => {});
 
     });
@@ -88,5 +69,4 @@ describe('userApi', () => {
 
     });
 
->>>>>>> master
 });

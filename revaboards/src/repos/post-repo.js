@@ -1,5 +1,5 @@
 // implement and export the methods: getPostById and getPostsByPosterId
-const postData = require('../postDb');
+const postData = require('../data/post-db');
 const Post = require('../models/post') 
 
 const getPostById = (id, cb) => {
