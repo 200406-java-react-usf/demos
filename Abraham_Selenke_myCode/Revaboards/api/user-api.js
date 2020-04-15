@@ -88,7 +88,7 @@ const getUserByEmail = (email, cb) => {
       .filter((user) => user.email === email)
       .pop();
     if (!retrievedEmail) throw Error("Invalid email");
-
+    .filter()
     cb(retrievedEmail);
   }, 250);
 };

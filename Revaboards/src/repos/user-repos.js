@@ -1,27 +1,7 @@
-const userData = require('../userDb');
+const userData = require('../data/user-db');
 
 const getAllUsers = (cb) => {
-    
-    setTimeout(() => {
-
-        // mutating the actual User bojects in the data source
-        // NOT FUNCTIONAL!
-
-        let users = [...userData];
-        let userDataJSON = JSON.stringify(userData); // spread operator (does not do deep copies)
-
-        users = users.map(user => {
-            delete user.password;
-            return user;
-        });
-
-        console.log(users);
-        console.log('+--------------------------+');
-        console.log(userData);
-
-        cb(users);
-
-    }, 250);
+    setTimeout(() => cb(userData), 250);
 };
 
 const getUserById = function(id, onComplete, onError) {
@@ -57,13 +37,10 @@ const getUserByCredentials = (un, pw, cb) => {
     setTimeout(() => {
         
         // validation to ensure we do not waste resources
-        if (!un || !pw) {
-            cb('Oh no! You gave me bad data');
-            return;
-        }
-        
+        if (!un || !pw) throw Error('Oh no! You gave me bad data'); // truthy/falsy in use here
+
         // fetch the sought user (declarative-style logic)
-        let user = userData.filter(user => user.username === un && user.password == pw).pop();
+        const user = userData.filter(user => user.username === un && user.password == pw).pop();
 
         /* 
             other "functional" methods for arrays include: 
@@ -73,18 +50,10 @@ const getUserByCredentials = (un, pw, cb) => {
         */
 
         // validate that we actually obtained a user
-        if (!user) {
-            cb('Invalid credentials provided!');
-            return;
-        }
-        
-        // GUARD OPERATOR
-        // console.log(user); // user == undefined
-        // user = user || {username: 'failed-login', password: 'failed-login'};
-
+        if (!user) throw new Error('Invalid credentials provided!');
 
         // invoke the provided callback function
-        cb(null, user);
+        cb(user);
 
     }, 250);
 }

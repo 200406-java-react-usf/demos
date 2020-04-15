@@ -1,7 +1,7 @@
-const sut = require("./post-api");
+const sut = require("./user-api");
 
 describe("userApi", () => {
-  test("Should return all users when getAllUsers is called", (done) => {
+  test("should return all users when getAllUsers is called", (done) => {
     expect.assertions(2);
     sut.getAllUsers((users) => {
       expect(users).toBeTruthy();
