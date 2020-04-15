@@ -1,5 +1,5 @@
 {
-  "name": "revaboards",
+  "name": "Revaboards",
   "version": "1.0.0",
   "description": "A simple JS app for a message board",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "Node",
     "JS"
   ],
-  "author": "Wezley Singleton",
+  "author": "Abraham Selenke",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
