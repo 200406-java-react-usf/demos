@@ -78,7 +78,7 @@ describe('userRepo', () => {
 
     // });
 
-        test('should return correct user when getUserById is given proper id value', done => {
+    test('should return correct user when getUserById is given proper id value', done => {
 
         expect.assertions(2);
         sut.getInstance().updateUserById(1, "username", "test", user => {
