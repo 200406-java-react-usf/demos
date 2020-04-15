@@ -1,5 +1,5 @@
 // create a simple mock DB (array) of Post objects
-const Post = require('./models/post');
+const Post = require('../models/post');
 let id = 1;
 
 module.exports = [
