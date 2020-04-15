@@ -88,12 +88,22 @@ describe('userRepo', () => {
     //     }, () => {});
 
     // });
-    test('should return err for dup', done => {
+    test('should return err for dup username ', done => {
         let newUser = new User(0, 'eeinstein', 'password', 'Emily', 'Einstein', 'eeinstein@revature.com', new Date('09/01/1993'));
         //expect.assertions(2);
         sut.getInstance().addNewUser(newUser, err => {
             expect(err).toBeTruthy();
             expect(err).toEqual("Error: The provided username is already taken.");
+            done();
+        }, () => {});
+
+    });
+    test('should return err for dup email', done => {
+        let newUser = new User(0, 'eeinsteinTEST', 'password', 'Emily', 'Einstein', 'eeinstein@revature.com', new Date('09/01/1993'));
+        expect.assertions(2);
+        sut.getInstance().addNewUser(newUser, err => {
+            expect(err).toBeTruthy();
+            expect(err).toEqual("Error: The provided email is already taken.");
             done();
         }, () => {});
 
