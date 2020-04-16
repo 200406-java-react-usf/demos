@@ -138,7 +138,7 @@ module.exports = (function() {
                 return;
             }
 
-            let invalid = !Object.keys(updatedUser).some(key => {
+            let invalid = !Object.keys(updatedUser).every(key => {
                 console.log(updatedUser[key], !!updatedUser[key]);
                 return updatedUser[key];
             });

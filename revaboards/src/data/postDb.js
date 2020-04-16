@@ -1,9 +1,6 @@
 // create a simple mock DB (array) of Post objects
-<<<<<<< HEAD:revaboards/src/data/postDb.js
-const Post = require('../../models/post');
-=======
+
 const Post = require('../models/post');
->>>>>>> 69732849739a1b6d7ecae9bf2cca1fb4b6a6524c:revaboards/src/data/post-db.js
 let id = 1;
 
 module.exports = [

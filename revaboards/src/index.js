@@ -1,5 +1,5 @@
 const userRepo = require('./repos/user-repo');
-const postApi = require('./api/post-repo');
+const postApi = require('./repos/post-repo');
 const User = require('./models/user');
 
 // when you fetch a user by id, also, grab their posts and add them to the user obj
