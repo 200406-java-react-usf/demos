@@ -1,18 +1,6 @@
 {
   "name": "revaboards",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "A simple JS app for message board",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "keywords": [
-    "node",
-    "JS"
-  ],
-  "author": "Lou Remy",
-=======
   "description": "A simple JS app for a message board",
   "main": "index.js",
   "scripts": {
@@ -24,7 +12,6 @@
     "JS"
   ],
   "author": "Wezley Singleton",
->>>>>>> 69732849739a1b6d7ecae9bf2cca1fb4b6a6524c
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {

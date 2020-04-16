@@ -92,7 +92,7 @@ module.exports = (function() {
             }
 
             // how to validate that all required fields of User are not falsy
-            let invalid;
+            let invalid = ;
 
             if(invalid) {
                 cb('Error: Invalid property values found in provided user');
@@ -120,7 +120,7 @@ module.exports = (function() {
                 newUser.id = (userData.length) + 1;
                 userData.push(newUser);
 
-                // emit a 'newRegister' event on mail-worker
+                mailWorker.emit('newRegister',newUser.email)
                 
                 cb(null, newUser);
 
@@ -128,11 +128,40 @@ module.exports = (function() {
         
         }
 
+        const updateUser = (user,cb) =>{
+
+            if(!user){
+                cb('Error: could not recieve data from datasource')
+            }
+            setTimeout(()=>{
+
+            }, 250)
+             switch(info){
+                case 'username':
+                    user.username = newInfo;
+                    break;
+                case 'password':
+                    user.passsword = newInfo;
+                    break;
+                case 'email':
+                    user.email = newInfo;
+                    break;
+                case 'dob':
+                    user.dob = newInfo;
+                    break;
+                default:
+                    cb('Same info')   
+             }
+             return user;
+
+        }
+
         return {
             getAllUsers,
             getUserById,
             getUserByCredentials,
-            addNewUser
+            addNewUser,
+            updateUser
         };
 
     }

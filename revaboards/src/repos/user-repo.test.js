@@ -1,5 +1,5 @@
 const sut = require('./user-repo');
-
+taking 
 describe('userRepo', () => {
 
     test('should be a singleton', () => {
@@ -77,5 +77,34 @@ describe('userRepo', () => {
         });
 
     });
+
+    test("should return the updated username", done =>{
+        let id = 8
+
+        expect.assertions(1);
+        sut.getInstance().updateUser(id,'username','something new', (err,cb)=>{
+        expect(cb).toBe('Same Data');
+        done();
+            })
+        
+    });
+    
+    test("Should update user within datasource when updateUser is passed a valid user object", done =>{
+let updateUser = newUser(1,"...","...","...","...","...")
+expect.assertions(0);
+sut.getInstance().updateUser(updatedUser, (err, result) => {
+    expect(err.toBeFalsy())
+})
+
+test('should throw error when updateUser is given a falsy value', done =>{
+    expect.assertions(1);
+    sut.getInstance().updateUser
+
+})
+
+
+
+
+    })
 
 });
