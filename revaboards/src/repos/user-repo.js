@@ -90,7 +90,9 @@ module.exports = (function() {
             }
 
             // how to validate that all required fields of User are not falsy
-            let invalid = newUser.Null;
+            let invalid = Object.keys(newUser).every(key => {
+                return newUser[key];
+            });
 
             if(invalid) {
                 cb('Error: Invalid property values found in provided user');
@@ -100,15 +102,18 @@ module.exports = (function() {
             setTimeout(() => {
 
                 // ensure that new users cannot have the same username as an existing user
-                let conflict = userData.user.username;
-
+                let conflict = userData.filter(user =>{
+                    return newUser.username == user.username
+                })
                 if(conflict) {
                     cb('Error: The provided username is already taken.');
                     return;
                 }
 
                 // ensure that new users cannot have the same email as an existing user
-                conflict = userData.email;
+                conflict = userData.filter(user => {
+                    return newUser.email == user.email;
+                })
 
                 if(conflict) {
                     cb('Error: The provided email is already taken.');

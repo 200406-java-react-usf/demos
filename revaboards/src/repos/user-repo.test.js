@@ -103,8 +103,8 @@ describe('userRepo', () => {
 
     test('should throw error when updateUser is given an updatedUser with an invalid id',  done => {
         
-        let badUser = new User(-1, 'aanderson', 'p4ssw0rd', 'Alice', 'Anderson', 'aanderson@revature.com', new Date('01/01/1995'))
-        
+        let badUser = new User(3, 'aanderson', 'p4ssw0rd', 'Alice', 'Anderson', 'aanderson@revature.com', new Date('01/01/1995'))
+        console.log(User)
         expect.assertions(2);
         sut.getInstance().updateUser(badUser, (err, result) => {
             expect(err).toBeTruthy();
