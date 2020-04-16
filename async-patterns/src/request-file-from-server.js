@@ -5,7 +5,7 @@
  * @param {string} url fake url (ex: 'file1', 'file2', etc.)
  * @param {function} cb callback invoked when file is retrieved
  */
-function requestFileFromServer(url, cb) {
+module.exports = function requestFileFromServer(url, cb) {
     
     let fakeResponses = {
 		file1: 'This is file 1! It should print first.',
@@ -20,20 +20,3 @@ function requestFileFromServer(url, cb) {
     },randomDelay);
     
 }
-
-// **************************************
-
-function getFile(file) {
-    
-    console.log("Requesting: " + file);
-
-	requestFileFromServer(file, function(text) {
-		// your implementation here
-    });
-    
-}
-
-// FREEBIE: request all files at once in "parallel"
-getFile("file1");
-getFile("file2");
-getFile("file3");
