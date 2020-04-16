@@ -12,70 +12,46 @@
 //  * 
 const userRepo = require('../repos/user-repo');
 const events = require('events');
-module.exports = (function () {
-    let MailWorker;
-    let sendMail = false;
+const User = require('../models/user');
 
-    
-    //Create an event handler:
-    const sendEmail = function () {
-        userRepo.getInstance().addNewUser(NewUser, function(email){
-            console.log(email);
-        })
-    }
-    
-    //Assign the eventhandler to an event:
-    MailWorker.on(true, sendEmail);
-    
-    function newRegister() {
-        let property = {
-            server: 'fake-smtp-server.com',
-            port: 25
-        }
-    }
- 
-    return {
-        getInstance: function () {
-            if (!sendMail) {
-                MailWorker = createInstance();
-            }
-            return MailWorker;
-        }
-    };
-})();
+//class MyEmitter extends EventEmitter { }
 
-module.exports = (function () {
-
-    const MailWorker = new events.EventEmitter();
-
-    //Create an event handler:
-    const sendEmail = function () {
-        userRepo.getInstance().addNewUser(NewUser, function(email){
-            console.log(email);
-        })
-    }
-    
-    //Assign the eventhandler to an event:
-    MailWorker.on(true, sendEmail);
-    
-    //Fire the 'scream' event:
-    newRegister.emit(true);
-    function init() {
-        return {
-            getAllUsers,
-            getUserById,
-            getUserByCredentials,
-            addNewUser,
-            updateUserById
-        };
-
+const test = function (user) {
+    // //console.log(events);
+    let MailWorker = new events.EventEmitter();
+    MailWorker.properties = { server: 'fake-smtp-server.com', port: 25 };
+    //console.log(MailWorker);
+    const newRegister = function () {
+        //plcae holder
+        return "newRegister"
     }
 
-    return {
-        getInstance: function () {
-            //      boolean         if true        if false   
-            return !instance ? instance = init() : instance; // ternary operators (cool looking if/else)
-        }
-    };
+    MailWorker.on("newRegister", () => {
+        userRepo.getInstance().addNewUser(user, () => {
+            console.log(`Email Sent to ${user.email}`)
+        });
+    });
 
-})();
+
+    MailWorker.emit(newRegister());
+
+    // console.log(MyEmitter);
+    // const myEmitter = new MyEmitter();
+    // console.log(myEmitter.prototype);
+    // myEmitter.on('event', () => {
+    //     setImmediate(() => {
+    //         console.log('this happens asynchronously');
+    //     });
+    // });
+    // myEmitter.emit('event');
+    // return {
+    //     getInstance: function () {
+    //         //      boolean         if true        if false   
+    //         return !instance ? instance = init() : instance; // ternary operators (cool looking if/else)
+    //     }
+    // };
+
+};
+
+let newUser = new User(0, 'test', 'password', 'Emily', 'Einstein', 'test@revature.com', new Date('09/01/1993'))
+test(newUser);
