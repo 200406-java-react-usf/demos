@@ -10,10 +10,45 @@
 //  *    to the newly registered users email addres"
 //  *   - console.log() a phrase out that says who you are sending it to and what server/port your are using
 //  * 
-var events = require('events');
-var eventEmitter = new events.EventEmitter();
+const userRepo = require('../repos/user-repo');
+const events = require('events');
+const User = require('../models/user');
 
-eventEmitter.on('scream', function() {
-  console.log('A scream is detected!');
-});
-eventEmitter.emit('scream');
+module.exports = (function () {
+
+    let instance;
+
+    function init() {
+        const MailWorker = function (user, cb) {
+            // //console.log(events);
+            let MailWorker = new events.EventEmitter();
+            MailWorker.properties = { server: 'fake-smtp-server.com', port: 25 };
+            //console.log(MailWorker);
+            const newRegister = function () {
+                //plcae holder
+                return "newRegister"
+            }
+            MailWorker.on("newRegister", () => {
+                userRepo.getInstance().addNewUser(user, (newUser) => {
+                    //check email
+                    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newUser)) {
+                        cb(`Email sent to ${newUser}`);
+                        return
+                    } else {
+                        cb(newUser);
+                        return
+                    }
+                });
+            });
+            MailWorker.emit(newRegister());
+        }
+        return { MailWorker }
+    }
+
+    return {
+        getInstance: function () {
+            return !instance ? instance = init() : instance;
+        }
+    };
+
+})();
