@@ -1,6 +1,6 @@
 // mock DB of an array of users
 //imports the other file
-const User = require('./models/user');
+const User = require('../models/user');
 
 let id = 1;
 

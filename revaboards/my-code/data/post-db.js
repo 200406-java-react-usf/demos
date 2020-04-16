@@ -1,5 +1,5 @@
 // create a simple mock DB of post objs
-const Post = require('./models/post');
+const Post = require('../models/post');
 
 let id = 1;
 

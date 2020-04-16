@@ -1,5 +1,5 @@
-const userApi = require('./api/user-api');
-const postApi = require('./api/post-api');
+const userApi = require('./repos/user-repo');
+const postApi = require('./repos/post-repo');
 const User = require('./models/user');
 
 
@@ -40,10 +40,31 @@ const User = require('./models/user');
 
    // userApi.getUserByEmail('ccountryman@revature.com', user => { console.log(user);}  );
 
-    userApi.getUserByUsername('ddavis', user => {
+    // userApi.getUserByUsername('ddavis', user => {
 
-        console.log(user);
+    //     console.log(user);
+
+    // });
+
+    // userApi.getAllUsers((err,result) => {
+
+    //     console.log(result);
+
+    // });
+
+
+    //NEW LOGIC
+
+    //  userApi.getInstance().getAllUsers((err, result)=>{
+
+    //     if (err) console.log(err);
+
+    //     console.log(result);
+
+    //  })
+
+    userApi.getInstance().updateUser(new User(1,'janderson','password2','John','','janderson@revature.com',''), (x) =>{
+
+        console.log(x);
 
     });
-
-
