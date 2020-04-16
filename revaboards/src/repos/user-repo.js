@@ -32,10 +32,10 @@ module.exports = (function() {
             }, 250);
         };
         
-        const getUserById = function(id, onComplete, onError) {
+        const getUserById = function(id, cb) {
         
             if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
-                onError('Bad request, invalid id value provided.');
+                cb('Bad request, invalid id value provided.');
                 return;
             };
         
@@ -50,11 +50,11 @@ module.exports = (function() {
                 }
         
                 if (!retrievedUser) {
-                    onError('No user found with provided id.');
+                    cb('No user found with provided id.');
                     return;
                 }
         
-                onComplete(retrievedUser);
+                cb(null, retrievedUser);
         
             }, 250);
         }
