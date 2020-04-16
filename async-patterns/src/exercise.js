@@ -14,3 +14,5 @@ function getFile(file) {
 getFile("file1");
 getFile("file2");
 getFile("file3");
+
+const 
