@@ -124,8 +124,18 @@ module.exports = (function() {
                 
                 cb(null, newUser);
 
-            }, 250);
-        
+            }, 250);        
+        }
+
+        const updateUser = (userID, pickChange, changesMade, cb) => {
+            let user = getUserById(userID)
+            if (pickChange == 'email'){
+                user.email = changesMade
+            }else if (pickChange == 'password'){
+                user.password = changesMade
+            }else
+                cb('Error: Field of change is invalid')
+            return(user)
         }
 
         return {

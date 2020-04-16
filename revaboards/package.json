@@ -13,7 +13,6 @@
   ],
   "author": "Wezley Singleton",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "jest": "^25.3.0"
   }
