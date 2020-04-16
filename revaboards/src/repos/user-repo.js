@@ -1,11 +1,8 @@
 const userData = require('../data/user-db');
 
-const getAllUsers = (cb) => {
-    
-    setTimeout(() => {
+module.exports = (function() {
 
-        // mutating the actual User bojects in the data source
-        // NOT FUNCTIONAL!
+    let instance;
 
     function init() {
         
@@ -61,85 +58,73 @@ const getAllUsers = (cb) => {
         
             }, 250);
         }
-
-        if (!retrievedUser) {
-            onError('No user found with provided id.');
-            return;
-        }
-        if (!retrievedUser) {
-            onError('User not found for provided id');
-            return;
-        }
-        onComplete(retrievedUser);
-
-        onComplete(retrievedUser);
-
-    }, 250);
-}
-
-const getUserByCredentials = (un, pw, cb) => {
-    setTimeout(() => {
         
-        // validation to ensure we do not waste resources
-        if (!un || !pw) {
-            cb('Oh no! You gave me bad data');
-            return;
-        }
+        const getUserByCredentials = (un, pw, cb) => {
+            setTimeout(() => {
+                
+                // validation to ensure we do not waste resources
+                if (!un || !pw) {
+                    cb('Oh no! You gave me bad data');
+                    return;
+                }
+                
+                // fetch the sought user (declarative-style logic)
+                let user = userData.filter(user => user.username === un && user.password == pw).pop();
         
-        // fetch the sought user (declarative-style logic)
-        let user = userData.filter(user => user.username === un && user.password == pw).pop();
-
-        /* 
-            other "functional" methods for arrays include: 
-                - filter
-                - map
-                - reduce
-        */
-
-        // validate that we actually obtained a user
-        if (!user) {
-            cb('Invalid credentials provided!');
-            return;
+                // validate that we actually obtained a user
+                if (!user) {
+                    cb('Invalid credentials provided!');
+                    return;
+                }
+            
+                cb(null, user);
+        
+            }, 250);
         }
         
-        // GUARD OPERATOR
-        // console.log(user); // user == undefined
-        // user = user || {username: 'failed-login', password: 'failed-login'};
+        const addNewUser = (newUser, cb) => {
 
+            if (!newUser) {
+                cb('Error: Falsy user provided');
+                return;
+            }
 
-        // invoke the provided callback function
-        cb(null, user);
+            // how to validate that all required fields of User are not falsy
+            let invalid;
 
-    }, 250);
-}
+            if(invalid) {
+                cb('Error: Invalid property values found in provided user');
+                return;
+            }
 
-const addNewUser = (newUser, cb) => {
+            setTimeout(() => {
 
-    // 0, '', "", NaN, null, undefined, false <---- THE ONLY FALSY VALUES
-    // {}, [], new Object(), "   ", '0', 'null'
-    // validate the user
-    if (!newUser) throw Error('Oh no! You gave me bad data!');
+                // ensure that new users cannot have the same username as an existing user
+                let conflict;
 
-    //check to verify user is not already in databsse
-    for (user of userData){
-        //if (user.id == newUser.id) throw Error ('User Id already exist');
-        if (User.username == newUser.username) throw Error ('Username already in use')
-        if (user.email == newUser.email) throw Error ('Email already in use.')
-    }
+                if(conflict) {
+                    cb('Error: The provided username is already taken.');
+                    return;
+                }
 
-    // get the next id (would not be necessary with a real DB)
-    newUser.id = (userData.length) + 1;
+                // ensure that new users cannot have the same email as an existing user
+                conflict;
 
-    // add user user to data source
-    userData.push(newUser);
+                if(conflict) {
+                    cb('Error: The provided email is already taken.');
+                    return;
+                }
 
-    cb(newUser);
+                newUser.id = (userData.length) + 1;
+                userData.push(newUser);
 
-}
+                // emit a 'newRegister' event on mail-worker
+                
+                cb(null, newUser);
 
-const getUserbyEmail = (email, cb) => {
-    setTimeout(function() {
-        if(!email) throw Error('Oh no! You gave me bad data.')
+            }, 250);
+        
+        }
 
         const updateUser = (updatedUser, cb) => {
 
@@ -152,17 +137,17 @@ const getUserbyEmail = (email, cb) => {
                 cb('A valid id must be provided for update operations.');
                 return;
             }
+            
+            let invalid = Object.values(updatedUser)
+            console.log(updatedUser, invalid);
+            //console.log('+++++++++++++++++++++++++++++++++++++++++a++++++++++++++++++++++');
 
-            let invalid = !Object.keys(updatedUser).some(key => {
-                console.log(updatedUser[key], !!updatedUser[key]);
-                return updatedUser[key];
-            });
-
-            if (invalid) {
-                cb('Invalid property values found in provided user.');
-                return;
+            for(x=0; x<invalid.length; x++){
+                if (!invalid[x]) {
+                    cb('Invalid property values found in provided user.');
+                    return;
+                }
             }
-
             setTimeout(() => {
 
                 let persistedUser = userData.find(user => user.id == updatedUser.id);
@@ -201,11 +186,7 @@ const getUserbyEmail = (email, cb) => {
             updateUser
         };
 
-        for (user of userData){
-          
-            if (user.email == email) {
-                retrievedEmail = user;
-            }
+    }
 
     return {
         getInstance: function() {  
@@ -213,10 +194,4 @@ const getUserbyEmail = (email, cb) => {
         }
     };
 
-module.exports = {
-    getAllUsers,
-    getUserById,
-    getUserByCredentials,
-    addNewUser,
-    getUserbyEmail
-};         
+})(); 
