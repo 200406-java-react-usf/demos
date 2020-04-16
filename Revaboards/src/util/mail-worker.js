@@ -9,3 +9,5 @@
  * 3. Add an event to MailWorker called 'newRegister', when this event is emitted execute a function that "sends" an email
  *    to the newly registered users email addres"
  *   - console.log() a phrase out that says who you are sending it to and what server/port your are using
+ * 
+ * 
