@@ -139,8 +139,6 @@ module.exports = (function() {
             }
             
             let invalid = Object.values(updatedUser)
-            console.log(updatedUser, invalid);
-            //console.log('+++++++++++++++++++++++++++++++++++++++++a++++++++++++++++++++++');
 
             for(x=0; x<invalid.length; x++){
                 if (!invalid[x]) {
