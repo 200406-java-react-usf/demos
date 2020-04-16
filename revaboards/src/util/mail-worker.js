@@ -14,44 +14,41 @@ const userRepo = require('../repos/user-repo');
 const events = require('events');
 const User = require('../models/user');
 
-//class MyEmitter extends EventEmitter { }
+module.exports = (function () {
 
-const test = function (user) {
-    // //console.log(events);
-    let MailWorker = new events.EventEmitter();
-    MailWorker.properties = { server: 'fake-smtp-server.com', port: 25 };
-    //console.log(MailWorker);
-    const newRegister = function () {
-        //plcae holder
-        return "newRegister"
+    let instance;
+
+    function init() {
+        const MailWorker = function (user, cb) {
+            // //console.log(events);
+            let MailWorker = new events.EventEmitter();
+            MailWorker.properties = { server: 'fake-smtp-server.com', port: 25 };
+            //console.log(MailWorker);
+            const newRegister = function () {
+                //plcae holder
+                return "newRegister"
+            }
+            MailWorker.on("newRegister", () => {
+                userRepo.getInstance().addNewUser(user, (newUser) => {
+                    //check email
+                    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newUser)) {
+                        cb(`Email sent to ${newUser}`);
+                        return
+                    } else {
+                        cb(newUser);
+                        return
+                    }
+                });
+            });
+            MailWorker.emit(newRegister());
+        }
+        return { MailWorker }
     }
 
-    MailWorker.on("newRegister", () => {
-        userRepo.getInstance().addNewUser(user, () => {
-            console.log(`Email Sent to ${user.email}`)
-        });
-    });
+    return {
+        getInstance: function () {
+            return !instance ? instance = init() : instance;
+        }
+    };
 
-
-    MailWorker.emit(newRegister());
-
-    // console.log(MyEmitter);
-    // const myEmitter = new MyEmitter();
-    // console.log(myEmitter.prototype);
-    // myEmitter.on('event', () => {
-    //     setImmediate(() => {
-    //         console.log('this happens asynchronously');
-    //     });
-    // });
-    // myEmitter.emit('event');
-    // return {
-    //     getInstance: function () {
-    //         //      boolean         if true        if false   
-    //         return !instance ? instance = init() : instance; // ternary operators (cool looking if/else)
-    //     }
-    // };
-
-};
-
-let newUser = new User(0, 'test', 'password', 'Emily', 'Einstein', 'test@revature.com', new Date('09/01/1993'))
-test(newUser);
+})();

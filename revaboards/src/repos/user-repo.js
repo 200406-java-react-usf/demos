@@ -103,7 +103,6 @@ module.exports = (function () {
                         let users = user[key];
                         existing.push(users);
                     }
-                    console.log("input is ", input);
                     if (existing.includes(input)) {
                         return true;
                     } else {
@@ -122,6 +121,7 @@ module.exports = (function () {
                 newUser.id = (userData.length) + 1;
                 userData.push(newUser);
                 // emit a 'newRegister' event on mail-worker  
+                console.log(newUser.email);
                 cb(newUser.email);
             }, 250);
 
