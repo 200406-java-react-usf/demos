@@ -109,7 +109,6 @@ module.exports = (function () {
                     } else {
                         return false;
                     }
-
                 }
                 if (conflict("username", newUser.username)) {
                     cb('Error: The provided username is already taken.');
