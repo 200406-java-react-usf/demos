@@ -128,11 +128,63 @@ module.exports = (function() {
         
         }
 
+        const updateUser = (updatesUser, cb) => {
+            if (!updatesUser) {
+              cb("Falsey user object provided.");
+              return;
+            }
+      
+            if (
+              !updatesUser.id ||
+              !Number.isInteger(updatedUser.id) ||
+              updateUser.id <= 0
+            ) {
+              cb("A valid id must be provided for updated operations.");
+              return;
+            }
+      
+            let invalid = !Object.keys(updateUser).some((key) => updateUser[key]);
+      
+            if (invalid) {
+              cb("Invalid property values found in provided user.");
+              return;
+            }
+      
+            setTimeout(() => {
+              let persistedUser = userData.find((user) => user.id == updateUser.id);
+      
+              if (!persistedUser) {
+                cb("No user found with provided id");
+                return;
+              }
+      
+              if (persistedUser.username != updateUser.username) {
+                cb("Usernames cannot be updated at this time.");
+                return;
+              }
+      
+              const conflict = userData
+                .filter((user) => {
+                  if (user.id == updateUser.id) return false;
+                  return user.email == updateUser.email;
+                })
+                .pop();
+      
+              if (conflict) {
+                cd("Provided email is already in use by another user");
+              }
+      
+              persistedUser = updatedUser;
+              cb(null, true);
+            }, 250);
+          };
+
         return {
             getAllUsers,
             getUserById,
             getUserByCredentials,
-            addNewUser
+            addNewUser,
+            updateUser
         };
 
     }
