@@ -1,0 +1,12 @@
+{
+  "name": "async-patterns",
+  "version": "1.0.0",
+  "description": "Using callbacks implement a solution that implements the expected behavior.",
+  "main": "src/exercise.js",
+  "scripts": {
+    "start": "node src/exercise.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
