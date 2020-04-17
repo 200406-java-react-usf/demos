@@ -45,7 +45,7 @@ describe('userApi', () => {
 
     test('should update user within data source when update user is given valid user', done => {
 
-        let updatedUser = new User(1, 'aanderson', 'p4ssw0rd', 'Alice', 'Anderson', 'aanderson@revature.com', new Date('01/01/1995'));
+        let updatedUser = new User(1, 'aanderson', 'updated', 'updated', 'updated', 'updated@revature.com', new Date());
         expect.assertions(2);
 
         sut.getInstance().updateUser(updatedUser, (err,result) => {

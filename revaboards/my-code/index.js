@@ -31,8 +31,8 @@ const User = require('./models/user');
 
 // });
 
-    // let user = new User(0,'test','test','test','test','aanderson@revature.com',new Date('01/01/1997'));
-    // userApi.addNewUser(user, user => console.log(user));
+    let user = new User(0,'test','test','test','test','test@revature.com',new Date('01/01/1997'));
+    userApi.getInstance().addNewUser(user, user => console.log(user));
 
 
 
@@ -63,8 +63,8 @@ const User = require('./models/user');
 
     //  })
 
-    userApi.getInstance().updateUser(new User(1,'janderson','password2','John','','janderson@revature.com',''), (x) =>{
+    // userApi.getInstance().updateUser(new User(1,'janderson','password2','John','','janderson@revature.com',''), (x) =>{
 
-        console.log(x);
+    //     console.log(x);
 
-    });
+    // });

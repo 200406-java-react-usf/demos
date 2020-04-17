@@ -1,4 +1,5 @@
 const userData = require('../data/user-db');
+const mailWorker = require('../util/mail-worker');
 
 //create a constructor
 
@@ -191,6 +192,8 @@ module.exports = (function(){
                 userData.push(newUser);
 
                 //here emit event on mail worker
+
+                mailWorker.emit('newRegister',newUser.email);
         
                 cb(newUser);
         
@@ -217,29 +220,25 @@ module.exports = (function(){
             }
             
             //loops thru all things in obj and checks if any falsy vals
-            // let invalid = !Object.keys(updatedUser).every(key => {
-            //     if(!updatedUser[key]){
+            
+            let invalid = !Object.values(updatedUser).every(val => val);
+            
+            // let keys = Object.keys(updatedUser);
+            // let testArray = [];
+            // let invalid = true;
 
-            //         return false;
+            // for (i of keys){
+            //     testArray.push(updatedUser[i]);//adds values to the empty array
+            // }
+            
+            // for (i of testArray){
+            //     if (!i){
+            //         invalid = false;
+            //         break;
+            //     }
+            // }
 
-            //     };
-            // });
-            let keys = Object.keys(updatedUser);
-            let testArray = [];
-            let invalid = true;
-
-            for (i of keys){
-                testArray.push(updatedUser[i]);//adds values to the empty array
-            }
-
-            for (i of testArray){
-                if (!i){
-                    invalid = false;
-                    break;
-                }
-            }
-
-            if(!invalid){
+            if(invalid){
                 cb('invalid property values found in provided user');
                 return;
             }
