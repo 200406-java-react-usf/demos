@@ -14,6 +14,7 @@
  * */
 
 const EventEmitter = require('events');
+const userObject = require('../models/user');
 
 module.exports = (function() {
 
@@ -22,14 +23,16 @@ module.exports = (function() {
     function init() {
 
         //send email to a new registration email address of a new user
-        function newRegister(emailAddress, cb) {
+        function newRegister(user, cb) {
             //define server and port
             const server = 'fake-smtp-server.com';
             const port = 25;
             
             //emit email????
-            const myEmitter = new MyEmitter();
-            myEmitter.on()
+            const newRegister = new MyEmitter();
+            newRegister.once('emailNewUser', () => {
+                console.log(`Emailed new user (${}`)
+            });
             
         } 
 
