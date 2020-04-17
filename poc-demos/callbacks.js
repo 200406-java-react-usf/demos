@@ -1,40 +1,45 @@
 /*
+    Task A - takes 4 secs (each second is a microtask)
+    Task B - takes 3 secs (each second is a microtask)
+    
+    Option 1: A1 - A2 - A3 - A4 - B1 - B2 - B3 (7 seconds)
 
-Task A - takes 4 sec
-Task B
+    Option 2: A1 - B1 - A2 - B2 - B3 - A3 - A4 (7 seconds)
 
-Option 1: A1 - A2 - A3 - A4 - B1 - B2 - B3 (7seconds)
-Option 2: A1 - B1 - A2 - B2 - B3 - A3 - A4 (7seconds)
+    ...
 
-...
+    Asynchronous Programming == managing concurrency
 
-Asynchrounous Programming == managing concurrency
+    Async Pattern:
+      
+      - callbacks
+        + pro: simple enough
+        + cons: readability (callback hell), inversion of control
 
-Async Pattern:
-    -callbacks
-        + pro: Simple enough
-        + cons: readability (callback hell), inversion of control(your code is in the hands of someone else)
-    - thunk
-        + definition(synchronous and asynchronous)
+      - thunk
+        + definition (synchronous and asynchronous)
         + relationship to closures
         + replace callbacks with thunks
     
-    - Promises
+      - Promises
         + then/catch syntax
         + async/await syntax
 
 */
-//NOW 
+
+// NOW
 
 setTimeout(() => {
     // LATER
     console.log('callback!');
-},1000)
+}, 1000);
+
 
 // NOW
 
-// ------------------------------------
-//Callback Hell
+//-----------------------------------
+
+// Callback Hell
 
 setTimeout(() => {
     console.log('uno!');
@@ -42,11 +47,18 @@ setTimeout(() => {
         console.log('dos!');
         setTimeout(() => {
             console.log('tres!');
-        },1000);
-    },1000);
-},1000);
+            setTimeout(() => {
+                console.log('quatro!');
+                setTimeout(() => {
+                    console.log('cinco!');
+                }, 1000);
+            }, 1000);
+        }, 1000);
+    }, 1000);
+}, 1000);
 
-// Still in callback hell( just looks better)
+// Still in callback hell (just looks better)
+
 function one(cb) {
     console.log('one');
     setTimeout(cb, 1000);
@@ -61,7 +73,6 @@ function three(cb) {
     console.log('one');
     setTimeout(cb, 1000);
 }
-
 
 one(function() {
     two(three);

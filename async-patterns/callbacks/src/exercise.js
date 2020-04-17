@@ -1,4 +1,4 @@
-let requestFileFromServer = require('./request-file-from-server');
+const requestFileFromServer = require('./request-file-from-server');
 
 let res = [];
 let filenames = ['file1','file2','file3'];
