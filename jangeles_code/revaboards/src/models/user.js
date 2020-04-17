@@ -2,10 +2,10 @@
 module.exports = function User(id, un, pw, fn, ln, email, dob) {
 
     this.id = id;
-    this.username = un;
-    this.password = pw;
-    this.firstName = fn;
-    this.lastName = ln;
+    this.un = un;
+    this.pw = pw;
+    this.fn = fn;
+    this.ln = ln;
     this.email = email;
     this.dob = dob;
 

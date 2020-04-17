@@ -71,7 +71,7 @@ module.exports = (function() {
                 }
                 
                 // fetch the sought user (declarative-style logic)
-                let user = userData.filter(user => user.username === un && user.password == pw).pop();
+                let user = userData.filter(user => user.un === un && user.pw == pw).pop();
         
                 // validate that we actually obtained a user
                 if (!user) {
@@ -84,12 +84,14 @@ module.exports = (function() {
             }, 250);
         }
         
-        const addNewUser = (newUser, cb) => {
+        const addNewUser = (newUser, onComplete, onError) => {
 
             if (!newUser) {
-                cb('Error: Falsy user provided');
+                onError('Error: Falsy user provided');
                 return;
             }
+
+            // if(newUser.length !== to )
 
             // how to validate that all required fields of User are not falsy
             let invalid;
@@ -127,12 +129,92 @@ module.exports = (function() {
             }, 250);
         
         }
+        // const updateUser = function(id, key, newInput, onComplete, onError){
+        //     if (typeof id !== 'number' || !Number.isInteger(id) || id <= 0) {
+        //         onError('Bad request, invalid id value provided.');
+        //         return;
+        //     };
+        //     setTimeout(function() {
+        //         let retrievedUser = null;
+        //         for (user of userData) {
+        //             if (user.id == id) {
+        //                 retrievedUser = user;
+        //             }  
+        //         }
+        //         if (!retrievedUser) {
+        //             onError('No user found with provided id.');
+        //             return;
+        //         }
+        //         // get the field that needs to be updated and replace with new entry          
+        //         // let retrievedUser = getUserById(id, onComplete, onError);
+        //         if (key === 'id') {
+        //             onError('You can\'t change your id');
+        //             return;
+        //         }
+        //         retrievedUser[key] = newInput;
+        //         onComplete(retrievedUser);
+        //     }, 250);
+        // }
+
+        const updateUser = (udatedUser, cb) =>
+        {
+            if (!udatedUser)
+            {
+                cb('Falsy user object provided');
+                return;
+            }
+
+            if(!updateUser.id || !Number.isInteger(updateUser.id) || updateUser.id <= 0)
+            {
+                cb('A valid id must be provided for update operations');
+                return;
+            }
+
+            let invalid = !Object.keys(updateUser).some(key => updateUser[key]);
+
+            if (invalid)
+            {
+                cb('Invalid property values found in provided user')
+                return;
+            }
+
+            setTimeout(() => 
+            {
+                let persistedUser = userData.find(user => user.id == updateUser.id);
+                if(!persistedUser) {
+                    cb('No user found with provided id');
+                    return;
+                }
+
+                if(persistedUser.un != updateUser.un)
+                {
+                    cb('Usernames cannot be updated at this time.');
+                    return;
+                }
+
+                const conflict = userData.filter(user => 
+                {
+                        if(user.id == updateUser.id) return false;
+                        return user.email == updateUser.email;
+                }).pop();
+
+                if(conflict)
+                {
+                    cb('Provided email is already in use by another user.')
+                    return;
+                }
+
+                persistedUser = updateUser;
+                cb(null, true);
+            }, 250);
+        }
 
         return {
             getAllUsers,
             getUserById,
             getUserByCredentials,
-            addNewUser
+            addNewUser,
+            updateUser
         };
 
     }
