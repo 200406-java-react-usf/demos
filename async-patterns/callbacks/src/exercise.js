@@ -1,7 +1,12 @@
+<<<<<<< HEAD:async-patterns/src/exercise.js
 let requestFileFromServer = require('./request-file-from-server');
 let file3;
 let file2;
 let file1;
+=======
+const requestFileFromServer = require('./request-file-from-server');
+
+>>>>>>> 925a0dccf66352700b88ac41dd16dd049b592ce0:async-patterns/callbacks/src/exercise.js
 function getFile(file) {
     
     console.log("Requesting: " + file);    
