@@ -25,36 +25,49 @@ setTimeout(() => {
     //let users = [...UserData]; spread operator or do this?
     //or map?
     //still
-    let  users = Array.from(UserData)
-    getUserByUsername.forEach(user =>{
-        users.password =
-    })
-}
+    let  users = [];
+   
+    for (user of userData) {
+        users.push({...user});
+    } 
+ 
+    if (users.length == 0) {
+        cb('Resource not found')
+        return;
+    }
+
+    users = users.map( user =>{
+        delete user.password;
+        return user;
+    });
+
     //return userData
-     cb(userData),250
+     cb(null, users),250
     );
 
 }
-/* shoulda just commented this out here, instead of 
-copy pasteing it over to post-api and commenting it out there... sigh... but now I'm just gonna keep it :)
-and we actually do use it here
-*/
-const getUserById = function(id, onComnplete, onError){
+
+const getUserById =(id, cb) =>{
 
     console.log(`Looking for ID: ${id}`)
 
-    setTimeout(function(){
-        //to simulate lag
-        if (typeof id !== 'number' || !Number.isInteger(id)|| id <= 0 ){}
-        let retrievedUser = null;
-        //very imperitive style
-
-        for (user in userData) {
-            if (userData.id === id) {
-                retrievedUser = user;
-            }
+    if (typeof id !== 'number' || !Number.isInteger(id)|| id <= 0 ){
+            cb('Bad Request error');
+            return;
         }
-        cb(retrievedUser);
+
+    setTimeout(()=>{
+        //to simulate lag
+        const user = {...userData.filter(user => user.id ===id).pop()};
+        
+
+         if (!user){
+             cb('Resource not found')
+         }
+
+         cb(null,user);
+      
+     
     }, 250);
 }
 
