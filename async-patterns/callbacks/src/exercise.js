@@ -1,4 +1,4 @@
-let requestFileFromServer = require('./request-file-from-server');
+const requestFileFromServer = require('./request-file-from-server');
 
 //hint: use a global var for something
 let array = ['', '',''];
