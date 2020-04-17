@@ -1,7 +1,11 @@
 const requestFileFromServer = require('./request-file-from-server');
 
 function retrieveFile(file) {
+    
+    console.log(`Requesting: ${file}`);
+
     // your thunk implementation here
+    
 }
 
 // FREEBIE: request all files in "parallel" here
