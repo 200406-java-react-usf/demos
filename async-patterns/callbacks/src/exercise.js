@@ -1,4 +1,4 @@
-let requestFileFromServer = require('./request-file-from-server');
+const requestFileFromServer = require('./request-file-from-server');
 
 function getFile(file) {
 
@@ -53,6 +53,7 @@ let responses = {};
 getFile("file1");
 getFile("file2");
 getFile("file3");
+<<<<<<< HEAD:async-patterns/src/exercise.js
 
 
 /*
@@ -90,3 +91,5 @@ function printFiles(){
 
 
 */
+=======
+>>>>>>> 925a0dccf66352700b88ac41dd16dd049b592ce0:async-patterns/callbacks/src/exercise.js
