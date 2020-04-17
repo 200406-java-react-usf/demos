@@ -16,7 +16,7 @@ function retrieveFile(file) {
         if(result){
             cb(result);     
         }
-        fn = cb;
+        fn = cb; //set our callback function into our inner function variable until I retrieve it
     }
     
 }
