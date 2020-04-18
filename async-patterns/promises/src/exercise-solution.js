@@ -25,11 +25,12 @@ async function multiRetrieve(...files) {
         try {
             return await retrieveFile(file);
          } catch (e) {
-            return e
+            return e;
         }
     }
+
     let res = files.map((ele)=>{
-        return getOne(ele)
+        return getOne(ele);
     });
 
     for(let i =0; i < res.length; i++){
@@ -37,7 +38,7 @@ async function multiRetrieve(...files) {
     }
 
     console.log('Complete!');
-    
+
 }
 
 multiRetrieve('file1', 'file2', 'file3', 'file4');
