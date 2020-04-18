@@ -18,5 +18,6 @@
   "homepage": "https://github.com/200406-java-react-usf/demos#readme",
   "dependencies": {
     "jest": "^25.3.0"
-  }
+  },
+  "devDependencies": {}
 }
