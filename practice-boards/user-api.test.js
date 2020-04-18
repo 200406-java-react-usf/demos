@@ -1,4 +1,5 @@
 const sut = require('./user-api');
+const User = require('./user');
 
 describe('verify that our promises work', () => {
 
@@ -12,6 +13,17 @@ describe('verify that our promises work', () => {
             done();
         });
         
+
+    });
+
+    test('should return user with ID 3', done => {
+
+        expect.assertions(2);
+        return sut.getUserById(3).then((user,err) => {
+            expect(err).toBeFalsy();
+            expect(user).toEqual(new User(3,'kwagenheim', 'password', 'kwagenheim@gmail.com','Kevin', 'Wagenheim'))
+            done();
+        });
 
     });
 
