@@ -1,7 +1,6 @@
 //need to export the info, add module.exports
 //now can be used in other files, but need to import first
 
-
 module.exports = function User(id,un, pw, fn, ln, email, dob){
     //function to create users
     // kind of like making a class
@@ -34,3 +33,7 @@ module.exports = function User(id,un, pw, fn, ln, email, dob){
     }
 
 }
+
+
+
+
