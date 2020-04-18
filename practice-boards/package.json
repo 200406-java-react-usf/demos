@@ -1,0 +1,15 @@
+{
+  "name": "practice-boards",
+  "version": "1.0.0",
+  "description": "practicing own revaboards with promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Kevin",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^25.3.0"
+  }
+}
