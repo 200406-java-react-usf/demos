@@ -4,8 +4,25 @@ function getFile(file) {
     
     console.log("Requesting: " + file);
 
+    let files = ['file1', 'file2', 'file3']
+
 	requestFileFromServer(file, function(text) {
-		// your implementation here
+        // your implementation here
+        //To check if file is true
+        if(!file) throw new Error('File does not exist')
+
+        for (let i = 0; i < file.length; i++) {
+            if(file == 'file1'){
+                console.log(files[0])
+            }else if(file == 'file2'){
+                console.log(files[1]);
+            }else{
+                console.log(files[2]);
+            }
+            
+        }
+
+        
     });
     
 }
