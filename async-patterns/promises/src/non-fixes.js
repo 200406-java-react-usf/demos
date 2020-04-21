@@ -41,20 +41,20 @@ function retrieveFile(file) {
 
 // Second implementation using Promises (meets minimum reqs, but does not handle errors well)
 
-// let promise1 = retrieveFile('file1');
-// let promise2 = retrieveFile('file2');
-// let promise3 = retrieveFile('file3');
-// let promise4 = retrieveFile('file4');
+let promise1 = retrieveFile('file1');
+let promise2 = retrieveFile('file2');
+let promise3 = retrieveFile('file3');
+let promise4 = retrieveFile('file4');
 
-// promise1.then(text => console.log(text))
-//         .then(() => promise2)
-//         .then(text => console.log(text))
-//         .then(() => promise3)
-//         .then(text => console.log(text))
-//         .then(() => promise4)
-//         .then(text => console.log(text))
-//         .catch(err => console.log(err))
-//         .finally(() => console.log('Complete!'));
+promise1.then(console.log)
+        .then(() => promise2)
+        .then(console.log)
+        .then(() => promise3)
+        .then(console.log)
+        .then(() => promise4)
+        .then(console.log)
+        .catch(err => console.log(err))
+        .finally(() => console.log('Complete!'));
 
 //--------------------------------------------------------------------------------
 
@@ -120,15 +120,15 @@ function retrieveFile(file) {
 
 // Does not really solve this problem, since it waits for all files to be retrieved before printing their text
 // Handles errors well though!
-Promise.allSettled([retrieveFile('file1'), retrieveFile('file2'), retrieveFile('file3'), retrieveFile('file4')])
-       .then(values => {
+// Promise.allSettled([retrieveFile('file1'), retrieveFile('file2'), retrieveFile('file3'), retrieveFile('file4')])
+//        .then(values => {
            
-            values.forEach(val => {
-                if (val.status === 'fulfilled') {
-                    console.log(val.value)
-                } else {
-                    console.log(val.reason);
-                }
-            });
-       })
-       .finally(() => console.log('Complete!'));
+//             values.forEach(val => {
+//                 if (val.status === 'fulfilled') {
+//                     console.log(val.value)
+//                 } else {
+//                     console.log(val.reason);
+//                 }
+//             });
+//        })
+//        .finally(() => console.log('Complete!'));
