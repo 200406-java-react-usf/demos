@@ -28,15 +28,3 @@ let asyncThunk = function(cb) {
 asyncThunk(function(product) {
     console.log(product);
 });
-
-asyncThunk(function(product) {
-    console.log(product);
-});
-
-asyncThunk(function(product) {
-    console.log(product);
-});
-
-asyncThunk(function(product) {
-    console.log(product);
-});
