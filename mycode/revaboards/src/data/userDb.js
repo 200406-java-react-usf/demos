@@ -2,16 +2,32 @@
 //console.log(user)
 //This won't work reference errot user is not defined in this file
 
-const User = require('../models/user')
-//whatever function is exported can be imported here
-let id = 1 
+class User{
 
-module.exports =  [
-new User(id++, "aa","password","a","a","aa@","a", new Date('01/01/1990')),
-new User(id++, "bb","password","b","b","bb@","a", new Date('01/01/1990')),
-new User(id++, "cc","password","c","c","cc@","a", new Date('01/01/1990')),
-new User(id++, "dd","password","d","d","dd@","a", new Date('01/01/1990')),
-new User(id++, "ee","password","e","e","ee@","a", new Date('01/01/1990')),
-new User(id++, "ff","password","f","f","ff@","a", new Date('01/01/1990')),
+constructor(id, un, pw, fn, ln, email, dob) {
+    this.id = id
+    this.username = un;
+    this.password = pw;
+    this.firstName = fn;
+    this.lastName = ln;
+    this.email = email;
+    this.dob = dob;
+}
 
-]
+age() {
+    return Math.abs(new Date(Date.now() - this.dob.getTime()) - 1970);
+}
+
+}
+
+
+//const User = require('../models/user');
+let id = 1;
+
+module.exports = [
+    new User(id++, 'aanderson', 'password', 'Alice', 'Anderson', 'aanderson@revature.com', '01/01/1995'),
+    new User(id++, 'bbailey', 'password', 'Bob', 'Bailey', 'bbailey@revature.com', '01/01/1983'),
+    new User(id++, 'ccountryman', 'password', 'Charlie', 'Countryman', 'ccountryman@revature.com', '01/01/1990'),
+    new User(id++, 'ddavis', 'password', 'Daniel', 'Davis', 'ddavis@revature.com', '07/01/1990'),
+    new User(id++, 'eeinstein', 'password', 'Emily', 'Einstein', 'eeinstein@revature.com', '09/01/1993')
+];

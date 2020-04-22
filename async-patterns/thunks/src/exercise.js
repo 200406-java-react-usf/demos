@@ -4,8 +4,30 @@ const requestFileFromServer = require('./request-file-from-server');
 function retrieveFile(file, cb) {
     cb( requestFileFromServer(file)  )
     console.log(`Requesting: ${file}`)
-}
+// let called   used to determine if we've already requeted the file
+// let response   used to store the response from the server
+// let thunkCB    a callback to be used in case we get a file earlier than expected
 
+// requestFileFromServer(file ,text =>{
+// if (!called) {
+//     called = true;
+//     response =text;
+// }else {
+//     thunkCb(text);
+//     }
+// });
+
+// return function(cb) {
+//     if(!called) {
+//         called = true
+//     } else{
+//         cb(response);
+//     }
+
+// }
+
+// }
+}
 
 
 
@@ -19,6 +41,9 @@ let thunk3 = function(cb) {return retrieveFile('file3', cb)};
 thunk1(function(file){
     console.log(file)
 })
+
+
+
 
 
 // function multiplyAsync(a, b, cb) {

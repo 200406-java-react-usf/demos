@@ -1,21 +1,13 @@
 const userData = require('../data/userDb')
 
 
-function UserRepository(){
+module.exports = (function (){
     let instance; // this will be a reference to our singleton object
 //everything below goes here
     function init(){
- return {
-     // all 4 funcs below
- }
-    }
-    return{ getInstance: function(){
-        if (!instance){instance = init();
-        }else return instance 
-    }
-    
-}
-}
+ 
+
+
 
 const getAllUsers = (cb) =>{
 setTimeout(() => {
@@ -71,47 +63,121 @@ const getUserById =(id, cb) =>{
     }, 250);
 }
 
-
-
 const getUserByCredentials = (un, pw, cb)=> {
-    setTimeout(() =>{
-
-        if(!un||!pw) throw Error('Bad data');
-cb("oh no you gave me bad data!")
+    
+        if(!un||!pw) {
+            cb("oh no you gave me bad data!")
+            return;
+        }
+        setTimeout(()=> {
         //fetch the sought user with declaritve style logic filter is abstracting away from 
         const user = userData.filter(user => user.username === un &&user.password === pw).pop();
         // validation that we found a user with that username
-        if(!user) cb('bad username');
-
+        if(!user) {
+            cb('bad username or password');
+            return;
+        }
         cb(null, user);
 
     }, 250 );
 }
-// let newUser = new User(2,2,2,2,2,2,2,2)
+
 const addNewUser = (newUser, cb)=> {
     //validate the user
     if (!newUser) {throw Error('Bad Data')}
 
-    else if (newUser === userData.filter(()=> newUser.username === userData.username))
-        {throw Error("Username already in use") }
+    let invalid =!Object.keys(newUser).every(key =>{
+        if( key =='id') return true;
+        return newUser[key]
+    });
+if(invalid){
+    cb('invalid property values')
+    return;
+}
+
+setTimeout(()=> {
+emailConflict = data.filter(user => user.email ==newUser.email).pop();
+
+if (emailConflict)
+{
+    cb('The provided email is already taken.')
+    return;
+}
+nameConflict = userData.filter(()=> newUser.username === userData.username)
+
+if (nameConflict){throw Error("Username already in use") }
     
 
-    else {newUser.id = userData.length
-    userData.push(newUser);
+
+newUser.id = userData.length +1;
+userData.push(newUser);
+
+cb(null, newUser)
+});
 }
 
-    cb(newUser);
-}
+
+const getUserByUsername = (un, cb) => {
+
+    if (typeof un!=='string'||!un){
+        cb('Bad Request')
+        return;
+    }
+    
+        setTimeout(() =>{
+        const user = userData.filter(user => user.username === un ).pop();
+        
+        cb(null,user);
+        },250);
+    }
+
 
 
 const getUserByEmail = (em, cb) => {
     setTimeout(() => {
-        let retrievedEmail = null
+        
+        retrievedEmail = null
         if (!em) throw Error('please provide email')
         retrievedEmail = userData.filter((user)=> user.email === em).pop(); //(email => {user.email === em})).pop();
     cb(retrievedEmail); 
-}, 250); }
+}, 250); 
+}
 
+const updateUser =(updatedUser,cb) =>{
+    setTimeout(() => {
+        let persistedUser = data.find(user=> user.id ===updatedUser.id);
+
+        if (!persistedUser) {
+
+        }
+
+        if (persistedUser.username != updatedUser.username) {
+
+        }
+
+    }, 250);
+}
+
+        return {getAllUsers,
+            getUserById,
+            getUserByCredentials,
+            addNewUser,
+            getUserByUsername,
+            updateUser,
+            getUserByEmail}
+
+    }
+    
+
+    return { 
+        getInstance: function() {
+        if (!instance){instance = init();
+        }else return instance; 
+    }
+ }   
+ 
+
+    })();
 
 /*
 const getUserByCredentials = (un, pw, cb)=> {
@@ -129,13 +195,15 @@ const getUserByCredentials = (un, pw, cb)=> {
     }, 250 );
 }
 */
-module.exports = {
-getAllUsers,
-getUserById,
-getUserByCredentials,
-addNewUser,
-getUserByEmail
-};
+// module.exports = {
+// getAllUsers,
+// getUserById,
+// getUserByCredentials,
+// addNewUser,
+// getUserByUsername,
+// updateUser,
+// getUserByEmail
+// };
 
 
 /*
@@ -149,12 +217,6 @@ getUserByEmail
 
 
 
-const getUserByUsername = (un, cb) => {
-setTimeout(() =>{
-    const user = userData.filter(user => user.username === un ).pop();
-}
-    )
-}
 
 //default operator
-user = user ||{username: "fail", password: "fail"}
+//user = user ||{username: "fail", password: "fail"}
