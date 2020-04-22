@@ -4,104 +4,148 @@ function retrieveFile(file) {
     
     console.log(`Requesting: ${file}`);
 
-    // Wezley's implementation
-    return new Promise(resolve => {
-        requestFileFromServer(file, resolve);
+    return new Promise((resolve, reject) => {
+
+        requestFileFromServer(file, text => {
+            if(text) resolve(`Request for ${file} success! Text: ${text}`);
+            else reject(`Request for ${file} failed!`);
+        });
+
+    });
+    
+}
+
+//------------------------------------------------------------------
+
+// clean async/await implementation with proper error handling (attr: Alec Batson)
+
+async function getFiles(...files) {
+
+    let getOne = async (file) => {
+        try {
+            return await retrieveFile(file);
+         } catch (e) {
+            return e;
+        }
+    }
+
+    let res = files.map(file => {
+        return getOne(file);
     });
 
-    // Korey and team's implementation
-    // return new Promise((resolve, reject) => {
-
-    //     requestFileFromServer(file, text => {
-    //         if(text) {
-    //             console.log(`${file} - text is truthy`);
-    //             resolve(text);
-    //         }
-    //         else {
-    //             console.log('text is falsy');
-    //             reject('Request Failed!');
-    //         }
-    //     });
-
-    // });
-}
-
-// FREEBIE: request all files in "parallel" here
-// let promise1 = retrieveFile('file1').catch(reason => console.log(reason));
-// let promise2 = retrieveFile('file2').catch(reason => console.log(reason));
-// let promise3 = retrieveFile('file3').catch(reason => console.log(reason));
-// let promise4 = retrieveFile('file4').catch(reason => console.log(reason));
-
-// Wezley's implementation
-// promise1.then(text => console.log(text))
-//         .then(() => promise2)
-//         .then(text => console.log(text))
-//         .then(() => promise3)
-//         .then(text => console.log(text))
-//         .finally(() => console.log('Complete!'));
-
-//------------------------------------------------------------------
-
-// Alternative Solution using .map and .reduce to manage flow control
-
-// function getFiles(...files) {
-
-//     files.map(retrieveFile) // returns a new array of Promises
-
-//         .reduce((chain, filePromise) => {
-
-//             return chain.then(() => filePromise)
-//                         .then(text => console.log(text));
-
-//         }, Promise.resolve())
-
-//         .finally(() => console.log('Complete!'));
-
-// }
-
-// getFiles('file1', 'file2', 'file3');
-
-//------------------------------------------------------------------
-
-// Alternative Solution using async/await 
-
-async function getFiles() {
-    let filePromises = [retrieveFile('file1'), retrieveFile('file2'), retrieveFile('file3')]
-    for (file of filePromises) {
-        console.log(await file);
+    for(let i = 0; i < res.length; i++){
+        console.log(await res[i]);
     }
+
     console.log('Complete!');
+
 }
 
-getFiles();
+getFiles('file1', 'file2', 'file3', 'file4');
 
-//------------------------------------------------------------------
-
-// Korey and team's implementation
-// promise1.then(text=>{
-//     console.log(text);
-//     return promise2;
-// }).then(text=>{
-//     console.log(text);
-//     return promise3;
-// }).then(text=>{
-//     console.log(text);
-//     return promise4;
-// }).then((text)=>{
-//     console.log('Should not print'); 
-// }).finally(()=>{
-//     console.log('Complete!');
-// });
-
-//---------------------------------------------------------
-
-// Non-Fixes (feel free to refactor to make some of these work)
+//-------------------------------------------------------------------------------
 
 
-// Promise.all --- Does not really solve this problem, since it waits for all files to be retrieved before printing their text
-// Promise.all([retrieveFile('file1'), retrieveFile('file2'), retrieveFile('file3')])
-//        .then(values => {
-//            values.forEach(val => console.log(val));
-//            return values;
-//        })
-//        .finally(() => console.log('Complete!'));
+/**
+ * Takes in a generator function which is used to retrieve files from a server. It returns a Promise
+ * containing either the text of the requested file or an error.
+ * 
+ * @param {Generator} generator a generator function which is used to yield Promises 
+ */
+let await = function (generator) {
+
+    return new Promise((resolve, reject) => {
+        
+        /**
+         * A function that will be ran when a Promise is done and was successfully fulfilled. The step() 
+         * function is invoked, with 'value' being passed for resolution. If any errors occur, their 
+         * value will be passed to reject().
+         * 
+         * @param {*} value the value yielded from the generator function
+         */
+        function fulfilled(value) {
+            try { 
+                step(generator.next(value)); // gets the next promise
+            } catch (e) { 
+                reject(e); // reject and provide reason
+            } 
+        }
+
+        /**
+         * A function that will be ran when a Promise is done but was rejected. The step() function
+         * is invoked, with the next generator value being passed as a parameter.
+         * 
+         * @param {*} value the value yielded from the generator function
+         */
+        function rejected(value) { 
+            try {
+                step(generator.next(value));  // gets the next promise
+            } catch (e) {
+                reject(e); // reject and provide reason
+            } 
+        }
+
+        generator = generator.apply(this); // this is necessary otherwise generator.next is not a function
+        result = generator.next(); // gets the first file using the provided generator function
+
+        /**
+         * A function that will determine if the Promise (which is result.value) is done or not. If it is
+         * then it will be passed to resolve(). Otherwise, the promise's execution is deferred until its 
+         * resolution or rejection (handled by fulfilled() and rejected(), respectfully).
+         * 
+         * @param {*} result the result object yielded from a generator function
+         */
+        function step(result) {
+            // console.log(result); // added for debug purposes
+            result.done ? resolve(result.value) : result.value.then(fulfilled, rejected);
+        }
+
+        step(result);
+
+    });
+
+};
+
+/**
+ * Takes in one or more file names and requests them from the server. It prints the contents
+ * of the files out as soon as possible, but only if files requested before it have already 
+ * been retrieved and printed.
+ * 
+ * @param  {...string} files the names one or more files to request from the server
+ */
+function getFiles(...files) {
+
+    /**
+     * Requests the file with the provided filename from the server using await().Passes an anonymous 
+     * generator that will yield a Promise returned by retrieveFile().
+     * 
+     * @param {string} file 
+     */
+    let getOne = file => await(function* () {
+            return yield retrieveFile(file);
+    });
+    
+    // Take the files provided and request them from the server, map them to the Promise returned by getOne()
+    let filePromises = files.map(fileName => {
+        return getOne(fileName);
+    });
+
+    /*
+        Reduce the filePromises into a single Promise, while printing out the contexts of each one in the 
+        proper order. After all promises have been resolved and printed, finally print 'Complete!'
+
+        This is where the flow control is happening. Since we are iterating across the Promises in the 
+        order that we requested them, we can be sure that we will print them in the corect order.
+
+    */
+    filePromises.reduce((chain, filePromise) => {
+
+        return chain.then(() => filePromise)
+                    .then(text => console.log(text));
+
+    }, Promise.resolve())
+    .finally(() => console.log('Complete!'));
+
+}
+
+getFiles('file1', 'file2', 'file3', 'file4');
