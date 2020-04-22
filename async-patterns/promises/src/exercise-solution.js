@@ -19,29 +19,29 @@ function retrieveFile(file) {
 
 // clean async/await implementation with proper error handling (attr: Alec Batson)
 
-// async function getFiles(...files) {
+async function getFiles(...files) {
 
-//     let getOne = async (file) => {
-//         try {
-//             return await retrieveFile(file);
-//          } catch (e) {
-//             return e;
-//         }
-//     }
+    let getOne = async (file) => {
+        try {
+            return await retrieveFile(file);
+         } catch (e) {
+            return e;
+        }
+    }
 
-//     let res = files.map(ele => {
-//         return getOne(ele);
-//     });
+    let res = files.map(file => {
+        return getOne(file);
+    });
 
-//     for(let i = 0; i < res.length; i++){
-//         console.log(await res[i]);
-//     }
+    for(let i = 0; i < res.length; i++){
+        console.log(await res[i]);
+    }
 
-//     console.log('Complete!');
+    console.log('Complete!');
 
-// }
+}
 
-// getFiles('file1', 'file2', 'file3', 'file4');
+getFiles('file1', 'file2', 'file3', 'file4');
 
 //-------------------------------------------------------------------------------
 

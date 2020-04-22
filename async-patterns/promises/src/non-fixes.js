@@ -41,20 +41,20 @@ function retrieveFile(file) {
 
 // Second implementation using Promises (meets minimum reqs, but does not handle errors well)
 
-let promise1 = retrieveFile('file1');
-let promise2 = retrieveFile('file2');
-let promise3 = retrieveFile('file3');
-let promise4 = retrieveFile('file4');
+// let promise1 = retrieveFile('file1');
+// let promise2 = retrieveFile('file2');
+// let promise3 = retrieveFile('file3');
+// let promise4 = retrieveFile('file4');
 
-promise1.then(console.log)
-        .then(() => promise2)
-        .then(console.log)
-        .then(() => promise3)
-        .then(console.log)
-        .then(() => promise4)
-        .then(console.log)
-        .catch(err => console.log(err))
-        .finally(() => console.log('Complete!'));
+// promise1.then(console.log)
+//         .then(() => promise2)
+//         .then(console.log)
+//         .then(() => promise3)
+//         .then(console.log)
+//         .then(() => promise4)
+//         .then(console.log)
+//         .catch(err => console.log(err))
+//         .finally(() => console.log('Complete!'));
 
 //--------------------------------------------------------------------------------
 
