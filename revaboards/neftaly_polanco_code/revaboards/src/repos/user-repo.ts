@@ -1,6 +1,6 @@
-import data from '../data/user-db';
+import data from '../data/userDB';
 import { User } from '../models/user'
-import mailWorker from '../util/mail-worker';
+//import mailWorker from '../util/mail-worker';
 import { CrudRepository } from './crud-repo';
 import {
     BadRequestError,
