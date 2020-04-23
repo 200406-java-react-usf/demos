@@ -1,10 +1,14 @@
 
+
 //Thunk = function that encapsulates sync/async logic inside
 //      async thunks only take in cb which is used to provide the value when it is computer
 
 //sync thunk
 
 // thunk = is a function that encapsulates sync or async logic inside
+
+// thunk = is a function that encapsulates sync or async logic inside and has access to closured state to calculate some value
+
 // async thunks only take in a callback which is used to provide the value when it is computed
 
 

@@ -1,4 +1,4 @@
-const requestFileFromServer = require('./request-file-from-server');
+const requestFileFromServer = require('./async-patterns/callbacks/src/request-file-from-server');
 
 
 function getFile(file) {
