@@ -1,4 +1,4 @@
-import data from '../data/post-db';
+import data from '../data/postDB';
 import { Post } from '../models/post';
 import { CrudRepository } from './crud-repo';
 import { 
