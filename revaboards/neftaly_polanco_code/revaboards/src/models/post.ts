@@ -1,12 +1,15 @@
-import { Post } from '../models/post';
+export class Post {
 
-// challenge: replace this with id generator function
-let id = 1;
+	id: number;
+	title: string;
+	body: string;
+	posterId: number;
 
-export default [
-	new Post(id++, 'hello world!', 'This is my first post! Huzzah!', 1),
-	new Post(id++, 'this is cool', 'NodeJS is so awesome! It uses the same JS engine as Google Chrome: V8', 1),
-	new Post(id++, 'no limits', 'NodeJS is a runtime environment that lets JS run outside of the browser!', 2),
-	new Post(id++, 'in the cloud', 'the ability to do run JS outside the browser has made NodeJS popular for "serverless" applications', 3),
-	new Post(id++, 'single-threaded?', 'i\'ve heard that JS is single threaded, is that true?', 4)
-];
+	constructor (id: number, title: string, body: string, pid: number) {
+		this.id = id;
+		this.title = title;
+		this.body = body;
+		this.posterId = pid;
+	}
+	
+}
