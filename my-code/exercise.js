@@ -1,5 +1,6 @@
 const requestFileFromServer = require('./request-file-from-server');
 
+
 function getFile(file) {
 
     console.log("Requesting: " + file);    
@@ -7,7 +8,7 @@ function getFile(file) {
 	requestFileFromServer(file, function(text) {
 
         fileRecieved(file,text);
-
+        
     });
 }
 
@@ -44,16 +45,29 @@ function fileRecieved(file, text){
 
    console.log('complete');
 
-}    
+}
 
 let responses = {};
+
 
 
 // FREEBIE: request all files at once in "parallel"
 getFile("file1");
 getFile("file2");
 getFile("file3");
-<<<<<<< HEAD:async-patterns/src/exercise.js
+
+
+/*
+
+
+
+
+    
+
+
+
+*/
+
 
 
 /*
@@ -91,5 +105,4 @@ function printFiles(){
 
 
 */
-=======
->>>>>>> 925a0dccf66352700b88ac41dd16dd049b592ce0:async-patterns/callbacks/src/exercise.js
+
