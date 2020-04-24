@@ -96,7 +96,7 @@ export class UserRepository implements CrudRepository<User> {
                 newUser.id = (data.length) + 1;
                 data.push(newUser);
 
-                mailWorker.emit('newRegister', newUser.email);
+                // mailWorker.emit('newRegister', newUser.email);
         
                 resolve(newUser);
 
