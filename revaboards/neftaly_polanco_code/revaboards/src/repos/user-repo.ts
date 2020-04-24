@@ -10,12 +10,12 @@ import {
 } from '../errors/errors';
 
 
-export class UserReporsitory implements CrudRepository<User> {
+export class UserRepository implements CrudRepository<User> {
 
-    private static instance: UserReporsitory;
+    private static instance: UserRepository;
     private constructor() {}
     static getInstance() {
-        return !UserReporsitory.instance ? UserReporsitory.instance = new UserReporsitory() : UserReporsitory.instance;
+        return !UserRepository.instance ? UserRepository.instance = new UserRepository() : UserRepository.instance;
     }
 
     getAll(): Promise<User[]>{
@@ -106,9 +106,16 @@ export class UserReporsitory implements CrudRepository<User> {
         
     }
     Update(): Promise<boolean>{
+        return new Promise<boolean>((resolve, reject) => {
+			reject(new NotImplementedError());
+		});
     } 
 
-    deleteById(): Promise<Void>{}
+    deleteById(): Promise<boolean>{
+        return new Promise<boolean>((resolve, reject) => {
+			reject(new NotImplementedError());
+		});
+    }
 
     private removePassword (user: User): User {
         let usr = {...user};
