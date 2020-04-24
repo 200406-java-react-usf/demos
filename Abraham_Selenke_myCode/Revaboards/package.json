@@ -2,19 +2,23 @@
   "name": "revaboards",
   "version": "1.0.0",
   "description": "A simple JS app for a message board",
-  "main": "index.js",
+  "main": "./build/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "jest"
+    "start": "tsc && node ./build/index.js",
+    "test": "jest --watch",
+    "coverage": "jest --coverage"
   },
-  "keywords": [
-    "Node",
-    "JS"
-  ],
-  "author": "Wezley Singleton",
+  "author": "Abraham Selenke",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "jest": "^25.3.0"
+    "@types/jest": "^25.2.1",
+    "@types/node": "^12.12.37",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.7.5"
   }
 }
