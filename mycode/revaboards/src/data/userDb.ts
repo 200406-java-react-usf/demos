@@ -2,29 +2,29 @@
 //console.log(user)
 //This won't work reference errot user is not defined in this file
 
-class User{
+// class User{
 
-constructor(id, un, pw, fn, ln, email, dob) {
-    this.id = id
-    this.username = un;
-    this.password = pw;
-    this.firstName = fn;
-    this.lastName = ln;
-    this.email = email;
-    this.dob = dob;
-}
+// constructor(id, un, pw, fn, ln, email, dob) {
+//     this.id = id
+//     this.username = un;
+//     this.password = pw;
+//     this.firstName = fn;
+//     this.lastName = ln;
+//     this.email = email;
+//     this.dob = dob;
+// }
 
-age() {
-    return Math.abs(new Date(Date.now() - this.dob.getTime()) - 1970);
-}
+// age() {
+//     return Math.abs(new Date(Date.now() - this.dob.getTime()) - 1970);
+// }
 
-}
+// }
 
-
+import {User} from'../models/user'
 //const User = require('../models/user');
 let id = 1;
 
-module.exports = [
+export default [
     new User(id++, 'aanderson', 'password', 'Alice', 'Anderson', 'aanderson@revature.com', '01/01/1995'),
     new User(id++, 'bbailey', 'password', 'Bob', 'Bailey', 'bbailey@revature.com', '01/01/1983'),
     new User(id++, 'ccountryman', 'password', 'Charlie', 'Countryman', 'ccountryman@revature.com', '01/01/1990'),

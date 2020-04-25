@@ -1,0 +1,15 @@
+{
+  "name": "tsc-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Lou Remy",
+  "license": "ISC"
+}

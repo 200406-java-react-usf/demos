@@ -1,6 +1,16 @@
 // assign it's properties with vaules with this
 // module.exports makes this func available outside of this file for import
-module.exports = function User(id, un, pw, fn, ln, email, dob){
+export class User{
+
+id: number;
+username:string
+password:string
+firstName: string 
+lastName: string
+email: string
+dob: string
+
+constructor(id, un, pw, fn, ln, email, dob){
 
     this.id = id;
     this.username = un;
@@ -9,16 +19,18 @@ module.exports = function User(id, un, pw, fn, ln, email, dob){
     this.lastName = ln;
     this.email = email;
     this.dob = dob;
+}}
 
-    // calculate users age in years based on provided information
-    this.age = function (){
-        let ageMs = Date.now() - this.dob.getTime();
-        let ageDate = new Date(ageMs);
-        letageYrs = Math.abs(ageDate.getUTCFullYear() - 1970);
-        return ageYrs;
-    }
 
-}
+// calculate users age in years based on provided information
+//   age() = function (){
+//         let ageMs = Date.now() - this.dob.getTime();
+//         let ageDate = new Date(ageMs);
+//         let ageYrs = Math.abs(ageDate.getUTCFullYear() - 1970);
+//         return ageYrs;
+//     }
+
+// }
 
 
 //let testUser = new User('tester','password','tester','testy','test@testy.com', new Date('01/01/1990'));

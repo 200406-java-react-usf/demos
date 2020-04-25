@@ -2,6 +2,25 @@ const userApi = require('./repos/user-api');
 const postApi = require ('./repos/post-api');
 const User = require ('./models/user');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 userApi.getUserById(1, user =>{
     console.log(user);
@@ -26,37 +45,37 @@ createPost();
 
 *///aha nope here we go, declaring user here
 
-let newUser = new User ('aa','user1','user1','user1','user1','user1','user1', new Date());
+// let newUser = new User ('aa','user1','user1','user1','user1','user1','user1', new Date());
 
-/*  and this logic/ functionality I was going for is in the API
-function createUser (){
+// /*  and this logic/ functionality I was going for is in the API
+// function createUser (){
     
-    userDbArray.push(myUser)
-    console.log(myUser)
-}
+//     userDbArray.push(myUser)
+//     console.log(myUser)
+// }
 
-createUser();
-*/
-//and finally is invoked (?) here
-userApi.addNewUser(newUser, addedUser =>{
-    userApi.getAllUsers(users => console.log(users));
-});
-
-
-userApi.getUserByEmail('aa@a', user => {
-console.log(user);})
-
-userApi.getUserByEmail('aa@a', (err,result) => {
-handle error (if present)
-if err{
-    console.log(err);
-    return;
-}}
-// gaurd operator
-err&&console.log(err)
-result&&console.log(result)
+// createUser();
+// */
+// //and finally is invoked (?) here
+// userApi.addNewUser(newUser, addedUser =>{
+//     userApi.getAllUsers(users => console.log(users));
+// });
 
 
-userApi.getAllUsers(users =>{
+// userApi.getUserByEmail('aa@a', user => {
+// console.log(user);})
+
+// userApi.getUserByEmail('aa@a', (err,result) => {
+// handle error (if present)
+// if err{
+//     console.log(err);
+//     return;
+// }}
+// // gaurd operator
+// err&&console.log(err)
+// result&&console.log(result)
+
+
+// userApi.getAllUsers(users =>{
     
-})
+// })

@@ -1,11 +1,77 @@
-const userData = require('../data/userDb')
+import data from '../data/userDb'
+import { User } from '../models/user'
+import { CrudRepository } from './crud-repo'
+import { resolve } from 'dns';
 
 
-module.exports = (function (){
-    let instance; // this will be a reference to our singleton object
-//everything below goes here
-    function init(){
+
+
+
+export class UserRepository implements CrudRepository<User>{
+private static instance: UserRepository;
+
+private constructor(){}
+
+static getInstance(){
+    return !UserRepository.instance ? UserRepository.instance = new UserRepository : UserRepository.instance
+}
+getAll(): Promise<User[]> {
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+
+            //mutating actual objects in the data source
+            //NOT FUNCTIONAL now using spread operator 
+            //let users = [...UserData]; spread operator or do this?
+            //or map?
+            //still
+            let  users = [];
+           
+            for (users of userData) {
+                users.push({...user});
+            } 
+         
+            if (users.length == 0) {
+                cb('Resource not found')
+                return;
+            }
+        
+            users = users.map( user =>{
+                delete user.password;
+                return user;
+            });
+        
+            //return userData
+             resolve (users);}
+             ,250);
+            
+        
+        }
+
+private removePassword = (users: User):User{
+ let usr = {...}
+}
+
+
+
+    }
+    )
+}
+getById(id: number): Promise<User> {
+    throw new Error("Method not implemented.");
+}
+save(newObj: User): Promise<User> {
+    throw new Error("Method not implemented.");
+}
+update(updatedObj: User): Promise<boolean> {
+    throw new Error("Method not implemented.");
+}
+deleteById(id: number): Promise<boolean> {
+    return new Promise<boolean>((resolve,reject)=>{
+        
+    })
+}
  
+}
 
 
 
@@ -34,8 +100,9 @@ setTimeout(() => {
     });
 
     //return userData
-     cb(null, users),250
-    );
+     resolve (users);}
+     ,250);
+    
 
 }
 
@@ -71,7 +138,7 @@ const getUserByCredentials = (un, pw, cb)=> {
         }
         setTimeout(()=> {
         //fetch the sought user with declaritve style logic filter is abstracting away from 
-        const user = userData.filter(user => user.username === un &&user.password === pw).pop();
+        const user = {...userData.filter(user => user.username === un &&user.password === pw).pop()!};
         // validation that we found a user with that username
         if(!user) {
             cb('bad username or password');

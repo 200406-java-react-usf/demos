@@ -31,29 +31,36 @@ class User{
     
 
 
-const getUserById =(id, cb) =>{
+const getUserById =(id) =>{
 
     console.log(`Looking for ID: ${id}`)
 
     if (typeof id !== 'number' || !Number.isInteger(id)|| id <= 0 ){
-            cb('Bad Request error');
-            return;
+            return (cb) =>{}
         }
 
     setTimeout(()=>{
         //to simulate lag
-        const user = {...userData.filter(user => user.id ===id).pop()};
+        const user = userData.filter(user => user.id ===id).pop();
         
 
          if (!user){
-             cb('Resource not found')
+             return (cb)=>{}
          }
 
-         cb(null,user);
+         
+         return (cb)=>{
+
+         }
+         
       
      
-    }, 250);
+    }, 1000);
 }
+
+let task = getUserById(4)
+
+
 
 
 
