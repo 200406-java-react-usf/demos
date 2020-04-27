@@ -87,6 +87,7 @@ SQL, or Structured Query Language, is a declarative (focused on defining outcome
 - The concept of dividing data into separate tables to reduce redundancy and improve query speed
 - The degree to which we normalize our database is measured by our compliance to the Normal Forms (NF).
 - We usually only need to comply with 3NF, though there a ~7 Normal Forms in total.
+- More notes can be found [here](https://github.com/200406-java-react-usf/demos/blob/master/notes/normalization.md)
 
 **Procedural Language Extension of PostGreSQL (PL/pgSQL)**
 - A...well, procedural language extension of the PostgreSQL dialect.
