@@ -103,7 +103,7 @@ SQL, or Structured Query Language, is a declarative (focused on defining outcome
 
 **DCL (Data Control Language)** 
 - used to control access to data stored in a database
-- keywords: [`GRANT`](https://www.postgresql.org/docs/11/sql-grant.html) and [`REVOKE](https://www.postgresql.org/docs/11/sql-revoke.html)
+- keywords: [`GRANT`](https://www.postgresql.org/docs/11/sql-grant.html) and [`REVOKE`](https://www.postgresql.org/docs/11/sql-revoke.html)
 
 
 **DDL (Data Definition Language)**
