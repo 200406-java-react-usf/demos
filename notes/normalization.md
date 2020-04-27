@@ -91,7 +91,7 @@ In our table the main thing that violates the 2NF is the fact that we have data 
 
 A table is said to be in the 3rd Normal Form (3NF) if all of its the columns are functionally dependent on solely the primary key (i.e. no [transitive dependencies](https://en.wikipedia.org/wiki/Transitive_dependency)).
 
-The closest thing to a 3NF violation that our schema has is (and this is being _really_ particular), is that the `zip` column of the `SalesOffice` table tells us what we need to know regarding the city and state of an office. So, we could remove those columns without losing any data, and simplifying our data model.
+The closest thing to a 3NF violation that our schema has (and this is being _really_ particular), is that the `salesContact` column of the Customer table could be extracted into another table that more accurately represents the relationship between salespeople and customers. We will call this table the `CustomerSalesContacts` and it will contact two columns: `cId` for the customer ID and `sId` for the salesperson ID. 
 
 Additional Resource: [3rd NF Explained in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-11-database-third-normal-form-explained-in-simple-english/)
 
@@ -104,23 +104,40 @@ Additional Resource: [3rd NF Explained in Simple English](https://www.essentials
 
 
 **Table: SalesOffice**
-|  id   |     unitStreet    |   zip   |
-| ----- | ----------------- | ------- |
-|   1   | 123 Main St.      |  20170  |
-|   2   | 024 Very Real Dr. |  33648  |
-|   3   | 966 Somewhere Ln. |  60634  |
+|  id   |     unitStreet    |   city    |    state    |    zip   |
+| ----- | ----------------- | --------- | ----------- | -------- |
+|   1   | 123 Main St.      | Reston    |  Virginia   |   20170  |
+|   2   | 024 Very Real Dr. | Tampa     |  Florida    |   33648  |
+|   3   | 966 Somewhere Ln. | Chicago   |  illinois   |   60634  |
 
 
 **Table: Customers**
-|  id   |      name       |       hq       | salesContact |
-| ----- | --------------- | -------------- | ------------ |
-|   1   | Cognizant       |  New Jersey    |       1      |
-|   2   | Infosys         |  Chicago       |       1      |
-|   3   | WellCare        |  Florida       |       3      |
-|   4   | Capital One     |  Virginia      |       2      |
-|   5   | Freddie Mac     |  Virginia      |       2      |
-|   6   | TCS             |  New York      |       3      |
-|   7   | FINRA           |  Washington DC |       2      |
+|  id   |      name       |       hq       |
+| ----- | --------------- | -------------- |
+|   1   | Cognizant       |  New Jersey    |
+|   2   | Infosys         |  Chicago       |
+|   3   | WellCare        |  Florida       |
+|   4   | Capital One     |  Virginia      |
+|   5   | Freddie Mac     |  Virginia      |
+|   6   | TCS             |  New York      |
+|   7   | FINRA           |  Washington DC |
+
+
+**Table: CustomerSalesContacts**
+|  cId  |  sId  |
+| ----- | ----  |
+|   1   |   1   |
+|   2   |   1   |
+|   3   |   3   |
+|   4   |   2   |
+|   5   |   2   |
+|   6   |   3   |
+|   7   |   2   |
+
+
+"That seems useless.", you might say, "There's no data in that table, it's just keys!". And you would be kind of right: there is no obvious data in this table; but this new table gives a way better way to express the relationship between the two entities. Before we had a 1:N relationship between salespeople and customers (1 salesperson could have many customers). Now, what we have is a 1:N relationship between `Customer` and `CustomerSalesContacts`, and `CustomerSalesContact` also shares a N:1 relationship between `SalesStaff`. This creates an implicit N:N relationship between `Customers` and `SalesStaff`. Now if we need the ability to assign more than one salesperson to a single customer we can.
+
+This new table is known as a **junction table**, sometimes called an **intersection table**. These names are because this table represents the junction, or intersection, between two other tables.
 
 ---
 
