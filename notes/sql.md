@@ -153,17 +153,31 @@ A database join clause combines columns from one or more tables in a relational 
   - note that the `inner` keyword is optional
 
 2. Left (Outer) Join: 
-  - `select * from TableA a LEFT JOIN TableB b ON a.columnName = b.columnName;`
+	```sql
+	select * 
+	from TableA a 
+	LEFT JOIN TableB b 
+	ON a.columnName = b.columnName;
+	```
   - TableA is the primary table; selects all records from A with matching values from B (non-matching values included as null)
 
 
 3. Right (Outer) Join:
-  - `select * from TableA a RIGHT JOIN TableB b ON a.columnName = b.columnName;`
+	```sql
+	select * 
+	from TableA a 
+	RIGHT JOIN TableB 
+	b ON a.columnName = b.columnName;
+	```
   - TableB is the primary table; selects all records from B with matching values from A (non-matching values included as null)
 
 
 4. Cross Join
-  - `select * from TableA CROSS JOIN TableB;
+	```sql
+	select * 
+	from TableA 
+	CROSS JOIN TableB;
+	```
   - Creates a _"cartesian product"_ from the two tables
   - It is called a product because it returns every possible combination of rows between the joined sets.
   - If TableA has 5 rows, and TableB has 3 rows, the result set from a cross join will have 15 rows
