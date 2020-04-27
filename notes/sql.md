@@ -130,7 +130,7 @@ SQL, or Structured Query Language, is a declarative (focused on defining outcome
 
 ## Table Expressions
 
-A table expression computes a table. The table expression contains a [FROM](https://www.postgresql.org/docs/11/queries-table-expressions.html#QUERIES-FROM) clause that is optionally followed by [WHERE](https://www.postgresql.org/docs/11/queries-table-expressions.html#QUERIES-WHERE), [GROUP BY and HAVING](https://www.postgresql.org/docs/11/queries-table-expressions.html#QUERIES-GROUP) clauses. Trivial table expressions simply refer to a table on disk, a so-called base table, but more complex expressions can be used to modify or combine base tables in various ways.
+A table expression computes a table. The table expression contains a [`FROM`](https://www.postgresql.org/docs/11/queries-table-expressions.html#QUERIES-FROM) clause that is optionally followed by [`WHERE`](https://www.postgresql.org/docs/11/queries-table-expressions.html#QUERIES-WHERE), [`GROUP BY` and `HAVING`](https://www.postgresql.org/docs/11/queries-table-expressions.html#QUERIES-GROUP) clauses. Trivial table expressions simply refer to a table on disk, a so-called base table, but more complex expressions can be used to modify or combine base tables in various ways.
 
 ---
 
