@@ -143,12 +143,12 @@ A database join clause combines columns from one or more tables in a relational 
 ### Types
 
 1. Inner Joins: 
-```sql
-select * 
-from TableA 
-inner join TableB 
-on TableA.columnName = TableB.columnName;
-```
+	```sql
+	select * 
+	from TableA 
+	inner join TableB 
+	on TableA.columnName = TableB.columnName;
+	```
   - selects records with matching values from TableA and TableB
   - note that the `inner` keyword is optional
 
