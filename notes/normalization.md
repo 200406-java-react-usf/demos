@@ -126,6 +126,6 @@ Additional Resource: [3rd NF Explained in Simple English](https://www.essentials
 
 ## How Far Is Too Far?
 
-There is such a thing as **"overnormalization"**, and the consequences can be just as bad as a unnormalized database if the use case is not right. You probably notices that as we normalized our schema we ended up creating new tables to store information. In fact the 6th Normal Form has the requirement that the rows of a table contain: the primary key and at most one other attribute.
+There is such a thing as **"overnormalization"**, and the consequences can be just as bad as a unnormalized database if the use case is not right. You probably noticed that as we normalized our schema we ended up creating new tables to store information. In fact the 6th Normal Form has the requirement that the rows of a table contain: the primary key and at most one other attribute.
 
 This may be necessary in some scenarios (e.g. data warehousing - "columnar data store"). However, we are building databases which will be leveraged by web application. Having an unnecessary amount of tables will slow down our query performance (since we will need to perform a large about of table joins). So, for our use cases: compliance to the 3NF is the sweet spot.
