@@ -60,11 +60,11 @@ It does not have any non-prime attribute that is functionally dependent on any p
 In our table the main thing that violates the 2NF is the fact that we have data regarding an office entity inside of our employee table. We should move office data to its own table (that is also 2NF-compliant). You're probably noticing a pattern here: everytime we advance a Normal Form, we create at least one new table. Which is pretty accurate all the up the highest Normal Forms.
 
 **Table: SalesStaff**
-|  id   |  firstName | lastName  |     office    |  age  |  officeId  |
-| ----- | ---------- | --------- | ------------- | ----- | ---------- |
-|   1   | Alice      | Anderson  |  Reston       |   28  |      1     |
-|   2   | Bob        | Bailey    |  Chicago      |   43  |      3     |
-|   3   | Charles    | Combs     |  Tampa        |   32  |      2     |
+|  id   |  firstName | lastName  | age  |  officeId  |
+| ----- | ---------- | --------- | ---- | ---------- |
+|   1   | Alice      | Anderson  |  28  |      1     |
+|   2   | Bob        | Bailey    |  43  |      3     |
+|   3   | Charles    | Combs     |  32  |      2     |
 
 
 **Table: SalesOffice**
