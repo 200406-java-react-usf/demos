@@ -105,7 +105,7 @@ export class UserRepository implements CrudRepository<User> {
     });
         
     }
-    Update(): Promise<boolean>{
+    update(): Promise<boolean>{
         return new Promise<boolean>((resolve, reject) => {
 			reject(new NotImplementedError());
 		});
