@@ -106,7 +106,7 @@ async function fetchInfo() {
 
     let response = await fetch(`https://swapi.dev/api/${category}/${id}`);
     let data = await response.json();
-    RESULTS_CONTAINER.innerText = data;
+    RESULTS_CONTAINER.innerText = JSON.stringify(data);
 
     // let responsePromise = fetch(`https://swapi.dev/api/${category}/${id}`)
 
