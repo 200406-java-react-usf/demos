@@ -2,6 +2,7 @@ import React, { SyntheticEvent } from 'react';
 import { FormControl, InputLabel, Input, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import TypoGraphy from '@material-ui/core/Typography';
+import { authenticate } from '../remote/auth-service';
 
 interface ILoginState {
     username: string;
@@ -9,8 +10,13 @@ interface ILoginState {
     errorMessage: string;
 }
 
+export function LoginComponent (props: any) {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('Test Message');
+}
 
-export class LoginComponent extends React.Component<any, ILoginState> {
+export class LoginComponent2 extends React.Component<any, ILoginState> {
 
     constructor(props: any) {
         super(props);
@@ -22,7 +28,8 @@ export class LoginComponent extends React.Component<any, ILoginState> {
     }
 
     login = async (e: SyntheticEvent) => {
-
+        let authUser = await authenticate(this.state.username, this.state.password);
+        console.log(authUser);
         
     }
 
@@ -41,16 +48,6 @@ export class LoginComponent extends React.Component<any, ILoginState> {
     render () {
         return (
             <> {/* <----- this is a React fragment */} 
-<<<<<<< HEAD
-                <form>
-                    <input type="text" name='username'/>
-                    <input type="text" name='password'/>
-                    <br/>
-                    <button type="submit">Submit</button>
-                </form>
-                <h1>LoginComponent works!</h1>
-                <h2>Will update in real time!</h2>   
-=======
                 <div style={{
                     display: "flex",
                     justifyContent: "center",
@@ -90,7 +87,6 @@ export class LoginComponent extends React.Component<any, ILoginState> {
                         }
                     </form>
                 </div>
->>>>>>> c9f7c941c9b4daaa217ae7c1420e82e3b3158ff9
             </>     
         );
     }
