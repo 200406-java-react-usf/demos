@@ -12,6 +12,7 @@ import {
 
 import { authenticate } from '../remote/auth-service';
 import { User } from '../models/user';
+import { Redirect } from 'react-router-dom';
 
 interface ILoginProps {
     authUser: User;
@@ -53,7 +54,9 @@ function LoginComponent(props: ILoginProps) {
     }
 
     return (
-        <> {/* <----- this is a React fragment */} 
+        props.authUser ?
+        <Redirect to="/home" /> :
+        <>
             <div className={classes.loginContainer}>
                 <form className={classes.loginForm}>
                     <Typography align="center" variant="h4">Login into Revaboards!</Typography>
