@@ -6,11 +6,13 @@ interface IHomeProps {
 }
 
 const HomeComponent = (props: IHomeProps) => {
+
     return (
         !props.username ?
-        <Redirect to='login' />:
+        <Redirect to="/login" /> : 
         <h1>Welcome, {props.username}!</h1>
     );
+
 }
 
 export default HomeComponent;
