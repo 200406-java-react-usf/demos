@@ -1,10 +1,20 @@
-import React from 'react';
-import './App.css';
-import { LoginComponent } from './components/LoginComponent';
+import React, { useState } from 'react';
+
+import LoginComponent from './components/LoginComponent';
+import HomeComponent from './components/HomeComponent';
+
+import { User } from './models/user';
 
 function App() {
+
+  // @ts-ignore
+  const [authUser, setAuthUser] = useState(null as User);
+
   return (
-    <LoginComponent />
+    <>
+      <LoginComponent authUser={authUser} setAuthUser={setAuthUser} />
+      <HomeComponent username={authUser?.username} />
+    </>
   );
 }
 
