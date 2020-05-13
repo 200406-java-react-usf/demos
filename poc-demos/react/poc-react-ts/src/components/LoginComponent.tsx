@@ -3,12 +3,12 @@ import { FormControl, InputLabel, Input, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import TypoGraphy from '@material-ui/core/Typography';
 
-
 interface ILoginState {
     username: string;
     password: string;
     errorMessage: string;
 }
+
 
 export class LoginComponent extends React.Component<any, ILoginState> {
 
@@ -25,8 +25,6 @@ export class LoginComponent extends React.Component<any, ILoginState> {
 
         
     }
-
-    
 
     updateUsername = (e: any) => {
         this.setState({
