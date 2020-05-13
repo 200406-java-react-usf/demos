@@ -38,7 +38,7 @@ function LoginComponent(props: ILoginProps) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('Test message');
+    const [errorMessage, setErrorMessage] = useState('Input Credentials');
 
     let updateUsername = (e: any) => {
         setUsername(e.currentTarget.value);

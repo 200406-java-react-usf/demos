@@ -2,7 +2,9 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 interface IHomeProps {
-    username: string
+    username: string;
+    
+    
 }
 
 const HomeComponent = (props: IHomeProps) => {

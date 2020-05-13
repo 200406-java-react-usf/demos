@@ -30,7 +30,9 @@ const NavbarComponent = (props: INavbarProps) => {
         <>
             <List component="nav">
                 <ListItem component="div">
-                    <Typography color="inherit" variant="h5">Revaboards</Typography>
+                    <Typography color="inherit" variant="h5">
+                        <Link to="/home" className={classes.link}>Revaboards</Link>
+                    </Typography>
                     {
                         props.authUser
                         ?
@@ -41,16 +43,16 @@ const NavbarComponent = (props: INavbarProps) => {
                         </ListItemText>
                         :
                         <>
-                            <ListItemText inset>
-                                <Typography color="inherit" variant="h6">
-                                    <Link to="/login" className={classes.link}>Login</Link>
-                                </Typography>
-                            </ListItemText>
-                            <ListItemText inset>
-                                <Typography color="inherit" variant="h6">
-                                    <Link to="/register" className={classes.link}>Register</Link>
-                                </Typography>
-                            </ListItemText>
+                        <ListItemText inset>
+                            <Typography color="inherit" variant="h6">
+                                <Link to="/login" className={classes.link}>Login</Link>
+                            </Typography>
+                        </ListItemText>
+                        <ListItemText inset>
+                            <Typography color="inherit" variant="h6">
+                                <Link to="/register" className={classes.link}>Register</Link>
+                            </Typography>
+                        </ListItemText>
                         </>
                     }
                     
