@@ -43,6 +43,12 @@ export class LoginComponent extends React.Component<any, ILoginState> {
         // JSX cannot have more than one top level node
         return (
             <> {/* <----- this is a React fragment */} 
+                <form>
+                    <input type="text" name='username'/>
+                    <input type="text" name='password'/>
+                    <br/>
+                    <button type="submit">Submit</button>
+                </form>
                 <h1>LoginComponent works!</h1>
                 <h2>Will update in real time!</h2>   
             </>     

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Introduction to AJAX</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 5rem 16rem;
+        }
+        button, input, select {
+            border-radius: .25rem;
+        }
+        img {
+            max-width: 70%;
+        }
+        .container {
+            text-align: center;
+            background-color: darkgray
+        }
+        #alert-msg {
+            text-align: center;
+            font-weight: bold;
+            background-color: #ffb3b3;
+            border: 1px;
+            border-radius: .25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Star Wars API</h1>
+        <div id="sw-form">
+            <br>
+            <br>
+            <input type="number" name="" id="sw-id" placeholder="Please enter an ID number"/>
+            <select id="sw-category">
+                <option value="">Please select a value</option>
+                <option value="people">People</option>
+                <option value="planets">Planets</option>
+                <option value="starships">Starships</option>
+            </select>
+            <button id="submit-btn" class="btn btn-primary">Get Info!</button>
+        </div>
+        <br>
+        <div id="results-container">
+        </div>
+        <br>
+        <div id="alert-div">
+            <p id="alert-msg">Please enter an ID and select a category</p>
+        </div>
+        <br>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="swapi.js"></script>
+</body>
+</html>
