@@ -2,6 +2,7 @@ import React, { SyntheticEvent } from 'react';
 import { FormControl, InputLabel, Input, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import TypoGraphy from '@material-ui/core/Typography';
+import { authenticate } from '../remote/auth-service';
 
 
 interface ILoginState {
@@ -23,7 +24,7 @@ export class LoginComponent extends React.Component<any, ILoginState> {
 
     login = async (e: SyntheticEvent) => {
 
-        
+        let  authUser = await authenticate(this.state.username, this.state.password)
     }
 
     
