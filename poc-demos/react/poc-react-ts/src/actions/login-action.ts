@@ -24,15 +24,18 @@ export const loginAction = (username: string, password: string) => async (dispat
                 type: loginActionTypes.BAD_REQUEST,
                 payload: e.response.data.message
             });
-        } else if (status === 401)
+        } else if (status === 401) {
             dispatch({
                 type: loginActionTypes.INVALID_CREDENTIALS,
                 payload: e.response.data.message
             });
-        } else 
-            dispatch ({
+        } else {
+            dispatch({
                 type: loginActionTypes.INTERNAL_SERVER_ERROR,
-                payload: e.resonse.data.message
-            })
+                payload: e.response.data.message || 'Uh oh! We could not reach the server!'
+            });
         }
-    
+
+    }
+
+}

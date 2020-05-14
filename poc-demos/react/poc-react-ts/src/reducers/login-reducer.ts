@@ -1,6 +1,6 @@
 import { ILoginState } from ".";
 import { User } from "../models/user";
-import { AnyAction } from "redux";
+import { AnyAction, combineReducers } from "redux";
 import { loginActionTypes } from "../actions/login-action";
 
 const initialState: ILoginState = {
@@ -10,7 +10,9 @@ const initialState: ILoginState = {
 }
 
 export const loginReducer = (state: ILoginState = initialState, action: AnyAction) => {
+
     switch (action.type) {
+
         case loginActionTypes.SUCCESSFUL_LOGIN:
             return {
                 ...state,
@@ -18,14 +20,17 @@ export const loginReducer = (state: ILoginState = initialState, action: AnyActio
             }
 
         case loginActionTypes.BAD_REQUEST:
-        case loginActionTypes.INTERNAL_SERVER_ERROR:
         case loginActionTypes.INVALID_CREDENTIALS:
+        case loginActionTypes.INTERNAL_SERVER_ERROR:
             return {
                 ...state,
-                errorMessage: action.payload                
+                errorMessage: action.payload
             }
-        default:
+
+        default: 
             return state;
+
     }
     
 }
+

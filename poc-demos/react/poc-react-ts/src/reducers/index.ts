@@ -7,8 +7,6 @@ export interface ILoginState {
     errorMessage: string;
 }
 
-//here you would add more interfaces, and wrap them into IState
-
 export interface IState {
     login: ILoginState;
 }
