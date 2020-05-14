@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import LoginComponent from './components/LoginComponent';
 import HomeComponent from './components/HomeComponent';
+import RegisterComponent from './components/RegisterComponent';
 
 import { User } from './models/user';
 import NavbarComponent from './components/NavbarComponent';
@@ -28,6 +29,7 @@ function App() {
         <Switch>
           <Route path="/home" render={() => <HomeComponent username={authUser?.username} /> } />
           <Route path="/login" render={() => <LoginComponent authUser={authUser} setAuthUser={setAuthUser} /> } />
+          <Route path="/register" render={() => <RegisterComponent authUser={authUser} setAuthUser={setAuthUser} /> } />
         </Switch>
         
       </Router>
