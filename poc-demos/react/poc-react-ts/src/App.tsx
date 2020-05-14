@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
-import HomeComponent from './components/HomeComponent';
-import NavbarComponent from './components/NavbarComponent';
-import LoginComponent from './components/LoginComponent';
-import RegisterComponent from './components/RegisterComponent';
+import HomeComponent from './components/home-component/HomeComponent';
+import NavbarComponent from './components/navbar-component/NavbarComponent';
+import LoginComponent from './components/login-component/LoginComponent';
+import RegisterComponent from './components/register-component/RegisterComponent';
 
 
 import { User } from './models/user';
@@ -40,6 +40,7 @@ function App() {
 
   return (
     <>
+    <Provider store = store
       <Router>
 
         <AppBar color="primary" position="static">

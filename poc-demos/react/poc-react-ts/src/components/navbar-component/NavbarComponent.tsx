@@ -9,7 +9,7 @@ import {
     ListItemText 
 } from '@material-ui/core';
 
-import { User } from '../models/user';
+import { User } from '../../models/user';
 
 interface INavbarProps {
     authUser: User;
