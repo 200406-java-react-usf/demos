@@ -11,6 +11,26 @@ import RegisterComponent from './components/RegisterComponent';
 import { User } from './models/user';
 
 
+
+const mockPosts = [
+  {
+    id: 1,
+    title: 'post 1 title',
+    body: 'post 1 body'
+  },
+  {
+    id: 4,
+    title: 'post 4 title',
+    body: 'post 4 body'
+  },
+  {
+    id: 6,
+    title: 'post 6 title',
+    body: 'post 6 body'
+  }
+]
+
+
 function App() {
 
   // @ts-ignore
@@ -31,7 +51,7 @@ function App() {
         </AppBar>
 
         <Switch>
-          <Route path="/home" render={() => <HomeComponent username={authUser?.username} /> } />
+          <Route path="/home" render={() => <HomeComponent username={authUser?.username} posts={mockPosts} /> } />
           <Route path="/login" render={() => <LoginComponent authUser={authUser} setAuthUser={setAuthUser} /> } />
           <Route path="/register" render={() => <RegisterComponent newUser={newUser} setNewUser={setNewUser} /> } />
         </Switch>
