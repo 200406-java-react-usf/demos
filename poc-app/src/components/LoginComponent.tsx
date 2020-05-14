@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Alert } from '@material-ui/lab/';
 import { FormControl, Typography, InputLabel, Input, Button, makeStyles } from '@material-ui/core';
 import {authenticate} from '../remote/auth-service';
-import { User } from '../models/user';
 import { Redirect } from 'react-router-dom';
+import { Employee } from '../models/employee';
 
 interface ILoginProps {
-    authUser: User;
-    setAuthUser: (user: User) => void
+    authUser: Employee;
+    setAuthUser: (user: Employee) => void
 }
 
 const useStyles = makeStyles({
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     }
 })
 
-function LoginComponent(props: any){
+function LoginComponent(props: ILoginProps){
 
     const classes = useStyles();
 
