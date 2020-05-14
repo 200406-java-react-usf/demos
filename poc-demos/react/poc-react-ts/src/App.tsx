@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import LoginComponent from './components/LoginComponent';
-import HomeComponent from './components/HomeComponent';
+import LoginComponent from './components/login-component/LoginContainer';
+import HomeComponent from './components/home-component/HomeComponent';
 
 import { User } from './models/user';
-import NavbarComponent from './components/NavbarComponent';
+import NavbarComponent from './components/navbar-component/NavbarComponent';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Provider } from 'react-redux';
+import { store } from './Store';
 
 
 const mockPosts = [
@@ -30,27 +32,25 @@ const mockPosts = [
 
 function App() {
 
-  // @ts-ignore
-  const [authUser, setAuthUser] = useState(null as User);
-
   return (
     <>
-      <Router>
-
-        <AppBar color="primary" position="static">
-          <Toolbar>
+      <Provider store={store}>
+        <Router>
+          <AppBar color="primary" position="static">
+            <Toolbar>
               <Typography variant="h5" color="inherit">
-                <NavbarComponent authUser={authUser}/>
+                <NavbarComponent authUser={new User(0, '', '', '', '')} />
               </Typography>
-          </Toolbar>
-        </AppBar>
+            </Toolbar>
+          </AppBar>
 
-        <Switch>
-          <Route path="/home" render={() => <HomeComponent username={authUser?.username} posts={mockPosts} /> } />
-          <Route path="/login" render={() => <LoginComponent authUser={authUser} setAuthUser={setAuthUser} /> } />
-        </Switch>
-        
-      </Router>
+          <Switch>
+            <Route path="/home" render={() => <HomeComponent username={'test'} posts={mockPosts} />} />
+            <Route path="/login" render={() => <LoginComponent />} />
+          </Switch>
+
+        </Router>
+      </Provider>
     </>
   );
 }
