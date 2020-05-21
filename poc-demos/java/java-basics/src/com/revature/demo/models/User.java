@@ -118,4 +118,13 @@ public class User extends Object /* <--- you do not need to explicitly extend Ob
                 '}';
     }
 
+    /*
+        Not really used anymore, but comes up in interviews. This method is the last method invoked
+        by the JVM just before the object is garbage collected.
+     */
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+    }
+
 }
