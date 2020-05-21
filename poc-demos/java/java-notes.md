@@ -230,7 +230,7 @@ Multiple exceptions can also be handled in one catch block:
 public void methodThatThrows() throws IOException {
     try {
         throw new IOException();
-    } catch (IOException ex1 | ServletException ex2) {
+    } catch (IOException | ServletException e) {
         // Do something with the exception
         logger.warn("IOException thrown");
     }
