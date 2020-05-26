@@ -11,7 +11,7 @@ import {
 
 import { User } from '../../models/user';
 
-interface INavbarProps {
+export interface INavbarProps {
     authUser: User;
 }
 

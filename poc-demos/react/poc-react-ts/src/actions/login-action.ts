@@ -35,7 +35,5 @@ export const loginAction = (username: string, password: string) => async (dispat
                 payload: e.response.data.message || 'Uh oh! We could not reach the server!'
             });
         }
-
     }
-
 }

@@ -10,10 +10,8 @@ import {
     makeStyles 
 } from '@material-ui/core';
 
-import { authenticate } from '../../remote/auth-service';
 import { User } from '../../models/user';
 import { Redirect } from 'react-router-dom';
-import { loginAction } from '../../actions/login-action';
 
 interface ILoginProps {
     authUser: User;

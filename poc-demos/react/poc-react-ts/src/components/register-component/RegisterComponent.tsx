@@ -10,13 +10,13 @@ import {
     makeStyles 
 } from '@material-ui/core';
 
-import { authorize } from '../../remote/auth-service';
 import { User } from '../../models/user';
 import { Redirect } from 'react-router-dom';
 
 interface IRegisterProps {
     newUser: User;
-    setNewUser: (user: User) => void;
+    errorMessage: string;
+    registerAction: (username: string, password: string, firstName: string, lastName: string, email: string) => void;
 }
 
 const useStyles = makeStyles({
@@ -41,7 +41,6 @@ function RegisterComponent(props: IRegisterProps) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [errorMessage, setErrorMessage] = useState('All fields required');
 
     let updateUsername = (e: any) => {
         setUsername(e.currentTarget.value);
@@ -64,8 +63,7 @@ function RegisterComponent(props: IRegisterProps) {
     }
 
     let register = async () => {
-        let newUser = await authorize(username, password, firstName, lastName, email);
-        props.setNewUser(newUser);
+        props.registerAction(username, password, firstName, lastName, email)
     }
 
     return (
@@ -124,11 +122,11 @@ function RegisterComponent(props: IRegisterProps) {
                     <Button onClick={register} variant="contained" color="primary" size="medium">Register</Button>
                     <br/><br/>
                     {
-                        errorMessage 
-                            ? 
-                        <Alert severity="error">{errorMessage}</Alert>
-                            :
-                        <></>
+                        props.errorMessage 
+                        ? 
+                    <Alert severity="error">{props.errorMessage}</Alert>
+                        :
+                    <></>
                     }
                 </form>
             </div>

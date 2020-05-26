@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
-import HomeComponent from './components/home-component/HomeComponent';
-import NavbarComponent from './components/navbar-component/NavbarComponent';
-import LoginComponent from './components/login-component/LoginComponent';
-import RegisterComponent from './components/register-component/RegisterComponent';
-
+import RegisterComponent from './components/register-component/RegisterContainer';
 import LoginComponent from './components/login-component/LoginContainer';
 import HomeComponent from './components/home-component/HomeComponent';
 
@@ -45,14 +40,15 @@ function App() {
           <AppBar color="primary" position="static">
             <Toolbar>
               <Typography variant="h5" color="inherit">
-                <NavbarComponent authUser={new User(0, '', '', '', '')} />
+                <NavbarComponent authUser={null as unknown as User} />
               </Typography>
             </Toolbar>
           </AppBar>
 
           <Switch>
-            <Route path="/home" render={() => <HomeComponent username={'test'} posts={mockPosts} />} />
-            <Route path="/login" render={() => <LoginComponent />} />
+            <Route path="/home" render={() => <HomeComponent username={store.dispatch.name} posts={mockPosts} />} />
+            <Route path="/login" render={() => <LoginComponent/>} />
+            <Route path="/register" render={() => <RegisterComponent/>} />
           </Switch>
 
         </Router>
