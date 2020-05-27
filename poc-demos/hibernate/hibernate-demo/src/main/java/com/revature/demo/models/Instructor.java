@@ -1,24 +1,34 @@
 package com.revature.demo.models;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-// this model will be mapped to a table, named instructors, by Hibernate
+@Entity
+@Table(name="instructors")
 public class Instructor {
 
-    // this is the PK
+    @Id
+    @Column
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    // is a column, should not be null
+    @Column(nullable=false)
     private String firstName;
 
-    // is a column, should not be null
+    @Column(nullable=false)
     private String lastName;
 
-    // is a column, should not be null and must be unique
+    @Column(nullable=false, unique=true)
     private String email;
 
-    // should have a reference to associated details record
+    @JoinColumn
+    @OneToOne(cascade=CascadeType.ALL)
     private InstructorDetail details;
+
+    @OneToMany(mappedBy="instructor", fetch=FetchType.LAZY)
+    private List<Course> courses;
 
     public Instructor() {
         super();
@@ -37,12 +47,21 @@ public class Instructor {
         this.details = details;
     }
 
-    public Instructor(int id, String firstName, String lastName, String email, InstructorDetail details) {
+    public Instructor(String firstName, String lastName, String email, InstructorDetail details, List<Course> courses) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.details = details;
+        this.courses = courses;
+    }
+
+    public Instructor(int id, String firstName, String lastName, String email, InstructorDetail details, List<Course> courses) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.details = details;
+        this.courses = courses;
     }
 
     public int getId() {
@@ -90,6 +109,21 @@ public class Instructor {
         return this;
     }
 
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public Instructor setCourses(List<Course> courses) {
+        this.courses = courses;
+        return this;
+    }
+
+    public void addCourse(Course course) {
+        if (courses == null) courses = new ArrayList<>();
+        course.setInstructor(this);
+        courses.add(course);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,14 +133,18 @@ public class Instructor {
                 Objects.equals(firstName, that.firstName) &&
                 Objects.equals(lastName, that.lastName) &&
                 Objects.equals(email, that.email) &&
-                Objects.equals(details, that.details);
+                Objects.equals(details, that.details) &&
+                Objects.equals(courses, that.courses);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, details);
+        return Objects.hash(id, firstName, lastName, email, details, courses);
     }
 
+
+    // We removed "courses" from this output to avoid circular references
+    // Which would cause an Error
     @Override
     public String toString() {
         return "Instructor{" +
@@ -117,5 +155,4 @@ public class Instructor {
                 ", details=" + details +
                 '}';
     }
-
 }

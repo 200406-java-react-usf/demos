@@ -1,21 +1,26 @@
 package com.revature.demo.models;
 
+import javax.persistence.*;
 import java.util.Objects;
 
-// this model will be mapped to a table, named instructor_details, by Hibernate
+@Entity
+@Table(name="instructor_details")
 public class InstructorDetail {
 
-    // this is the PK
+    @Id
+    @Column
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    // is a column, should not be null
+    @Column(nullable=false)
     private String focus;
 
-    // is a column, should not be null
+    @Column(nullable=false)
     private String hobby;
 
     // should NOT be a column in the instructor_details table
     // but should have a reference to the associated instructor record
+    @OneToOne(mappedBy="details")
     private Instructor instructor;
 
     public InstructorDetail() {
