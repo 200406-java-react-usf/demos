@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     }
 });
 
-function LoginComponent(props: ILoginProps) {
+function RegisterComponent(props: ILoginProps) {
 
     const classes = useStyles();
 
@@ -92,4 +92,4 @@ function LoginComponent(props: ILoginProps) {
     
 }
 
-export default LoginComponent;
+export default RegisterComponent;
