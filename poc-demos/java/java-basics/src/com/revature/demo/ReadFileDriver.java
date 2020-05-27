@@ -1,13 +1,17 @@
 package com.revature.demo;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+=======
+>>>>>>> master
 public class ReadFileDriver {
 
     public static void main(String[] args) {
         // read happy-text.txt and print its contents to the console
+<<<<<<< HEAD
         try {
             File myFile = new File("resources/happy-text.txt");
             Scanner myScanner = new Scanner(myFile);
@@ -23,3 +27,7 @@ public class ReadFileDriver {
         }
     }
 }
+=======
+    }
+}
+>>>>>>> master
