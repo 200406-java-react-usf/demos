@@ -6,6 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import javax.persistence.Query;
+import java.util.Optional;
+
 public class StudentRepo {
 
     private final SessionFactory sessionFactory = HibernateConfig.buildSessionFactory();
@@ -74,11 +77,41 @@ public class StudentRepo {
         return retrievedStudent;
 
     }
-}
 
-/*
+    public Optional<Student> getStudentByEmail(String email) {
+
+        Optional<Student> _retrievedStudent = Optional.empty();
+
+        try (Session session = sessionFactory.getCurrentSession()) {
+
+            session.beginTransaction();
+            Query query = session.getNamedNativeQuery("getStudentByEmail");
+            query.setParameter("email", email);
+            _retrievedStudent =  Optional.of((Student) query.getSingleResult());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return _retrievedStudent;
+
+    }
+
+    public boolean updateStudentEmail_withQuery(int id, String email) {
+
         Transaction tx = null;
         try (Session session = sessionFactory.getCurrentSession()) {
+
+            tx = session.beginTransaction();
+
+            // All the chaining <insert all the things meme here>
+            session.createQuery("update Student s set s.email = :email where s.id = :id")
+                                       .setParameter("email", email)
+                                       .setParameter("id", id)
+                                       .executeUpdate();
+            tx.commit();
+
+            return true;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,4 +119,58 @@ public class StudentRepo {
                 tx.rollback();
             }
         }
- */
+
+        return false;
+
+    }
+
+    public boolean updateStudentEmail_withAutomaticDirtyChecking(int id, String email) {
+
+        Transaction tx = null;
+        try (Session session = sessionFactory.getCurrentSession()) {
+
+            tx = session.beginTransaction();
+
+            Student s = session.get(Student.class, id);
+            System.out.println("Before update: " + s);
+            s.setEmail(email);
+
+            tx.commit();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (tx != null) {
+                tx.rollback();
+            }
+        }
+
+        return false;
+
+    }
+
+    public boolean deleteStudentById(int id) {
+
+        Transaction tx = null;
+        try (Session session = sessionFactory.getCurrentSession()) {
+
+            tx = session.beginTransaction();
+
+            Student s = session.load(Student.class, id);
+            session.delete(s);
+
+            tx.commit();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (tx != null) {
+                tx.rollback();
+            }
+        }
+
+        return false;
+
+    }
+
+}
