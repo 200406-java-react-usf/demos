@@ -22,7 +22,8 @@ public class Driver {
 
             addStudentDemo();
 //            getStudentUsingGet();
-            getStudentUsingLoad();
+//            getStudentUsingLoad();
+            getAllStudents();
 
         }
 
@@ -45,6 +46,11 @@ public class Driver {
 
         // throws a LazyInitializationException since we are trying to init the proxy outside of a session
         System.out.println(s);
+    }
+
+    public static void getAllStudents() {
+        studentRepo.getAllStudents();
+
     }
 
 }

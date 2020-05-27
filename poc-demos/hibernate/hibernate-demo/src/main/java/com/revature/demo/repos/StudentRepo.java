@@ -5,6 +5,10 @@ import com.revature.demo.models.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.jdbc.Expectation;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class StudentRepo {
 
@@ -72,6 +76,26 @@ public class StudentRepo {
         }
 
         return retrievedStudent;
+
+    }
+
+    public void getAllStudents() {
+
+        Student retrievedStudents = null;
+        List results = null;
+        try (Session session = sessionFactory.getCurrentSession()) {
+            session.beginTransaction();
+
+            String hql = "from students";
+            Query query = session.createQuery(hql);
+            results = query.list();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+//        return results;
+        System.out.println(results);
 
     }
 }
