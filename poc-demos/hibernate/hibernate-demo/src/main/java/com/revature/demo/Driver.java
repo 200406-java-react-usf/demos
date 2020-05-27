@@ -5,6 +5,12 @@ import com.revature.demo.models.Student;
 import com.revature.demo.repos.StudentRepo;
 import org.hibernate.Session;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
+import java.util.Optional;
+
 public class Driver {
 
     private final static StudentRepo studentRepo = new StudentRepo();
@@ -23,7 +29,15 @@ public class Driver {
             addStudentDemo();
 //            getStudentUsingGet();
 //            getStudentUsingLoad();
+<<<<<<< HEAD
             getAllStudents();
+=======
+//            getStudentByEmailUsingNamedNativeQuery();
+//            updateStudentWithQuery();
+//            updateStudentWithDirtyChecking();
+//            deleteStudentById();
+            criteriaQueryDemo();
+>>>>>>> 1f2e5b3d013cd5ab143fdfdfeeef00755d20cbf8
 
         }
 
@@ -48,8 +62,54 @@ public class Driver {
         System.out.println(s);
     }
 
+<<<<<<< HEAD
     public static void getAllStudents() {
         studentRepo.getAllStudents();
+=======
+    public static void getStudentByEmailUsingNamedNativeQuery() {
+        Optional<Student> _s = studentRepo.getStudentByEmail("ws@gmail.com");
+        _s.ifPresent(System.out::println);
+    }
+
+    public static void updateStudentWithQuery() {
+        studentRepo.updateStudentEmail_withQuery(1, "wezley.singleton@revature.com");
+        Student s = studentRepo.getStudentById_get(1);
+        System.out.println(s);
+    }
+
+    public static void updateStudentWithDirtyChecking() {
+        studentRepo.updateStudentEmail_withAutomaticDirtyChecking(1, "wezley.singleton@gmail.com");
+        Student s = studentRepo.getStudentById_get(1);
+        System.out.println(s);
+    }
+
+    public static void deleteStudentById() {
+        studentRepo.deleteStudentById(1);
+        Student s = studentRepo.getStudentById_get(1);
+        System.out.println(s);
+    }
+
+    public static void criteriaQueryDemo() {
+
+        try (Session session = HibernateConfig.buildSessionFactory().getCurrentSession()) {
+
+            session.beginTransaction();
+
+            CriteriaBuilder queryBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Student> criteriaQuery = queryBuilder.createQuery(Student.class);
+            Root<Student> queryRoot = criteriaQuery.from(Student.class);
+            criteriaQuery.select(queryRoot);
+            criteriaQuery.where(
+                    queryBuilder.equal(queryRoot.get("email"), "ws@gmail.com")
+            );
+
+            List<Student> students = session.createQuery(criteriaQuery).getResultList();
+            students.forEach(System.out::println);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+>>>>>>> 1f2e5b3d013cd5ab143fdfdfeeef00755d20cbf8
 
     }
 

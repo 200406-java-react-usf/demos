@@ -3,6 +3,14 @@ package com.revature.demo.models;
 import javax.persistence.*;
 import java.util.Objects;
 
+@NamedNativeQueries({
+    @NamedNativeQuery(
+            name="getStudentByEmail",
+            query="SELECT * FROM quizzard.students WHERE email = :email",
+            resultClass=Student.class
+    )
+})
+
 @Entity // Let's Hibernate know that this class is an entity that will be mapped
 @Table(name="students") // Used to specify a custom name for the table, any table-level constraints, or indexes
 public class Student {
