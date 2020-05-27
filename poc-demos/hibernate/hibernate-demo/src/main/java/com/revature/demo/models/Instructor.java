@@ -3,6 +3,7 @@ package com.revature.demo.models;
 import java.util.Objects;
 
 // this model will be mapped to a table, named instructors, by Hibernate
+
 public class Instructor {
 
     // this is the PK
