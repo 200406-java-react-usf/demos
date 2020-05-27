@@ -10,12 +10,13 @@ import {
     makeStyles 
 } from '@material-ui/core';
 
-import { authenticate } from '../remote/auth-service';
-import { User } from '../models/user';
+import { User } from '../../models/user';
+import { Redirect } from 'react-router-dom';
 
 interface ILoginProps {
     authUser: User;
-    setAuthUser: (user: User) => void;
+    errorMessage: string;
+    loginAction: (username: string, password: string) => void;
 }
 
 const useStyles = makeStyles({
@@ -37,7 +38,6 @@ function LoginComponent(props: ILoginProps) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('Test message');
 
     let updateUsername = (e: any) => {
         setUsername(e.currentTarget.value);
@@ -48,12 +48,13 @@ function LoginComponent(props: ILoginProps) {
     }
 
     let login = async () => {
-        let authUser = await authenticate(username, password);
-        props.setAuthUser(authUser);
+        props.loginAction(username, password);
     }
 
     return (
-        <> {/* <----- this is a React fragment */} 
+        props.authUser ?
+        <Redirect to="/home" /> :
+        <>
             <div className={classes.loginContainer}>
                 <form className={classes.loginForm}>
                     <Typography align="center" variant="h4">Login into Revaboards!</Typography>
@@ -79,9 +80,9 @@ function LoginComponent(props: ILoginProps) {
                     <Button onClick={login} variant="contained" color="primary" size="medium">Login</Button>
                     <br/><br/>
                     {
-                        errorMessage 
+                        props.errorMessage 
                             ? 
-                        <Alert severity="error">{errorMessage}</Alert>
+                        <Alert severity="error">{props.errorMessage}</Alert>
                             :
                         <></>
                     }
