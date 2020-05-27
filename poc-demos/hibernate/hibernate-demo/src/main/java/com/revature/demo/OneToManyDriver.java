@@ -10,6 +10,7 @@ public class OneToManyDriver {
 
     public static void main(String[] args) {
 
+//        persistCourses();
 
         try (Session session = HibernateConfig.buildSessionFactory().getCurrentSession()) {
 

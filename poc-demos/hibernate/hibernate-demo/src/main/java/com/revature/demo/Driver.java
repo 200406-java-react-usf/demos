@@ -29,15 +29,11 @@ public class Driver {
             addStudentDemo();
 //            getStudentUsingGet();
 //            getStudentUsingLoad();
-<<<<<<< HEAD
-            getAllStudents();
-=======
+
 //            getStudentByEmailUsingNamedNativeQuery();
 //            updateStudentWithQuery();
 //            updateStudentWithDirtyChecking();
 //            deleteStudentById();
-            criteriaQueryDemo();
->>>>>>> 1f2e5b3d013cd5ab143fdfdfeeef00755d20cbf8
 
         }
 
@@ -62,10 +58,6 @@ public class Driver {
         System.out.println(s);
     }
 
-<<<<<<< HEAD
-    public static void getAllStudents() {
-        studentRepo.getAllStudents();
-=======
     public static void getStudentByEmailUsingNamedNativeQuery() {
         Optional<Student> _s = studentRepo.getStudentByEmail("ws@gmail.com");
         _s.ifPresent(System.out::println);
@@ -109,7 +101,6 @@ public class Driver {
         } catch (Exception e) {
             e.printStackTrace();
         }
->>>>>>> 1f2e5b3d013cd5ab143fdfdfeeef00755d20cbf8
 
     }
 

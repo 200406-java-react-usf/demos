@@ -5,13 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-<<<<<<< HEAD
-// this model will be mapped to a table, named instructors, by Hibernate
-
-=======
 @Entity
 @Table(name="instructors")
->>>>>>> fa0b8953550b2d2ef492fff8320a15df852e246d
 public class Instructor {
 
     @Id

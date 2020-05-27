@@ -1,6 +1,7 @@
 package com.revature.demo.models;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @NamedNativeQueries({
@@ -28,6 +29,14 @@ public class Student {
 
     @Column(name="email", unique=true, nullable=false)
     private String email;
+
+//    @ManyToMany
+//    @JoinTable(
+//            name="students_courses",
+//            joinColumns = @JoinColumn(name="student_id"),
+//            inverseJoinColumns = @JoinColumn(name = "course_id")
+//    )
+//    private List<Course> courses;
 
     public Student() {
         super();

@@ -1,6 +1,7 @@
 package com.revature.demo.models;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +22,13 @@ public class Course {
             CascadeType.PERSIST, CascadeType.DETACH
     })
     private Instructor instructor;
+
+//    @JoinTable(
+//            name = "students_courses",
+//            joinColumns = @JoinColumn(name="course_id"),
+//            inverseJoinColumns = @JoinColumn(name="student_id")
+//    )
+//    private List<Student> students;
 
     public Course() {
         super();
@@ -88,7 +96,6 @@ public class Course {
         return "Course{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", instructor=" + instructor +
                 '}';
     }
 

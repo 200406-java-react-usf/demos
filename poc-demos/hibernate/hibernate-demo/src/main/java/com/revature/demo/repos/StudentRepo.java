@@ -9,8 +9,6 @@ import org.hibernate.jdbc.Expectation;
 import org.hibernate.query.Query;
 
 import java.util.List;
-
-import javax.persistence.Query;
 import java.util.Optional;
 
 public class StudentRepo {
@@ -81,30 +79,6 @@ public class StudentRepo {
         return retrievedStudent;
 
     }
-<<<<<<< HEAD
-
-    public void getAllStudents() {
-
-        Student retrievedStudents = null;
-        List results = null;
-        try (Session session = sessionFactory.getCurrentSession()) {
-            session.beginTransaction();
-
-            String hql = "from students";
-            Query query = session.createQuery(hql);
-            results = query.list();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-//        return results;
-        System.out.println(results);
-
-    }
-}
-=======
->>>>>>> 1f2e5b3d013cd5ab143fdfdfeeef00755d20cbf8
 
     public Optional<Student> getStudentByEmail(String email) {
 
