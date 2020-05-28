@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+@Scope("prototype")
+@Component("myCoach")
 public class BaseballCoach implements Coach {
 
     private MotivationService motivationService;
@@ -15,9 +17,10 @@ public class BaseballCoach implements Coach {
     }
 
     // Constructor-based dependency injection (recommended for MANDATORY dependencies)
-    public BaseballCoach(MotivationService service) {
+    @Autowired
+    public BaseballCoach(MotivationService sportMotivationService) {
         super();
-        this.motivationService = service;
+        this.motivationService = sportMotivationService;
         System.out.println("BaseballCoach parameterized constructor invoked!");
     }
 

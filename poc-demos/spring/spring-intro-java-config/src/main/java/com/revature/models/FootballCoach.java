@@ -5,10 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+@Component
 public class FootballCoach implements Coach {
 
+    @Value("${coach.email}")
     private String email;
 
+    @Value("Team Beans!")
     private String team;
 
     private MotivationService motivationService;
@@ -39,9 +42,10 @@ public class FootballCoach implements Coach {
     }
 
     // setter-based dependency injection (recommended for OPTIONAL dependencies)
-    public void setMotivationService(MotivationService motivationService) {
+    @Autowired
+    public void setMotivationService(MotivationService sportMotivationService) {
         System.out.println("setMotivationService invoked!");
-        this.motivationService = motivationService;
+        this.motivationService = sportMotivationService;
     }
 
     public void customInit() {
