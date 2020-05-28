@@ -11,7 +11,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Optional;
 
-public class Driver {
+public class CrudDriver {
 
     private final static StudentRepo studentRepo = new StudentRepo();
 

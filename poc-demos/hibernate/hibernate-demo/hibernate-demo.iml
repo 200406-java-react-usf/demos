@@ -5,7 +5,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="hibernate-demo" />
+          <factory-entry name="hibernate-demo" value="de5e4681-e4b1-4cac-8068-eeb1e6faf511" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

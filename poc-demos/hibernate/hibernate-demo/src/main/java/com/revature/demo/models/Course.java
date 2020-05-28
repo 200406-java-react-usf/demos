@@ -1,6 +1,11 @@
 package com.revature.demo.models;
 
 import javax.persistence.*;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.Arrays;
+>>>>>>> 241f68c546f296dc360ba555b5e2d7233931dcb9
 import java.util.List;
 import java.util.Objects;
 
@@ -23,12 +28,22 @@ public class Course {
     })
     private Instructor instructor;
 
+<<<<<<< HEAD
 //    @JoinTable(
 //            name = "students_courses",
 //            joinColumns = @JoinColumn(name="course_id"),
 //            inverseJoinColumns = @JoinColumn(name="student_id")
 //    )
 //    private List<Student> students;
+=======
+    @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(
+            name="course_students",
+            joinColumns=@JoinColumn(name="course_id"),
+            inverseJoinColumns=@JoinColumn(name="student_id")
+    )
+    private List<Student> courseStudents;
+>>>>>>> 241f68c546f296dc360ba555b5e2d7233931dcb9
 
     public Course() {
         super();
@@ -74,6 +89,20 @@ public class Course {
     public Course setInstructor(Instructor instructor) {
         this.instructor = instructor;
         return this;
+    }
+
+    public List<Student> getCourseStudents() {
+        return courseStudents;
+    }
+
+    public Course setCourseStudents(List<Student> courseStudents) {
+        this.courseStudents = courseStudents;
+        return this;
+    }
+
+    public void addStudents(Student... students) {
+        if (courseStudents == null) courseStudents = new ArrayList<>();
+        courseStudents.addAll(Arrays.asList(students));
     }
 
     @Override
