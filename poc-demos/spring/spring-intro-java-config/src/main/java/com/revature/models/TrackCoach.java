@@ -1,9 +1,11 @@
 package com.revature.models;
 
 import com.revature.services.MotivationService;
+import com.revature.services.SportMotivationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+@Component
 public class TrackCoach implements Coach {
 
     private MotivationService motivationService;
@@ -13,7 +15,8 @@ public class TrackCoach implements Coach {
         System.out.println("TrackCoach no-args constructor invoked!");
     }
 
-    public TrackCoach(MotivationService service) {
+    @Autowired
+    public TrackCoach(SportMotivationService service) {
         super();
         this.motivationService = service;
         System.out.println("TrackCoach parameterized constructor invoked!");
