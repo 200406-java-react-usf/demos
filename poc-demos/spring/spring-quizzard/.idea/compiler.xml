@@ -9,5 +9,8 @@
         <module name="spring-quizzard" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-quizzard" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

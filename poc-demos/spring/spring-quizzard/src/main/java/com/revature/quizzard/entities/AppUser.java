@@ -1,13 +1,26 @@
 package com.revature.quizzard.entities;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class AppUser {
+@Entity
+public class AppUser implements Serializable {
 
+    @Id @Column
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+
+    @Column(nullable=false,unique=true)
     private String email;
+
+    @Column(nullable=false,unique=true)
     private String username;
+
+    @Column(nullable=false)
     private String password;
+
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     public AppUser() {
