@@ -1,6 +1,9 @@
 package com.revature.demo.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +24,14 @@ public class Course {
             CascadeType.PERSIST, CascadeType.DETACH
     })
     private Instructor instructor;
+
+    @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(
+            name="course_students",
+            joinColumns=@JoinColumn(name="course_id"),
+            inverseJoinColumns=@JoinColumn(name="student_id")
+    )
+    private List<Student> courseStudents;
 
     public Course() {
         super();
@@ -66,6 +77,20 @@ public class Course {
     public Course setInstructor(Instructor instructor) {
         this.instructor = instructor;
         return this;
+    }
+
+    public List<Student> getCourseStudents() {
+        return courseStudents;
+    }
+
+    public Course setCourseStudents(List<Student> courseStudents) {
+        this.courseStudents = courseStudents;
+        return this;
+    }
+
+    public void addStudents(Student... students) {
+        if (courseStudents == null) courseStudents = new ArrayList<>();
+        courseStudents.addAll(Arrays.asList(students));
     }
 
     @Override
