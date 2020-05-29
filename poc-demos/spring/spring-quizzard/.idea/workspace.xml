@@ -2,78 +2,102 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="558ac4ee-8202-44da-b774-2d8206f823ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/spring_quizzard_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/spring_quizzard_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc_ojdbc8_19_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc_ons_19_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc_oraclepki_19_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc_osdt_cert_19_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc_osdt_core_19_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc_simplefan_19_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc_ucp_19_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_dbcp2_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_slf4j_impl_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_11_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_24_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_1_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/spring-quizzard.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/exceptions/AuthenticationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-quizzard.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/entities/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/entities/AppUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/entities/FlashCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/entities/FlashCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/entities/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/entities/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/repos/CrudRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/repos/FlashCardRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/repos/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/services/FlashCardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/services/FlashCardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/web/controllers/FlashCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/web/controllers/FlashCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/web/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/quizzard/web/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/AppConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/entities/AppUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/entities/FlashCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/entities/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/exceptions/AuthenticationException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/exceptions/BadRequestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/exceptions/QuizzardException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/exceptions/ResourceNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/exceptions/ResourcePersistenceException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/repositories/CrudRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/repositories/FlashCardRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/services/FlashCardService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/services/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/web/controllers/FlashCardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/web/controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/web/dtos/Credentials.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/quizzard/web/dtos/ErrorResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/AppConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/entities/AppUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/entities/FlashCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/entities/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/exceptions/AuthenticationException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/exceptions/BadRequestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/exceptions/QuizzardException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/exceptions/ResourceNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/exceptions/ResourcePersistenceException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/repositories/CrudRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/repositories/FlashCardRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/services/FlashCardService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/services/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/web/controllers/FlashCardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/web/controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/web/dtos/Credentials.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/com/revature/quizzard/web/dtos/ErrorResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/classes/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/FastInfoset-1.2.15.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/antlr-2.7.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.9.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/byte-buddy-1.10.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/classmate-1.5.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/commons-dbcp2-2.7.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/commons-pool2-2.7.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/dom4j-2.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/hibernate-commons-annotations-5.1.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/hibernate-core-5.4.11.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/istack-commons-runtime-3.0.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.10.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-2.10.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jackson-databind-2.10.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jandex-2.1.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/javassist-3.24.0-GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/javax.activation-api-1.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/javax.persistence-api-2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/javax.servlet-api-4.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jaxb-api-2.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jaxb-runtime-2.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jboss-logging-3.3.2.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/jjwt-0.9.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/log4j-api-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/log4j-core-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/log4j-slf4j-impl-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/ojdbc8-19.3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/ons-19.3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/oraclepki-19.3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/osdt_cert-19.3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/osdt_core-19.3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/simplefan-19.3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.21.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-context-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-core-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-jcl-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-jdbc-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-orm-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-tx-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-web-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-5.2.3.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/stax-ex-1.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/txw2-2.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/lib/ucp-19.3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-quizzard-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +129,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -115,7 +144,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590700535186</updated>
-      <workItem from="1590700538008" duration="1623000" />
+      <workItem from="1590700538008" duration="4540000" />
     </task>
     <servers />
   </component>

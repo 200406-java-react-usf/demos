@@ -8,7 +8,6 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -35,6 +34,9 @@ public class AppConfig implements WebMvcConfigurer, WebApplicationInitializer {
     @Value("${db.url}")
     private String dbUrl;
 
+    @Value("${db.schema}")
+    private String dbSchema;
+
     @Value("${db.username}")
     private String dbUsername;
 
@@ -46,6 +48,7 @@ public class AppConfig implements WebMvcConfigurer, WebApplicationInitializer {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(dbDriver);
         dataSource.setUrl(dbUrl);
+        dataSource.setDefaultSchema(dbSchema);
         dataSource.setUsername(dbUsername);
         dataSource.setPassword(dbPassword);
         return dataSource;
@@ -70,7 +73,7 @@ public class AppConfig implements WebMvcConfigurer, WebApplicationInitializer {
 
     private Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty(Environment.DIALECT, "org.hibernate.dialect.Oracle12cDialect");
+        hibernateProperties.setProperty(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL95Dialect");
         hibernateProperties.setProperty(Environment.SHOW_SQL, "true");
         hibernateProperties.setProperty(Environment.FORMAT_SQL, "true");
         hibernateProperties.setProperty(Environment.HBM2DDL_AUTO, "update");
