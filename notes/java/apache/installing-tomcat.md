@@ -23,11 +23,17 @@ username@machine-name:~/Downloads$ sudo tar -C <desired-install-location> -zxvf 
 
 The details of this step are completely dependent on two things: the install location and your operating system. Ensure that you create a system environment variable named `CATALINA_HOME` whose value is the absolute path to the extracted folder - which is named `apache-tomcat-9.0.35`.
 
-### Step 4: Set the secure permissions on the newly extracted files.
+### Step 4: If needed, change ownership of the CATALINA_HOME directory to the current user
+
+```console
+username@machine-name:~$ sudo chown -R <current-username> $CATALINA_HOME
+```
+
+### Step 5: Set the secure permissions on the newly extracted files.
 
 Again, this is another step that will depend upon your preferences. It is recommended that you avoid using `chmod -R 777` for any directory (especially for anything running production!). For development purposes, the author recommends using `chmod -R 750` (u=rwx, g=r-x, o=---) to provide simple yet adequate file security.
 
-### Optional Step 5: Run your Apache Tomcat web server
+### Optional Step 6: Run your Apache Tomcat web server
 
 To start up you Apache Tomcat web server run the command below.
 
