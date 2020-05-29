@@ -1,0 +1,35 @@
+Understanding chmod
+
+
+r= read
+w = write
+x = execute
+
+    is directory? you  group   others
+        |          |     |      |
+	V          V     V      V
+	d         rwx   rwx    rwx       <---------- chmod 777
+
+
+
+	d         rwx   r-x    ---       <---------- chmod 750
+
+
+
+--- = 0
+000
+
+--x = 1
+001
+
+
+-w- = 2 
+-1-
+
+...
+
+rw- = 6
+110
+
+rwx = 7
+111
