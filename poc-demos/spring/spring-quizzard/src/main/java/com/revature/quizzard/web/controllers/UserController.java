@@ -22,8 +22,15 @@ public class UserController {
     }
 
     @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
-    public List<AppUser> getAllUsers(HttpServletRequest req) {
+    public List<AppUser> getAllUsers() {
         return userService.getAllUsers();
+    }
+
+    // localhost:8080/quizzard/users?id=1&name=bill <---- use @RequestParam("id") int id , @RequestParam("name") String name
+
+    @GetMapping("/{id}")
+    public AppUser getUserById(@PathVariable int id) {
+        return null;
     }
 
     @PostMapping(produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)

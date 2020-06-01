@@ -24,7 +24,6 @@ import java.util.Properties;
 @Configuration
 @ComponentScan
 @EnableTransactionManagement
-@EnableAspectJAutoProxy(proxyTargetClass=true)
 @PropertySource("classpath:app.properties")
 public class AppConfig implements WebMvcConfigurer, WebApplicationInitializer {
 

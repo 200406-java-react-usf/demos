@@ -9,6 +9,8 @@ import com.revature.quizzard.repositories.UserRepository;
 import com.revature.quizzard.web.dtos.Credentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -25,7 +27,7 @@ public class UserService {
         this.userRepo = repo;
     }
 
-    @Transactional(readOnly=true)
+    @Transactional(readOnly=true, propagation=Propagation.REQUIRED)
     public List<AppUser> getAllUsers() {
         return userRepo.findAll();
     }
@@ -49,13 +51,10 @@ public class UserService {
 
     }
 
-    @Transactional
+    @Transactional(isolation=Isolation.READ_UNCOMMITTED)
     public AppUser register(AppUser newUser) {
-
-        // validation would go here...
-
         newUser.setRole(UserRole.BASIC_USER);
         return userRepo.save(newUser);
-
     }
+
 }
