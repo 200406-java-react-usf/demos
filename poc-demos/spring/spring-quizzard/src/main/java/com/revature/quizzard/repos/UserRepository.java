@@ -2,7 +2,9 @@ package com.revature.quizzard.repos;
 
 import com.revature.quizzard.entities.AppUser;
 import com.revature.quizzard.web.dtos.Credentials;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -27,11 +29,30 @@ public class UserRepository implements CrudRepository {
 
     @Override
     public Object findById(int id) {
+
+
+
+
+
         return null;
     }
 
     @Override
     public Object save(Object newObj) {
+        Transaction transaction = null;
+
+        try(Session session = sessionFactory.getCurrentSession()){
+            transaction = session.beginTransaction();
+            session.save(newObj);
+            transaction.commit();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            if(transaction != null){
+                transaction.rollback();
+            }
+        }
+
         return null;
     }
 
@@ -44,4 +65,5 @@ public class UserRepository implements CrudRepository {
     public boolean deleteById(int id) {
         return false;
     }
+
 }

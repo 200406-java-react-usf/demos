@@ -1,0 +1,12 @@
+com\revature\quizzard\repos\CrudRepository.class
+com\revature\quizzard\repos\FlashCardRepository.class
+com\revature\quizzard\services\FlashCardService.class
+com\revature\quizzard\AppConfig.class
+com\revature\quizzard\services\UserService.class
+com\revature\quizzard\entities\FlashCard.class
+com\revature\quizzard\web\controllers\FlashCardController.class
+com\revature\quizzard\web\dtos\Credentials.class
+com\revature\quizzard\entities\UserRole.class
+com\revature\quizzard\repos\UserRepository.class
+com\revature\quizzard\entities\AppUser.class
+com\revature\quizzard\web\controllers\UserController.class
