@@ -1,0 +1,29 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: spring-boot-poc
+  datasource:
+    url: jdbc:postgresql://java-react-200406.c0nbqj7oncuf.us-east-1.rds.amazonaws.com:5432/revaboards
+    driver-class-name: org.postgresql.Driver
+    username: revaboards_api
+    password: revature
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: spring
+        temp:
+          use_jdbc_metadata_defaults: false
+
+
+# By default the only web endpoints exposed by Actuator are /info and /health
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
