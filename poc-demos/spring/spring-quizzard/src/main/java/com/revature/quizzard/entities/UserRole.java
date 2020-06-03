@@ -2,10 +2,7 @@ package com.revature.quizzard.entities;
 
 public enum UserRole {
 
-    ADMIN("Admin"),
-    DEV("Developer"),
-    BASIC_USER("Basic User"),
-    LOCKED("Locked");
+    ADMIN("Admin"), DEV("Dev"), BASIC_USER("Basic User"), LOCKED("Locked");
 
     private String roleName;
 
@@ -14,22 +11,17 @@ public enum UserRole {
     }
 
     public static UserRole getByName(String name) {
-
         for (UserRole role : UserRole.values()) {
             if (role.roleName == name) {
                 return role;
             }
         }
-
         return LOCKED;
-
     }
 
     @Override
     public String toString() {
-        return "UserRole{" +
-                "roleName='" + roleName + '\'' +
-                '}';
+        return this.roleName;
     }
 
 }
