@@ -11,6 +11,7 @@
 /home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/spring-boot-poc/src/main/java/com/revature/poc/repositories/UserRepository.java
 /home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/spring-boot-poc/src/main/java/com/revature/poc/entities/AppUser.java
 /home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/spring-boot-poc/src/main/java/com/revature/poc/exceptions/BadRequestException.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/spring-boot-poc/src/main/java/com/revature/poc/util/RegexUtil.java
 /home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/spring-boot-poc/src/main/java/com/revature/poc/entities/UserRole.java
 /home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/spring-boot-poc/src/main/java/com/revature/poc/exceptions/RevaboardsException.java
 /home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/spring-boot-poc/src/main/java/com/revature/poc/controllers/UserController.java

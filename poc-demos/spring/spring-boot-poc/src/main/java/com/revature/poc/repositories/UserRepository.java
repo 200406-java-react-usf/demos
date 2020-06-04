@@ -3,6 +3,7 @@ package com.revature.poc.repositories;
 import com.revature.poc.entities.AppUser;
 import com.revature.poc.entities.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,4 +13,8 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
     List<AppUser> findAppUsersByRole(UserRole role);
     AppUser findAppUserByUsernameAndPassword(String username, String password);
+
+    @Query("from AppUser u where u.email = :email")
+    AppUser getByUserByEmail(String email);
+
 }

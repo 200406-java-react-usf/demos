@@ -4,21 +4,20 @@ server:
 spring:
   application:
     name: spring-boot-poc
+  h2:
+    console:
+      enabled: true
+      path: /h2
   datasource:
-    url: jdbc:postgresql://java-react-200406.c0nbqj7oncuf.us-east-1.rds.amazonaws.com:5432/revaboards
-    driver-class-name: org.postgresql.Driver
-    username: revaboards_api
-    password: revature
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate:
-        default_schema: spring
-        temp:
-          use_jdbc_metadata_defaults: false
+      ddl-auto: create
 
 
 # By default the only web endpoints exposed by Actuator are /info and /health
