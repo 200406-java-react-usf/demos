@@ -1,0 +1,15 @@
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/controllers/PostController.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/intercom/UserClient.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/repositories/PostRepository.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/dtos/AppUserDTO.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/AppConfig.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/exceptions/InternalServerErrorException.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/services/PostService.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/dtos/PostDTO.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/entities/Post.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/exceptions/BadRequestException.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/exceptions/ResourceNotFoundException.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/exceptions/AuthenticationException.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/exceptions/AuthorizationException.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/exceptions/ResourcePersistenceException.java
+/home/wezley/repos/reva-repos/batch-repos/200406-java-react-usf/demos/poc-demos/spring/msa-demos/post-service/src/main/java/com/revature/msa/post/exceptions/RevaboardsException.java
