@@ -1,5 +1,5 @@
-com/revature/msa/user/dtos/ErrorResponse.class
 com/revature/msa/user/controllers/TestController.class
+com/revature/msa/user/dtos/ErrorResponse.class
 com/revature/msa/user/entities/UserRole.class
 com/revature/msa/user/SwaggerConfig.class
 com/revature/msa/user/exceptions/InternalServerErrorException.class
@@ -8,9 +8,9 @@ com/revature/msa/user/repositories/UserRepository.class
 com/revature/msa/user/entities/AppUser.class
 com/revature/msa/user/exceptions/AuthenticationException.class
 com/revature/msa/user/exceptions/BadRequestException.class
-com/revature/msa/user/services/UserService.class
-com/revature/msa/user/exceptions/RevaboardsException.class
 com/revature/msa/user/util/RegexUtil.class
+com/revature/msa/user/exceptions/RevaboardsException.class
+com/revature/msa/user/services/UserService.class
 com/revature/msa/user/exceptions/AuthorizationException.class
 com/revature/msa/user/exceptions/ResourceNotFoundException.class
 com/revature/msa/user/exceptions/ResourcePersistenceException.class
